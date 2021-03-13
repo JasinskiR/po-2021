@@ -64,7 +64,7 @@ LZespolona operator/(LZespolona &Skl1, LZespolona &Skl2) {
   return Wynik;
 }
 
-LZespolona inicjuj(LZespolona &L1, int x, int y) {
+LZespolona inicjuj(LZespolona &L1, double x, double y) {
   L1.re = x;
   L1.im = y;
 
