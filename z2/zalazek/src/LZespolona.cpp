@@ -37,6 +37,7 @@ LZespolona operator*(LZespolona Skl1, LZespolona Skl2) {
 
 LZespolona sprzezenie(LZespolona &Zespolona) {
   LZespolona Wynik;
+  Wynik.re = Zespolona.re;
   Wynik.im = (-1) * Zespolona.im;
 
   return Wynik;
