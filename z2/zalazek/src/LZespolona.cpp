@@ -1,7 +1,6 @@
 #include "LZespolona.hh"
 #include <cmath>
 
-using namespace std;
 /*!
  * Realizuje dodanie dwoch liczb zespolonych.
  * Argumenty:
@@ -50,6 +49,10 @@ double modul(LZespolona &Zespolona) {
 }
 LZespolona operator/(LZespolona &Licznik, double dzielnik) {
   LZespolona Wynik;
+  if (dzielnik == 0.00) {
+    std::cerr << "Blad krytyczny, dzielenie przez 0" << std::endl;
+    exit(1);
+  }
   Wynik.re = Licznik.re / dzielnik;
   Wynik.im = Licznik.im / dzielnik;
 
@@ -71,7 +74,7 @@ LZespolona inicjuj(LZespolona &L1, int x, int y) {
 }
 
 bool operator==(const LZespolona &Skl1, const LZespolona &Skl2) {
-  double epsilon = 0.000001;
+  double epsilon = 0.000000001;
   if (epsilon < abs(Skl1.re - Skl2.re)) return false;
   if (epsilon < abs(Skl1.im - Skl2.im)) return false;
 
@@ -82,26 +85,26 @@ bool operator!=(const LZespolona &Skl1, const LZespolona &Skl2) {
   return !(Skl1==Skl2);
 }
 
-ostream& operator<<(ostream& strm, LZespolona& L1) {
-  strm<<"("<<L1.re<<showpos<<L1.im<<noshowpos<<"i)";
+std::ostream& operator<<(std::ostream& strm, const LZespolona& L1) {
+  strm<<"("<<L1.re<<std::showpos<<L1.im<<std::noshowpos<<"i)";
   return strm;
 }
 
-istream& operator>>(istream& strm,LZespolona& L1) {
+std::istream& operator>>(std::istream& strm,LZespolona& L1) {
   char znak;
   strm>>znak;
   if (znak != '(') {
-    strm.setstate(ios::failbit);
+    strm.setstate(std::ios::failbit);
   }
   strm >> L1.re;
   strm >> L1.im;
   strm >> znak;
   if (znak != 'i') {
-    strm.setstate(ios::failbit);
+    strm.setstate(std::ios::failbit);
   }
   strm >> znak;
   if (znak != ')') {
-    strm.setstate(ios::failbit);
+    strm.setstate(std::ios::failbit);
   }
   
   return strm;  

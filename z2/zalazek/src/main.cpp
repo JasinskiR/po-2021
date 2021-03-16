@@ -48,3 +48,14 @@ int main(int argc, char **argv) {
   cout << " Koniec testu" << endl;
   cout << endl;
 }
+
+//        NA NASTEPNE ZAJECIA       //
+//Głowna petla
+//1 Pobranie pytania
+//2 pobranie odpowiedzzi
+//3 sprawdzenie poprawnosci 3x
+//4 sprawdzenie poprawnosci metytorycznej 
+// 5 aktualizacja statystyk
+//6 komunikat (czy dobrzez czy nie)
+//7 czy skonczyly sie pytania (nie -> 1)
+//8 Wyswietl podsumowanie 
