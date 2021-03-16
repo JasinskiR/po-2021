@@ -29,7 +29,7 @@ std::ostream &operator<<(std::ostream &strm, const WyrazenieZesp WyrZ) {
   strm << WyrZ.Arg1 << WyrZ.Op << WyrZ.Arg2;
   return strm;
 }
-std::istream &operator>>(std::istream strm, WyrazenieZesp &WyrZ) {
+std::istream &operator>>(std::istream &strm, WyrazenieZesp &WyrZ) {
   strm >> WyrZ.Arg1 >> WyrZ.Op >> WyrZ.Arg2;
   return strm;
 }
