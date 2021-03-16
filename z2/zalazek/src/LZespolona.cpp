@@ -86,7 +86,7 @@ bool operator!=(const LZespolona &Skl1, const LZespolona &Skl2) {
   return !(Skl1==Skl2);
 }
 
-std::ostream& operator<<(std::ostream& strm, const LZespolona& L1) {
+std::ostream& operator<<(std::ostream &strm, const LZespolona& L1) {
   strm<<"("<<L1.re<<std::showpos<<L1.im<<std::noshowpos<<"i)";
   return strm;
 }
