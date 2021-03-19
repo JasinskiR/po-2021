@@ -44,7 +44,8 @@ static WyrazenieZesp TestTrudny[] = {
  *      - Parametr IloscPytan zawiera wartosc, ktora nie przekracza ilosci
  * elementow w tablicy dostepnej poprzez wskTabTestu.
  */
-void UstawTest(BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned int IloscPytan) {
+void UstawTest(BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu,
+               unsigned int IloscPytan) {
   wskBazaTestu->wskTabTestu = wskTabTestu;
   wskBazaTestu->IloscPytan = IloscPytan;
   wskBazaTestu->IndeksPytania = 0;
@@ -80,33 +81,35 @@ bool InicjalizujTest(BazaTestu *wskBazaTestu, const char *sNazwaTestu) {
    * Analogicznie zrob inicjalizacje dla testu trudne
    */
   if (!strcmp(sNazwaTestu, "trudny")) {
-    UstawTest(wskBazaTestu, TestTrudny, sizeof(TestTrudny) / sizeof(WyrazenieZesp));
+    UstawTest(wskBazaTestu, TestTrudny,
+              sizeof(TestTrudny) / sizeof(WyrazenieZesp));
     return true;
   }
   cerr << "Otwarcie testu '" << sNazwaTestu << "' nie powiodlo sie." << endl;
   return false;
 }
 
-  /*!
-   * Funkcja udostepnia nastepne pytania o ile jest odpowiednia ich ilosc.
-   * Parametry:
-   *       wskBazaTestu - wskaznik na zmienna reprezentujaca baze testu.
-   *       wskWyrazenie - wskaznik na zmienna, do ktorej zostanie wpisane
-   *                      kolejne wyrazenie z bazy testu.
-   *
-   * Warunki wstepne:
-   *      - Parametr wskBazaTestu nie moze byc pustym wskaznikiem. Musi zawierac
-   * adres zmiennej reprezentujacej baze testu, ktora wczesniej zostal poprawnie
-   *        zainicjalizowany poprzez wywolanie funkcji InicjalizujTest.
-   *      - Parametr wskWyrazenie nie moze byc pustym wskaznikiem. Musi
-   * wskazywac na istniejaca zmienna.
-   *
-   * Zwraca:
-   *       true - gdy operacja sie powiedzie i parametrowi *wskWyrazenie
-   * zostanie przypisane nowe wyrazenie zespolone z bazy, false - w przypadku
-   * przeciwnym.
-   */
-bool PobierzNastpnePytanie(BazaTestu * wskBazaTestu, WyrazenieZesp * wskWyrazenie) {
+/*!
+ * Funkcja udostepnia nastepne pytania o ile jest odpowiednia ich ilosc.
+ * Parametry:
+ *       wskBazaTestu - wskaznik na zmienna reprezentujaca baze testu.
+ *       wskWyrazenie - wskaznik na zmienna, do ktorej zostanie wpisane
+ *                      kolejne wyrazenie z bazy testu.
+ *
+ * Warunki wstepne:
+ *      - Parametr wskBazaTestu nie moze byc pustym wskaznikiem. Musi zawierac
+ * adres zmiennej reprezentujacej baze testu, ktora wczesniej zostal poprawnie
+ *        zainicjalizowany poprzez wywolanie funkcji InicjalizujTest.
+ *      - Parametr wskWyrazenie nie moze byc pustym wskaznikiem. Musi
+ * wskazywac na istniejaca zmienna.
+ *
+ * Zwraca:
+ *       true - gdy operacja sie powiedzie i parametrowi *wskWyrazenie
+ * zostanie przypisane nowe wyrazenie zespolone z bazy, false - w przypadku
+ * przeciwnym.
+ */
+bool PobierzNastpnePytanie(BazaTestu *wskBazaTestu,
+                           WyrazenieZesp *wskWyrazenie) {
   if (wskBazaTestu->IndeksPytania >= wskBazaTestu->IloscPytan) return false;
 
   *wskWyrazenie = wskBazaTestu->wskTabTestu[wskBazaTestu->IndeksPytania];

@@ -1,6 +1,8 @@
 #include <iostream>
+#include <limits>
 
 #include "BazaTestu.hh"
+#include "Statystyka.hh"
 
 using namespace std;
 
@@ -26,36 +28,53 @@ int main(int argc, char **argv) {
 
   WyrazenieZesp WyrZ_PytanieTestowe;
   LZespolona Odpowiedz;
+  Statystyki Statystyka;
+  inicjuj(Statystyka);
 
   while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe)) {
-    //cout << " Podaj wynik operacji: " << wyswietl(WyrZ_PytanieTestowe) << "=" << endl;
-    //cout << "Twoja odpowiedz: "
-    //cin >> [Lzespolona]odpowiedz 
-    //if(sprawdz(odpowiedz))
-      //porownaj(odpowiedz,WyrZ_PytanieTestowe)
-      //statystyka
-    //else cout << "cos tam bledna"
-    cout << " Czesc rzeczywista pierwszego argumentu: ";
-    cout << WyrZ_PytanieTestowe.Arg1.re << endl;
+    Statystyka.lpytan++;
+
+    cout << "Podaj wynik operacji : " << WyrZ_PytanieTestowe << " =" << endl;
+    cout << "Twoja odpowiedz: ";
     cin >> Odpowiedz;
-    if (!cin.good()) {
-      cout << "Blad zapisu liczby zespolonej. Sprobuj jeszcze raz." << endl;
-      cin.clear();
+    while (!cin.good()) {
+      if (Statystyka.proba < 3) {
+        Statystyka.proba++;
+        cout << "Blad zapisu liczby zespolonej. Sprobuj jeszcze raz. (proba "
+             << Statystyka.proba << " z 3)" << endl
+             << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<int>::max(), '\n');
+        cout << "Twoja odpowiedz: ";
+        cin >> Odpowiedz;
+      } else {
+        cin.clear();
+        cin.ignore(numeric_limits<int>::max(), '\n');
+        Statystyka.proba = 0;
+      }
+    }
+    if (Odpowiedz == oblicz(WyrZ_PytanieTestowe)) {
+      cout << "Odpowiedz poprawna" << endl;
+      Statystyka.lpoprawnych++;
+    } else {
+      cout << "Blad. Prawidlowym wynikiem jest: " << oblicz(WyrZ_PytanieTestowe)
+           << endl
+           << endl;
     }
   }
-
   cout << endl;
   cout << " Koniec testu" << endl;
+  cout << Statystyka;
   cout << endl;
 }
 
 //        NA NASTEPNE ZAJECIA       //
-//Głowna petla
-//1 Pobranie pytania
-//2 pobranie odpowiedzzi
-//3 sprawdzenie poprawnosci 3x
-//4 sprawdzenie poprawnosci metytorycznej 
+// Głowna petla
+// 1 Pobranie pytania
+// 2 pobranie odpowiedzzi
+// 3 sprawdzenie poprawnosci 3x
+// 4 sprawdzenie poprawnosci metytorycznej
 // 5 aktualizacja statystyk
-//6 komunikat (czy dobrzez czy nie)
-//7 czy skonczyly sie pytania (nie -> 1)
-//8 Wyswietl podsumowanie 
+// 6 komunikat (czy dobrzez czy nie)
+// 7 czy skonczyly sie pytania (nie -> 1)
+// 8 Wyswietl podsumowanie

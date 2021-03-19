@@ -1,4 +1,5 @@
 #include "LZespolona.hh"
+
 #include <cmath>
 
 /*!
@@ -9,7 +10,7 @@
  * Zwraca:
  *    Sume dwoch skladnikow przekazanych jako parametry.
  */
-LZespolona operator+(LZespolona &Skl1, LZespolona &Skl2) {
+LZespolona operator+(const LZespolona &Skl1, const LZespolona &Skl2) {
   LZespolona Wynik;
 
   Wynik.re = Skl1.re + Skl2.re;
@@ -17,7 +18,7 @@ LZespolona operator+(LZespolona &Skl1, LZespolona &Skl2) {
   return Wynik;
 }
 
-LZespolona operator-(LZespolona &Skl1, LZespolona &Skl2) {
+LZespolona operator-(const LZespolona &Skl1, const LZespolona &Skl2) {
   LZespolona Wynik;
 
   Wynik.re = Skl1.re - Skl2.re;
@@ -34,7 +35,7 @@ LZespolona operator*(LZespolona Skl1, LZespolona Skl2) {
   return Wynik;
 }
 
-LZespolona sprzezenie(LZespolona &Zespolona) {
+LZespolona sprzezenie(const LZespolona &Zespolona) {
   LZespolona Wynik;
   Wynik.re = Zespolona.re;
   Wynik.im = (-1) * Zespolona.im;
@@ -42,13 +43,13 @@ LZespolona sprzezenie(LZespolona &Zespolona) {
   return Wynik;
 }
 
-double modul(LZespolona &Zespolona) {
+double modul(const LZespolona &Zespolona) {
   double wynik;
   wynik = sqrt(Zespolona.re * Zespolona.re + Zespolona.im * Zespolona.im);
 
   return wynik;
 }
-LZespolona operator/(LZespolona &Licznik, double dzielnik) {
+LZespolona operator/(const LZespolona &Licznik, const double &dzielnik) {
   LZespolona Wynik;
   if (dzielnik == 0.00) {
     std::cerr << "Blad krytyczny, dzielenie przez 0" << std::endl;
@@ -59,7 +60,7 @@ LZespolona operator/(LZespolona &Licznik, double dzielnik) {
 
   return Wynik;
 }
-LZespolona operator/(LZespolona &Skl1, LZespolona &Skl2) {
+LZespolona operator/(const LZespolona &Skl1, const LZespolona &Skl2) {
   LZespolona Wynik, Licznik;
   Licznik = Skl1 * (sprzezenie(Skl2));
   Wynik = Licznik / pow(modul(Skl2), 2);
@@ -67,7 +68,7 @@ LZespolona operator/(LZespolona &Skl1, LZespolona &Skl2) {
   return Wynik;
 }
 
-LZespolona inicjuj(LZespolona &L1, double x, double y) {
+LZespolona inicjuj(LZespolona &L1, double &x, double &y) {
   L1.re = x;
   L1.im = y;
 
@@ -83,17 +84,17 @@ bool operator==(const LZespolona &Skl1, const LZespolona &Skl2) {
 }
 
 bool operator!=(const LZespolona &Skl1, const LZespolona &Skl2) {
-  return !(Skl1==Skl2);
+  return !(Skl1 == Skl2);
 }
 
-std::ostream& operator<<(std::ostream &strm, const LZespolona& L1) {
-  strm<<"("<<L1.re<<std::showpos<<L1.im<<std::noshowpos<<"i)";
+std::ostream &operator<<(std::ostream &strm, const LZespolona &L1) {
+  strm << "(" << L1.re << std::showpos << L1.im << std::noshowpos << "i)";
   return strm;
 }
 
-std::istream& operator>>(std::istream& strm,LZespolona& L1) {
+std::istream &operator>>(std::istream &strm, LZespolona &L1) {
   char znak;
-  strm>>znak;
+  strm >> znak;
   if (znak != '(') {
     strm.setstate(std::ios::failbit);
   }
@@ -107,6 +108,6 @@ std::istream& operator>>(std::istream& strm,LZespolona& L1) {
   if (znak != ')') {
     strm.setstate(std::ios::failbit);
   }
-  
-  return strm;  
+
+  return strm;
 }

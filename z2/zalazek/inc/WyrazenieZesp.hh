@@ -24,9 +24,10 @@ struct WyrazenieZesp {
  *
  */
 
-std::ostream &operator<<(std::ostream &strm, const Operator o);
+std::ostream &operator<<(std::ostream &strm, const Operator &o);
 std::ostream &operator<<(std::ostream &strm, const WyrazenieZesp WyrZ);
 std::istream &operator>>(std::istream &strm, WyrazenieZesp &WyrZ);
 std::istream &operator>>(std::istream &strm, Operator &o);
+LZespolona oblicz(const WyrazenieZesp &WyrZ);
 
 #endif
