@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
       } else {
         cin.clear();
         cin.ignore(numeric_limits<int>::max(), '\n');
-        Statystyka.proba = 0;
+        wyzeruj_p(Statystyka);
       }
     }
     if (Odpowiedz == oblicz(WyrZ_PytanieTestowe)) {

@@ -28,6 +28,12 @@ Statystyki zwieksz_lpop(Statystyki &StatTestu) {
   return StatTestu;
 }
 
+Statystyki wyzeruj_p(Statystyki &StatTestu) {
+  StatTestu.proba=0;
+
+  return StatTestu;
+}
+
 std::ostream &operator<<(std::ostream &strm, const Statystyki &StatTestu) {
   strm << "Statystyka Testu: " << std::endl;
   strm << "Ilosc dobrych odpowiedzi: " << StatTestu.lpoprawnych << std::endl;
