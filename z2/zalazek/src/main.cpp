@@ -30,16 +30,15 @@ int main(int argc, char **argv) {
   LZespolona Odpowiedz;
   Statystyki Statystyka;
   inicjuj(Statystyka);
-
   while (PobierzNastpnePytanie(&BazaT, &WyrZ_PytanieTestowe)) {
-    Statystyka.lpytan++;
+    zwieksz_lpyt(Statystyka);
 
     cout << "Podaj wynik operacji : " << WyrZ_PytanieTestowe << " =" << endl;
     cout << "Twoja odpowiedz: ";
     cin >> Odpowiedz;
     while (!cin.good()) {
       if (Statystyka.proba < 3) {
-        Statystyka.proba++;
+        zwieksz_p(Statystyka);
         cout << "Blad zapisu liczby zespolonej. Sprobuj jeszcze raz. (proba "
              << Statystyka.proba << " z 3)" << endl
              << endl;
@@ -55,7 +54,7 @@ int main(int argc, char **argv) {
     }
     if (Odpowiedz == oblicz(WyrZ_PytanieTestowe)) {
       cout << "Odpowiedz poprawna" << endl;
-      Statystyka.lpoprawnych++;
+      zwieksz_lpop(Statystyka);
     } else {
       cout << "Blad. Prawidlowym wynikiem jest: " << oblicz(WyrZ_PytanieTestowe)
            << endl

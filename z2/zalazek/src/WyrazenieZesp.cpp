@@ -60,6 +60,7 @@ std::istream &operator>>(std::istream &strm, Operator &o) {
     default: {
       std::cerr << "Napotkano bledne wyrazenie. Zostalo ono pominiete"
                 << std::endl;
+      strm.setstate(std::ios::failbit);
       break;
     }
   }

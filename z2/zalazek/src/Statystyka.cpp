@@ -10,6 +10,24 @@ Statystyki inicjuj(Statystyki &Statystyka) {
   return Statystyka;
 }
 
+Statystyki zwieksz_p(Statystyki &StatTestu) {
+  StatTestu.proba++;
+
+  return StatTestu;
+}
+
+Statystyki zwieksz_lpyt(Statystyki &StatTestu) {
+  StatTestu.lpytan++;
+
+  return StatTestu;
+}
+
+Statystyki zwieksz_lpop(Statystyki &StatTestu) {
+  StatTestu.lpoprawnych++;
+
+  return StatTestu;
+}
+
 std::ostream &operator<<(std::ostream &strm, const Statystyki &StatTestu) {
   strm << "Statystyka Testu: " << std::endl;
   strm << "Ilosc dobrych odpowiedzi: " << StatTestu.lpoprawnych << std::endl;
