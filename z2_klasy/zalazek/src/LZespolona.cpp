@@ -72,8 +72,8 @@ LZespolona LZespolona::operator/(const LZespolona &Skl2) const {
 
 bool LZespolona ::operator==(const LZespolona &Skl2) const {
   double epsilon = 0.000000001;
-  if (epsilon < abs(re - Skl2.re)) return false;
-  if (epsilon < abs(im - Skl2.im)) return false;
+  if (epsilon < fabs(re - Skl2.re)) return false;
+  if (epsilon < fabs(im - Skl2.im)) return false;
 
   return true;
 }
