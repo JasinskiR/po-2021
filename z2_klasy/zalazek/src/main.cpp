@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
   }
 
   cout << endl;
-  cout << " Start testu arytmetyki zespolonej: " << argv[1] << endl;
+  cout << " Start testu arytmetyki zespolonej (odpowiedz podawac do 3 miejsca po przecinku): " << argv[1] << endl;
   cout << endl;
 
   WyrazenieZesp WyrZ_PytanieTestowe;
