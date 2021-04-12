@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
   WyrazenieZesp WyrZ_PytanieTestowe;
   LZespolona Odpowiedz;
   Statystyki Statystyka;
-  Statystyka.inicjuj();
+ // Statystyka.inicjuj();
   while (BazaT.pobierz_pytanie(WyrZ_PytanieTestowe)) {
     if (BazaT.get_read().good()) {
       Statystyka.zwieksz_lpyt();

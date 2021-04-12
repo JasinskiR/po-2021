@@ -10,7 +10,8 @@ class Statystyki {
   unsigned int proba;
 
  public:
-  void inicjuj();
+  Statystyki() : lpoprawnych(0), lpytan(0), proba(0) {};
+  //void inicjuj();
   void zwieksz_p();     // liczba prob
   void zwieksz_lpyt();  // liczba pytan
   void zwieksz_lpop();  // liczba poprawnych odpowiedzi

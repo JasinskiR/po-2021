@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-void Statystyki::inicjuj() {
-  lpoprawnych = 0;
-  lpytan = 0;
-  proba = 0;
-}
+// void Statystyki::inicjuj() {
+//   lpoprawnych = 0;
+//   lpytan = 0;
+//   proba = 0;
+// }
 
 void Statystyki::zwieksz_p() { proba++; }
 

@@ -26,13 +26,12 @@ class LZespolona {
   bool operator!=(const LZespolona& Skl2) const;
   double get_re() const { return re; };
   double get_im() const { return im; };
-  void set_re(double _re) {re=_re;};
-  void set_im(double _im) {im=_im;};
+  void set_re(double _re) { re = _re; };
+  void set_im(double _im) { im = _im; };
+  LZespolona(double _re, double _im) : re(_re), im(_im){};
+  LZespolona() : re(0.0), im(0.0){};
 };
 
-
-
-LZespolona inicjuj(LZespolona& L1, double& x, double& y);
 std::ostream& operator<<(std::ostream& strm, const LZespolona& L1);
 std::istream& operator>>(std::istream& strm, LZespolona& L1);
 

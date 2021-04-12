@@ -19,6 +19,7 @@ class WyrazenieZesp {
   Operator Op;      // Opertor wyrazenia arytmetycznego
   LZespolona Arg2;  // Drugi argument wyrazenia arytmetycznego
  public:
+  WyrazenieZesp() : Arg1(), Op(), Arg2(){};
   LZespolona oblicz() const;
   LZespolona get_Arg1() const { return Arg1; };
   LZespolona get_Arg2() const { return Arg2; };

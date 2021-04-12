@@ -26,7 +26,7 @@ class BazaTestu {
  public:
   bool pobierz_pytanie(WyrazenieZesp &W);
   bool otworz_baze_pytan(std::string nazwa);
-  std::istream& get_read() {return read;}
+  std::istream& get_read() {return read;};
   std::istream& blad();
 };
 

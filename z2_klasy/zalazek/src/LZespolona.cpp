@@ -70,13 +70,6 @@ LZespolona LZespolona::operator/(const LZespolona &Skl2) const {
   return Wynik;
 }
 
-// LZespolona inicjuj(LZespolona &L1, double &x, double &y) {
-//   L1.re = x;
-//   L1.im = y;
-
-//   return L1;
-// }
-
 bool LZespolona ::operator==(const LZespolona &Skl2) const {
   double epsilon = 0.000000001;
   if (epsilon < abs(re - Skl2.re)) return false;
