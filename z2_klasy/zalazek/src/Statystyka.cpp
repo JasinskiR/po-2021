@@ -8,13 +8,9 @@
 //   proba = 0;
 // }
 
-void Statystyki::zwieksz_p() { proba++; }
-
 void Statystyki::zwieksz_lpyt() { lpytan++; }
 
 void Statystyki::zwieksz_lpop() { lpoprawnych++; }
-
-void Statystyki::wyzeruj_p() { proba = 0; }
 
 std::ostream &operator<<(std::ostream &strm, const Statystyki &StatTestu) {
   strm << "Statystyka Testu: " << std::endl;
