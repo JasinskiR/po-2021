@@ -15,6 +15,7 @@ class Macierz2x2 {
 
  public:
   Macierz2x2()=default;
+  void MacierzObrotu();
   Macierz2x2(Wektor2D wiersz1, Wektor2D wiersz2) : Macierz{wiersz1,wiersz2} {};
   explicit Macierz2x2(double _kat) { kat = _kat; };
   Wektor2D operator*(const Wektor2D &Arg2) const;

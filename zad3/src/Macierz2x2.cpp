@@ -28,3 +28,10 @@ std::ostream &operator<<(std::ostream &strm, const Macierz2x2 &Macierz) {
 
   return strm;
 }
+
+void Macierz2x2::MacierzObrotu() {
+  Macierz[0][0] = cos(kat);
+  Macierz[0][1] = -sin(kat);
+  Macierz[1][0] = sin(kat);
+  Macierz[1][1] = cos(kat);
+}
