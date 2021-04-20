@@ -1,7 +1,6 @@
 #ifndef MACIERZ2X2_HH
 #define MACIERZ2X2_HH
 
-#include <cmath>
 #include <iostream>
 
 #include "Wektor2D.hh"
