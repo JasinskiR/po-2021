@@ -29,9 +29,25 @@ std::ostream &operator<<(std::ostream &strm, const Macierz2x2 &Macierz) {
   return strm;
 }
 
-void Macierz2x2::MacierzObrotu() {
+Macierz2x2::Macierz2x2() {
   Macierz[0][0] = cos(kat);
   Macierz[0][1] = -sin(kat);
   Macierz[1][0] = sin(kat);
   Macierz[1][1] = cos(kat);
+}
+
+const Wektor2D &Macierz2x2::operator[](int indeks) const {
+  if (indeks < 0 || indeks > 1) {
+    std::cerr << "Poza pamiecia!" << std::endl;
+    exit(0);
+  }
+  return Macierz[indeks];
+}
+
+Wektor2D &Macierz2x2::operator[](int indeks) {
+  if (indeks < 0 || indeks > 1) {
+    std::cerr << "Poza pamiecia!" << std::endl;
+    exit(0);
+  }
+  return Macierz[indeks];
 }

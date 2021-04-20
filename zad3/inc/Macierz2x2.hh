@@ -1,6 +1,7 @@
 #ifndef MACIERZ2X2_HH
 #define MACIERZ2X2_HH
 
+#include <cmath>
 #include <iostream>
 
 #include "Wektor2D.hh"
@@ -14,14 +15,13 @@ class Macierz2x2 {
   double kat;
 
  public:
-  Macierz2x2()=default;
-  void MacierzObrotu();
-  Macierz2x2(Wektor2D wiersz1, Wektor2D wiersz2) : Macierz{wiersz1,wiersz2} {};
+  Macierz2x2();
+  Macierz2x2(Wektor2D wiersz1, Wektor2D wiersz2) : Macierz{wiersz1, wiersz2} {};
   explicit Macierz2x2(double _kat) { kat = _kat; };
   Wektor2D operator*(const Wektor2D &Arg2) const;
   Macierz2x2 operator*(const Macierz2x2 &Arg2) const;
-  const Wektor2D &operator[](int indeks) const { return Macierz[indeks]; };
-  Wektor2D &operator[](int indeks) { return Macierz[indeks]; };
+  const Wektor2D &operator[](int indeks) const;
+  Wektor2D &operator[](int indeks);
 };
 
 /*
