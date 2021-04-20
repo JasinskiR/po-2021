@@ -11,7 +11,7 @@
  */
 class Macierz2x2 {
   std::array<Wektor2D, 2> Macierz;
-  double kat;
+  double kat; //stopnie
 
  public:
   Macierz2x2();
