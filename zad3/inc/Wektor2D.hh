@@ -15,7 +15,7 @@ class Wektor2D {
 
  public:
   Wektor2D(double x, double y) : Wektor{x, y} {};
-  Wektor2D() : Wektor2D(0.00,0.00) {};
+  Wektor2D() : Wektor2D(0,0) {};
   Wektor2D operator+(const Wektor2D &Arg2) const;
   Wektor2D operator-(const Wektor2D &Arg2) const;
   Wektor2D operator*(const double &Arg2) const;

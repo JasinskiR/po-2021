@@ -11,12 +11,11 @@
  */
 class Macierz2x2 {
   std::array<Wektor2D, 2> Macierz;
-  double kat; //stopnie
 
  public:
   Macierz2x2();
   Macierz2x2(Wektor2D wiersz1, Wektor2D wiersz2) : Macierz{wiersz1, wiersz2} {};
-  explicit Macierz2x2(double _kat) { kat = _kat; };
+  Macierz2x2(const double &kat);
   Wektor2D operator*(const Wektor2D &Arg2) const;
   Macierz2x2 operator*(const Macierz2x2 &Arg2) const;
   const Wektor2D &operator[](int indeks) const;

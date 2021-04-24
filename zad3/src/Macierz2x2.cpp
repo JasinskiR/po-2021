@@ -29,11 +29,18 @@ std::ostream &operator<<(std::ostream &strm, const Macierz2x2 &Macierz) {
   return strm;
 }
 
-Macierz2x2::Macierz2x2() {
+Macierz2x2::Macierz2x2(const double &kat) {
   Macierz[0][0] = cos(kat);
   Macierz[0][1] = -sin(kat);
   Macierz[1][0] = sin(kat);
   Macierz[1][1] = cos(kat);
+}
+
+Macierz2x2::Macierz2x2() {
+  Macierz[0][0] = 1;
+  Macierz[0][1] = 0;
+  Macierz[1][0] = 0;
+  Macierz[1][1] = 1;
 }
 
 const Wektor2D &Macierz2x2::operator[](int indeks) const {
