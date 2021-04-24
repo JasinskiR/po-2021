@@ -30,10 +30,10 @@ std::ostream &operator<<(std::ostream &strm, const Macierz2x2 &Macierz) {
 }
 
 Macierz2x2::Macierz2x2(const double &kat) {
-  Macierz[0][0] = cos(kat);
-  Macierz[0][1] = -sin(kat);
-  Macierz[1][0] = sin(kat);
-  Macierz[1][1] = cos(kat);
+  Macierz[0][0] = cos(kat*M_PI/180);
+  Macierz[0][1] = -sin(kat*M_PI/180);
+  Macierz[1][0] = sin(kat*M_PI/180);
+  Macierz[1][1] = cos(kat*M_PI/180);
 }
 
 Macierz2x2::Macierz2x2() {

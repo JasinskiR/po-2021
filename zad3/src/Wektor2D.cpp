@@ -60,15 +60,21 @@ std::istream &operator>>(std::istream &strm, Wektor2D &Wektor) {
   strm >> y;
   // compilator sam ustawi failbita na strm jezeli zostanie wczytana
   // nieprawidlowa wartosc
-  if(strm.good()) {
-    Wektor[0]=x;
-    Wektor[1]=y;
+  if (strm.good()) {
+    Wektor[0] = x;
+    Wektor[1] = y;
+  } else {
+    strm.clear();
+    strm.ignore(std::numeric_limits<int>::max(), '\n');
+    std::cerr << "Blad danych - brak conajmniej jednej skladowej wierzcholka"
+              << std::endl;
+    exit(0);
   }
   return strm;
 }
 
 std::ostream &operator<<(std::ostream &strm, const Wektor2D &Wektor) {
-  strm<<Wektor[0] << " " << Wektor[1];
+  strm << Wektor[0] << " " << Wektor[1];
 
   return strm;
 }

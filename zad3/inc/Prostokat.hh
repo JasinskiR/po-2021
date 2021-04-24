@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <limits>
 
 #include "Dr2D_gnuplot_api.hh"
 #include "Macierz2x2.hh"
@@ -12,7 +13,6 @@ class Prostokat {
   std::array<Wektor2D, 4> Wierzcholki;
 
  public:
- int dupa;
   Prostokat();
   Prostokat(Wektor2D LG, Wektor2D LD, Wektor2D PD, Wektor2D PG);
   void rotacja(double kat_stopnie);
@@ -21,6 +21,7 @@ class Prostokat {
   const Wektor2D &operator[](int indeks) const;
   drawNS::Point2D konwertuj(Wektor2D W);
   bool otworz(std::string name);
+  bool czy_prostokat();
 };
 
 std::ostream &operator<<(std::ostream &strm, const Prostokat &wierzcholki);

@@ -4,6 +4,7 @@
 #include <array>
 #include <cmath>
 #include <iostream>
+#include <limits>
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
@@ -15,7 +16,7 @@ class Wektor2D {
 
  public:
   Wektor2D(double x, double y) : Wektor{x, y} {};
-  Wektor2D() : Wektor2D(0,0) {};
+  Wektor2D() : Wektor2D(0, 0){};
   Wektor2D operator+(const Wektor2D &Arg2) const;
   Wektor2D operator-(const Wektor2D &Arg2) const;
   Wektor2D operator*(const double &Arg2) const;
@@ -23,7 +24,7 @@ class Wektor2D {
   double dlugosc() const;
 
   const double &operator[](int indeks) const;  // getter
-  double &operator[](int indeks);        // setter wektor[0]=3.00;
+  double &operator[](int indeks);              // setter wektor[0]=3.00;
 };
 
 /*
