@@ -5,6 +5,7 @@
 #include <cmath>
 #include <iostream>
 #include <limits>
+#include <iomanip>
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa

@@ -17,7 +17,7 @@ class Prostokat {
   Prostokat(Wektor2D LG, Wektor2D LD, Wektor2D PD, Wektor2D PG);
   void rotacja(double kat_stopnie);
   void translacje(Wektor2D W);
-  void rysuj(drawNS::Draw2DAPI *rysownik);
+  void rysuj(std::shared_ptr<drawNS::Draw2DAPI> rysownik);
   const Wektor2D &operator[](int indeks) const;
   drawNS::Point2D konwertuj(Wektor2D W);
   bool otworz(std::string name);

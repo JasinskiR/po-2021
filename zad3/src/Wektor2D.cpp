@@ -74,7 +74,7 @@ std::istream &operator>>(std::istream &strm, Wektor2D &Wektor) {
 }
 
 std::ostream &operator<<(std::ostream &strm, const Wektor2D &Wektor) {
-  strm << Wektor[0] << " " << Wektor[1];
+  strm << std::setw(12) << std::fixed << std::setprecision(10)<<Wektor[0] << " " << Wektor[1];
 
   return strm;
 }

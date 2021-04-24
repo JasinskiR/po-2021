@@ -56,7 +56,7 @@ Prostokat::Prostokat(Wektor2D LG, Wektor2D PG, Wektor2D PD, Wektor2D LD) {
   Wierzcholki[3] = LG;
 }
 
-void Prostokat::rysuj(drawNS::Draw2DAPI *rysownik) {
+void Prostokat::rysuj(std::shared_ptr<drawNS::Draw2DAPI> rysownik) {
   std::vector<drawNS::Point2D> tmp;
   tmp.push_back(konwertuj(Wierzcholki[0]));
   tmp.push_back(konwertuj(Wierzcholki[1]));
@@ -93,7 +93,7 @@ bool Prostokat::otworz(std::string name) {
   }
 
   Prostokat prostokat(Wierzcholki[3], Wierzcholki[2], Wierzcholki[1],
-                      Wierzcholki[0]);
+                      Wierzcholki[0]); // kolejnosc wczytywania LD PD PG LG
   *this = prostokat;
   return true;
 }

@@ -23,17 +23,16 @@ Macierz2x2 Macierz2x2::operator*(const Macierz2x2 &Arg2) const {
 }
 
 std::ostream &operator<<(std::ostream &strm, const Macierz2x2 &Macierz) {
-  strm << Macierz[0][0] << " " << Macierz[0][1] << std::endl
-       << Macierz[1][0] << " " << Macierz[1][1] << std::endl;
+  strm << Macierz[0] << "\n" << Macierz[1];
 
   return strm;
 }
 
 Macierz2x2::Macierz2x2(const double &kat) {
-  Macierz[0][0] = cos(kat*M_PI/180);
-  Macierz[0][1] = -sin(kat*M_PI/180);
-  Macierz[1][0] = sin(kat*M_PI/180);
-  Macierz[1][1] = cos(kat*M_PI/180);
+  Macierz[0][0] = cos(kat * M_PI / 180);
+  Macierz[0][1] = -sin(kat * M_PI / 180);
+  Macierz[1][0] = sin(kat * M_PI / 180);
+  Macierz[1][1] = cos(kat * M_PI / 180);
 }
 
 Macierz2x2::Macierz2x2() {
