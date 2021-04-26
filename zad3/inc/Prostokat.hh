@@ -14,7 +14,7 @@ class Prostokat {
 
  public:
   Prostokat();
-  Prostokat(Wektor2D LG, Wektor2D LD, Wektor2D PD, Wektor2D PG);
+  Prostokat(Wektor2D LG, Wektor2D PG, Wektor2D PD, Wektor2D LD);
   void rotacja(double kat_stopnie);
   void translacje(Wektor2D W);
   void rysuj(std::shared_ptr<drawNS::Draw2DAPI> rysownik);

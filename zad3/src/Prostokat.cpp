@@ -93,7 +93,9 @@ bool Prostokat::otworz(std::string name) {
   }
 
   Prostokat prostokat(Wierzcholki[3], Wierzcholki[2], Wierzcholki[1],
-                      Wierzcholki[0]); // kolejnosc wczytywania LD PD PG LG
+                      Wierzcholki[0]);  // kolejnosc wczytywania LD PD PG LG
+                                        // w tej samej kolejności muszą zostać
+                                        // podane wierzcholki w pliku
   *this = prostokat;
   return true;
 }

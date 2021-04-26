@@ -7,7 +7,7 @@ LIBS = -lpthread
 #__start__: obroty_2D
 #	./obroty_2D
 
-obroty_2D: obj obj/main.o obj/Prostokat.o obj/Macierz2x2.o obj/Wektor2D.o obj/Dr2D_gnuplot_api.o obj/Menu.o
+obroty_2D: obj obj/main.o obj/Prostokat.o obj/Macierz2x2.o obj/Wektor2D.o obj/Dr2D_gnuplot_api.o
 
 	g++ -Wall -pedantic -std=c++0x -o obroty_2D obj/main.o obj/Wektor2D.o\
                         obj/Macierz2x2.o obj/Prostokat.o obj/Dr2D_gnuplot_api.o -lpthread

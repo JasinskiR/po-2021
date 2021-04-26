@@ -9,6 +9,8 @@
 
 using namespace std;
 
+//kolejnosc w jakiej powinny znalezc sie wierzcholki prostokata w pliku to LD PD PG LG
+
 int main(int argc, char** argv) {
   Prostokat prostokat;
   char wybor;
@@ -86,8 +88,7 @@ int main(int argc, char** argv) {
           break;
         }
         default: {
-          cin.ignore(numeric_limits<int>::max(), '\n');
-          break;
+          continue;
         }
       }
       cout << "Twoj wybor? (m - menu) > ";
