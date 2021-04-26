@@ -1,0 +1,80 @@
+//        NA NASTEPNE ZAJECIA       //
+// Głowna petla
+// 1 Pobranie pytania
+// 2 pobranie odpowiedzzi
+// 3 sprawdzenie poprawnosci 3x
+// 4 sprawdzenie poprawnosci metytorycznej
+// 5 aktualizacja statystyk
+// 6 komunikat (czy dobrzez czy nie)
+// 7 czy skonczyly sie pytania (nie -> 1)
+// 8 Wyswietl podsumowanie
+
+//      Przerobienie modułów na klasy     //
+// struktury na klasy
+// dodanie bazy testu z czytania z pliku
+// 2pliki testowe: latwy trudny
+
+
+
+//  class LZespolona {
+// private:
+//    double re;
+//    double im;
+// public:
+// double modul() const;
+// Lzespolona operato+(const LZespolona &L2) const;
+// LZespolona (double _re, double _im);
+// double get_re() const {return re;};
+// double get_im() const;
+// void set_re(double _re) {re=_re;};
+// void set_im(double _im);
+//};
+
+// wywolanie
+// L.modul();
+// L3= L1 + L2;
+// LZespolona L(2,3);
+
+// double LZespolona::modul() const {
+// return std::sqrt(std::pow(re,2) + std::pow(im),2));
+// }
+
+// LZespolona::LZespolona(double _re, double _im) : re(_re), im(_im) {}
+// LZespolona::LZespolona(double _re) : re(_re), im(0.0) {}
+// LZespolona::LZespolona() : re(0.0), im(0.0) {}
+
+// explicit przed nazwa metody wylacza mozliwosc rzutowania danych na strukture
+// (tylko dla jednego konstruktora (w metodzie))
+// ostream nie moze byc metoda
+
+// std::ostream &operator << (std::ostream &strm, const LZespolona &LZ) {
+// strm<<"(" <<LZ.get_re() << ios::showpos<<LZ.get_im()<<ios::noshowpos
+// }
+
+
+// bazatestu 
+// latwy.tx, trudny.txt
+
+// class bazatesu {
+//   private:
+//     std::fstream strm_pliku_pytan;
+//   public:
+//   bool popbierz_pytanie(WyrZesp & W) const;
+//   bool owtorz_baze_pytan(std::string nazwa);
+// BazaTestu(std::string nazwa);
+// };
+
+// bool BazaTestu::pobierz_pytanie(wyrZesp &w) const {
+//   strm_pliku_pytan >> w;
+//   czy sie udalo, uzywac np strm_pliku_pytan.good();
+//   przydatne : strm_pliku_pytan.eof();
+// }
+
+// bool bazatestu::otworz_baze_pytan(std::string nazwa) {
+//   strm_pliku_pytan.open(nazwa, std::fstram::in);
+//   czy sie udalo, uzywac np strm_pliku_pytan.good();
+// }
+
+// BazaTestu::BazaTestu(std::string nazwa) {
+//   otworz_baze_pytan(nazwa);
+// }
