@@ -9,7 +9,8 @@
 
 using namespace std;
 
-//kolejnosc w jakiej powinny znalezc sie wierzcholki prostokata w pliku to LD PD PG LG
+// kolejnosc w jakiej powinny znalezc sie wierzcholki prostokata w pliku to LD
+// PD PG LG
 
 int main(int argc, char** argv) {
   Prostokat prostokat;
@@ -26,7 +27,7 @@ int main(int argc, char** argv) {
     cout << "p - przesuniecie prostokata o zadany wektor\n";
     cout << "w - wyswietlenie wspolrzednych wierzcholkow\n";
     cout << "m - wyswietl menu\n";
-    cout << "c - wyczysc ekran\n";
+    cout << "c - wyczysc ekran menu\n";
     cout << "k - koniec dzialania programu\n ";
     prostokat.rysuj(rysownik);
     std::cout << "Twoj wybor? (m - menu) > ";
@@ -50,6 +51,7 @@ int main(int argc, char** argv) {
           prostokat.rotacja(kat);
           prostokat.rysuj(rysownik);
           if (!prostokat.czy_prostokat()) {
+            cerr<<"Podana figura nie jest juz prostokatem"<<endl;
             exit(0);
           }
           break;
@@ -79,7 +81,7 @@ int main(int argc, char** argv) {
           cout << "p - przesuniecie prostokata o zadany wektor\n";
           cout << "w - wyswietlenie wspolrzednych wierzcholkow\n";
           cout << "m - wyswietl menu\n";
-          cout << "c - wyczysc ekran\n";
+          cout << "c - wyczysc ekran menu\n";
           cout << "k - koniec dzialania programu\n ";
           break;
         }
@@ -93,5 +95,8 @@ int main(int argc, char** argv) {
       }
       cout << "Twoj wybor? (m - menu) > ";
     }
+  } else {
+    cerr << "Blad otwarcia pliku" << std::endl;
+    exit(0);
   }
 }

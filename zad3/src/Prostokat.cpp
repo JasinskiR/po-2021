@@ -76,8 +76,7 @@ bool Prostokat::otworz(std::string name) {
   std::fstream read;
   read.open(name, std::ios::in);
   if (!read.good()) {
-    std::cerr << "Blad otwarcia pliku" << std::endl;
-    exit(0);
+    return false;
   }
   for (int i = 0; i < 4; ++i) {
     if (!read.eof()) {
@@ -104,12 +103,10 @@ bool Prostokat::czy_prostokat() {
   double epsilon = 0.01;
   if (epsilon < abs((Wierzcholki[3] - Wierzcholki[0]) *
                     (Wierzcholki[3] - Wierzcholki[2]))) {
-    std::cerr << "Boki nie sa prostopadle" << std::endl;
     return false;
   }
   if (epsilon < abs(((Wierzcholki[3] - Wierzcholki[0]).dlugosc() -
                      (Wierzcholki[2] - Wierzcholki[1]).dlugosc()))) {
-    std::cerr << "Boki nie sa rowne" << std::endl;
     return false;
   }
   return true;
