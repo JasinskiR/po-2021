@@ -8,30 +8,28 @@
 #include "Dr2D_gnuplot_api.hh"
 #include "MacierzRot.hh"
 
-template <unsigned int SIZE>
 class Figura {
  private:
-  std::array<Wektor<SIZE>, 4> Wierzcholki;
+  std::array<Wektor<2>, 4> Wierzcholki;
+  std::fstream read;
 
  public:
   Figura() = default;
-  Figura(Wektor<SIZE> LG, Wektor<SIZE> PG, Wektor<SIZE> PD, Wektor<SIZE> LD);
+  Figura(Wektor<2> LG, Wektor<2> PG, Wektor<2> PD, Wektor<2> LD);
   void rotacja(double kat_stopnie);
-  void translacje(Wektor<SIZE> W);
+  void translacje(Wektor<2> W);
   void rysuj(std::shared_ptr<drawNS::Draw2DAPI> rysownik);
-  const Wektor<SIZE> &operator[](unsigned int indeks) const;
-  Wektor<SIZE> &operator[](unsigned int indeks);
-  drawNS::Point2D konwertuj(Wektor<SIZE> W);
-  bool wczytaj(std::string name);
+  const Wektor<2> &operator[](unsigned int indeks) const;
+  Wektor<2> &operator[](unsigned int indeks);
+  drawNS::Point2D konwertuj(Wektor<2> W);
+  bool wczytaj();
   bool otworz(std::string name);
   bool czy_Figura();
   std::size_t l_punktow() const { return Wierzcholki.size(); };
 };
 
-template <unsigned int SIZE>
-std::ostream &operator<<(std::ostream &strm, const Figura<SIZE> &wierzcholki);
-template <unsigned int SIZE>
-std::istream &operator>>(std::istream &strm, Figura<SIZE> &wierzcholki);
+std::ostream &operator<<(std::ostream &strm, const Figura &wierzcholki);
+std::istream &operator>>(std::istream &strm, Figura &wierzcholki);
 
-#include "Figure.cpp"
+//#include "Figure.cpp"
 #endif

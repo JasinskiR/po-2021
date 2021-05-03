@@ -50,7 +50,7 @@ Wektor<SIZE> Wektor<SIZE>::operator*(const double &Arg2) const {
 
 template <unsigned int SIZE>
 double Wektor<SIZE>::operator*(const Wektor<SIZE> &Arg2) const {
-  double Wynik;
+  double Wynik=0;
   for (unsigned int i = 0; i < SIZE; ++i) {
     Wynik += this->cords[i] * Arg2[i];
   }
@@ -59,7 +59,7 @@ double Wektor<SIZE>::operator*(const Wektor<SIZE> &Arg2) const {
 
 template <unsigned int SIZE>
 double Wektor<SIZE>::dlugosc() const {
-  double Wynik;
+  double Wynik=0;
   for (unsigned int i = 0; i < SIZE; ++i) {
     Wynik += pow(2, this->cords[i]);
   }
@@ -93,3 +93,20 @@ std::ostream &operator<<(std::ostream &strm, const Wektor<SIZE> &Wektor) {
   strm << std::endl;
   return strm;
 }
+
+// template <unsigned int SIZE>
+// Wektor<SIZE> Wektor<SIZE>::operator*(const Wektor<SIZE> &Arg2) const {
+//   Wektor<SIZE> Wynik;
+//   for (unsigned int i = 0; i < SIZE; ++i) {
+//     Wynik += this->cords[i] * Arg2[i];
+//   }
+//   return Wynik;
+// }
+
+
+template class Wektor<2>;
+template class Wektor<3>;
+template std::ostream &operator<<(std::ostream &strm, const Wektor<2> &Wektor);
+template std::istream &operator>>(std::istream &strm, Wektor<2> &Wektor);
+template std::ostream &operator<<(std::ostream &strm, const Wektor<3> &Wektor);
+template std::istream &operator>>(std::istream &strm, Wektor<3> &Wektor);

@@ -10,15 +10,24 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-  Wektor<2> wektor;
-  Figura<2> figura;
+  Wektor<3> a({1.0,2.0,3.0});
+  Wektor<3> b({4.0,5.0,6.0});
+  Wektor<3> c({7.0,8.0,9.0});
+  
+MacierzRot<3> d({a,b,c});
+MacierzRot<3> e({c,b,a});
+cout<<d*e;
+
+
+  //Wektor<2> wektor;
+  Figura figura;
   bool status = false;
   char wybor;
-  if (argc > 2) {
+  if (argc >= 2) {
     if (figura.otworz(argv[1])) {
-      if (figura.wczytaj(argv[1])) status = true;
-    }
-    cerr << "Blad otwarcia pliku" << std::endl;
+      if (figura.wczytaj()) status = true;
+    } else
+      cerr << "Blad otwarcia pliku" << std::endl;
   } else {
     cout << "Brak nazwy pliku z figura jako argument wywolania" << endl;
     for (int i = 0; i < 4; ++i) {
@@ -27,7 +36,7 @@ int main(int argc, char** argv) {
       cin >> figura[i];
     }
     if (!figura.czy_Figura()) {
-      cerr << "Podana figura nie jest juz figuraem" << endl;
+      cerr << "Podana figura nie jest juz figura" << endl;
       exit(0);
     }
     status = true;

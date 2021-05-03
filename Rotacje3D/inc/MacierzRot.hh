@@ -17,6 +17,7 @@ class MacierzRot {
   MacierzRot(const double &kat, enum OS);
   Wektor<SIZE> operator*(const Wektor<SIZE> &Arg2) const;
   MacierzRot<SIZE> operator*(const MacierzRot<SIZE> &Arg2) const;
+  MacierzRot<SIZE> transponowanie() const; 
   const Wektor<SIZE> &operator[](unsigned int indeks) const;
   Wektor<SIZE> &operator[](unsigned int indeks);
 };
@@ -24,5 +25,5 @@ class MacierzRot {
 template <unsigned int SIZE>
 std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz);
 
-#include "MacierzRot.cpp"
+//#include "MacierzRot.cpp"
 #endif
