@@ -7,7 +7,7 @@
 #include <iostream>
 #include <limits>
 
-template <unsigned int SIZE>
+template <uint SIZE>
 class Wektor {
  private:
   std::array<double, SIZE> cords;
@@ -22,14 +22,14 @@ class Wektor {
   double operator*(const Wektor<SIZE> &Arg2) const;
   double dlugosc() const;
 
-  const double &operator[](unsigned int indeks) const;  // getter
-  double &operator[](unsigned int indeks);              // setter
+  const double &operator[](uint indeks) const;  // getter
+  double &operator[](uint indeks);              // setter
 };
 
-template <unsigned int SIZE>
+template <uint SIZE>
 std::istream &operator>>(std::istream &strm, Wektor<SIZE> &Wektor);
 
-template <unsigned int SIZE>
+template <uint SIZE>
 std::ostream &operator<<(std::ostream &strm, const Wektor<SIZE> &Wektor);
 
 #endif

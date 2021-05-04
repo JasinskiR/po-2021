@@ -19,8 +19,8 @@ class Figura {
   void rotacja(double kat_stopnie);
   void translacje(Wektor<2> W);
   void rysuj(std::shared_ptr<drawNS::Draw2DAPI> rysownik);
-  const Wektor<2> &operator[](unsigned int indeks) const;
-  Wektor<2> &operator[](unsigned int indeks);
+  const Wektor<2> &operator[](uint indeks) const;
+  Wektor<2> &operator[](uint indeks);
   drawNS::Point2D konwertuj(Wektor<2> W);
   bool wczytaj();
   bool otworz(std::string name);

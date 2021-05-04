@@ -7,7 +7,7 @@
 
 enum OS { OX, OY, OZ };
 
-template <unsigned int SIZE>
+template <uint SIZE>
 class MacierzRot {
   std::array<Wektor<SIZE>, SIZE> Macierz;
 
@@ -18,11 +18,11 @@ class MacierzRot {
   Wektor<SIZE> operator*(const Wektor<SIZE> &Arg2) const;
   MacierzRot<SIZE> operator*(const MacierzRot<SIZE> &Arg2) const;
   MacierzRot<SIZE> transponowanie() const; 
-  const Wektor<SIZE> &operator[](unsigned int indeks) const;
-  Wektor<SIZE> &operator[](unsigned int indeks);
+  const Wektor<SIZE> &operator[](uint indeks) const;
+  Wektor<SIZE> &operator[](uint indeks);
 };
 
-template <unsigned int SIZE>
+template <uint SIZE>
 std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz);
 
 //#include "MacierzRot.cpp"

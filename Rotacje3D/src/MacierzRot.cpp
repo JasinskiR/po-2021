@@ -1,40 +1,40 @@
 #include "MacierzRot.hh"
 
-template <unsigned int SIZE>
+template <uint SIZE>
 Wektor<SIZE> MacierzRot<SIZE>::operator*(const Wektor<SIZE> &Arg2) const {
   Wektor<SIZE> Wynik;
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     Wynik[i] = this->Macierz[i] * Arg2;
   }
   return Wynik;
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 MacierzRot<SIZE> MacierzRot<SIZE>::transponowanie() const {
   MacierzRot<SIZE> T;
-  for (unsigned int i = 0; i < SIZE; ++i) {
-    for (unsigned int j = 0; j < SIZE; ++j) {
+  for (uint i = 0; i < SIZE; ++i) {
+    for (uint j = 0; j < SIZE; ++j) {
       T[i][j] = Macierz[j][i];
     }
   }
   return T;
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 MacierzRot<SIZE> MacierzRot<SIZE>::operator*(const MacierzRot<SIZE> &Arg2) const {
   MacierzRot<SIZE> MacierzW, T;
   T = Arg2.transponowanie();
-  for (unsigned int i = 0; i < SIZE; ++i) {
-    for (unsigned int j = 0; j < SIZE; ++j) {
+  for (uint i = 0; i < SIZE; ++i) {
+    for (uint j = 0; j < SIZE; ++j) {
       MacierzW[i][j] = Macierz[i] * T[j];
     }
   }
   return MacierzW;
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz) {
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     strm << Macierz[i] << std::endl;
   }
 
@@ -42,7 +42,7 @@ std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz) {
 }
 // TIA
 
-// template <unsigned int SIZE>
+// template <uint SIZE>
 // MacierzRot<SIZE>::MacierzRot(const double &kat, OS o) {
 //   if (SIZE == 2) {
 //     Macierz[0][0] = cos(kat * M_PI / 180);
@@ -89,10 +89,10 @@ std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz) {
 //   }
 // }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 MacierzRot<SIZE>::MacierzRot() {
-  for (unsigned int i = 0; i < SIZE; ++i) {
-    for (unsigned int j = 0; j < SIZE; ++j) {
+  for (uint i = 0; i < SIZE; ++i) {
+    for (uint j = 0; j < SIZE; ++j) {
       if (i == j)
         Macierz[i][j] = 1;
       else
@@ -100,16 +100,16 @@ MacierzRot<SIZE>::MacierzRot() {
     }
   }
 }
-template <unsigned int SIZE>
-const Wektor<SIZE> &MacierzRot<SIZE>::operator[](unsigned int indeks) const {
+template <uint SIZE>
+const Wektor<SIZE> &MacierzRot<SIZE>::operator[](uint indeks) const {
   if (indeks < 0 || indeks > SIZE) {
     std::cerr << "Poza pamiecia!" << std::endl;
     exit(0);
   }
   return Macierz[indeks];
 }
-template <unsigned int SIZE>
-Wektor<SIZE> &MacierzRot<SIZE>::operator[](unsigned int indeks) {
+template <uint SIZE>
+Wektor<SIZE> &MacierzRot<SIZE>::operator[](uint indeks) {
   if (indeks < 0 || indeks > SIZE) {
     std::cerr << "Poza pamiecia!" << std::endl;
     exit(0);
@@ -164,7 +164,7 @@ MacierzRot<3>::MacierzRot(const double &kat, OS o) {
   }
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 MacierzRot<SIZE>::MacierzRot(const double &kat, OS o) {
   static_assert(SIZE < 4, "Program nie obsluguje hiperobrotow");
 }

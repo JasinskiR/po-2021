@@ -36,7 +36,7 @@ cout<<d*e;
       cin >> figura[i];
     }
     if (!figura.czy_Figura()) {
-      cerr << "Podana figura nie jest juz figura" << endl;
+      cerr << "Podana figura nie jest prostokatem" << endl;
       exit(0);
     }
     status = true;
@@ -74,7 +74,7 @@ cout<<d*e;
           figura.rotacja(kat);
           figura.rysuj(rysownik);
           if (!figura.czy_Figura()) {
-            cerr << "Podana figura nie jest juz figuraem" << endl;
+            cerr << "Podana figura nie jest juz prostokatem" << endl;
             exit(0);
           }
           break;

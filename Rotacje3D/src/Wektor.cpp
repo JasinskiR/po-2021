@@ -1,7 +1,7 @@
 #include "Wektor.hh"
 
-template <unsigned int SIZE>
-double &Wektor<SIZE>::operator[](unsigned int indeks) {
+template <uint SIZE>
+double &Wektor<SIZE>::operator[](uint indeks) {
   if (indeks < 0 || indeks > SIZE) {
     std::cerr << "Poza pamiecia!" << std::endl;
     exit(0);
@@ -9,18 +9,18 @@ double &Wektor<SIZE>::operator[](unsigned int indeks) {
   return cords[indeks];
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 Wektor<SIZE> Wektor<SIZE>::operator+(const Wektor<SIZE> &Arg2) const {
   Wektor<SIZE> Wynik;
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     Wynik[i] = this->cords[i] + Arg2[i];
   }
 
   return Wynik;
 }
 
-template <unsigned int SIZE>
-const double &Wektor<SIZE>::operator[](unsigned int indeks) const {
+template <uint SIZE>
+const double &Wektor<SIZE>::operator[](uint indeks) const {
   if (indeks < 0 || indeks > SIZE) {
     std::cerr << "Poza pamiecia!" << std::endl;
     exit(0);
@@ -28,48 +28,48 @@ const double &Wektor<SIZE>::operator[](unsigned int indeks) const {
   return cords[indeks];
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 Wektor<SIZE> Wektor<SIZE>::operator-(const Wektor<SIZE> &Arg2) const {
   Wektor<SIZE> Wynik;
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     Wynik[i] = this->cords[i] - Arg2[i];
   }
 
   return Wynik;
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 Wektor<SIZE> Wektor<SIZE>::operator*(const double &Arg2) const {
   Wektor<SIZE> Wynik;
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     Wynik[i] = this->cords[i] * Arg2;
   }
 
   return Wynik;
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 double Wektor<SIZE>::operator*(const Wektor<SIZE> &Arg2) const {
   double Wynik=0;
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     Wynik += this->cords[i] * Arg2[i];
   }
   return Wynik;
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 double Wektor<SIZE>::dlugosc() const {
   double Wynik=0;
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     Wynik += pow(2, this->cords[i]);
   }
 
   return sqrt(Wynik);
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 std::istream &operator>>(std::istream &strm, Wektor<SIZE> &Wektor) {
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     strm >> Wektor[i];
   }
   // compilator sam ustawi failbita na strm jezeli zostanie wczytana
@@ -84,9 +84,9 @@ std::istream &operator>>(std::istream &strm, Wektor<SIZE> &Wektor) {
   return strm;
 }
 
-template <unsigned int SIZE>
+template <uint SIZE>
 std::ostream &operator<<(std::ostream &strm, const Wektor<SIZE> &Wektor) {
-  for (unsigned int i = 0; i < SIZE; ++i) {
+  for (uint i = 0; i < SIZE; ++i) {
     strm << std::setw(12) << std::fixed << std::setprecision(10) << Wektor[i]
          << " ";
   }
@@ -94,10 +94,10 @@ std::ostream &operator<<(std::ostream &strm, const Wektor<SIZE> &Wektor) {
   return strm;
 }
 
-// template <unsigned int SIZE>
+// template <uint SIZE>
 // Wektor<SIZE> Wektor<SIZE>::operator*(const Wektor<SIZE> &Arg2) const {
 //   Wektor<SIZE> Wynik;
-//   for (unsigned int i = 0; i < SIZE; ++i) {
+//   for (uint i = 0; i < SIZE; ++i) {
 //     Wynik += this->cords[i] * Arg2[i];
 //   }
 //   return Wynik;

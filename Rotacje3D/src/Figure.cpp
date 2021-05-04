@@ -1,6 +1,6 @@
 #include "Figure.hh"
 
-const Wektor<2> &Figura::operator[](unsigned int indeks) const {
+const Wektor<2> &Figura::operator[](uint indeks) const {
   if (indeks < 0 || indeks > this->l_punktow()) {
     std::cerr << "Poza pamiecia!" << std::endl;
     exit(0);
@@ -8,7 +8,7 @@ const Wektor<2> &Figura::operator[](unsigned int indeks) const {
   return Wierzcholki[indeks];
 }
 
-Wektor<2> &Figura::operator[](unsigned int indeks) {
+Wektor<2> &Figura::operator[](uint indeks) {
   if (indeks < 0 || indeks > this->l_punktow()) {
     std::cerr << "Poza pamiecia!" << std::endl;
     exit(0);
@@ -18,7 +18,7 @@ Wektor<2> &Figura::operator[](unsigned int indeks) {
 
 std::ostream &operator<<(std::ostream &strm, const Figura &F) {
   strm << "Wierzcholki figury wynosza: \n";
-  for (unsigned int i = 0; i < F.l_punktow(); ++i) {
+  for (uint i = 0; i < F.l_punktow(); ++i) {
     strm << "P" << i + 1 << " " << F[i] << std::endl;
   }
   return strm;
@@ -31,7 +31,7 @@ std::istream &operator>>(std::istream &strm, Figura &F) {
 }
 
 void Figura::translacje(Wektor<2> W) {
-  for (unsigned int i = 0; i < this->l_punktow(); ++i) {
+  for (uint i = 0; i < this->l_punktow(); ++i) {
     Wierzcholki[i] = Wierzcholki[i] + W;
   }
 }
@@ -51,7 +51,7 @@ void Figura<3>::rotacja(double kat_stopnie) {
   // Wierzcholki[2] = Macierz * Wierzcholki[2];
   // Wierzcholki[3] = Macierz * Wierzcholki[3];
 }
-template <unsigned int SIZE>
+template <uint SIZE>
 void Figura<SIZE>::rotacja(double kat_stopnie) {
   static_assert(SIZE < 4, "Program nie obsluguje hiperobrotow");
 }
