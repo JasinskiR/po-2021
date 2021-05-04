@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMACIERZ.a  CMakeFiles/MACIERZ.dir/src/empty.cpp.o
+/usr/bin/ranlib libMACIERZ.a

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/Obroty_3D.dir/src/main.cpp.o  -o Obroty_3D  libMACIERZ.a libGNU.a libFIGURE.a -lpthread libMACIERZ.a libWEKTOR.a 

@@ -1,0 +1,7 @@
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/build/CMakeFiles/rebuild_cache.dir
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/build/CMakeFiles/Obroty_3D.dir
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/build/CMakeFiles/GNU.dir
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/build/CMakeFiles/FIGURE.dir
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/build/CMakeFiles/edit_cache.dir
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/build/CMakeFiles/MACIERZ.dir
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/build/CMakeFiles/WEKTOR.dir

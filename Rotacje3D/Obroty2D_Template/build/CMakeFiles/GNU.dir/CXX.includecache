@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/Dr2D_gnuplot_api.hh
+Draw2D_api_interface.hh
+../inc/Draw2D_api_interface.hh
+list
+-
+map
+-
+utility
+-
+memory
+-
+mutex
+-
+thread
+-
+
+../inc/Draw2D_api_interface.hh
+vector
+-
+string
+-
+iostream
+-
+
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/src/Dr2D_gnuplot_api.cpp
+Dr2D_gnuplot_api.hh
+/home/rafal/Pulpit/PO_2021/po_2021/Rotacje3D/src/Dr2D_gnuplot_api.hh
+iostream
+-
+sstream
+-
+unistd.h
+-
+

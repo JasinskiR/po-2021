@@ -1,0 +1,2 @@
+/usr/bin/ar qc libWEKTOR.a  CMakeFiles/WEKTOR.dir/src/empty.cpp.o
+/usr/bin/ranlib libWEKTOR.a

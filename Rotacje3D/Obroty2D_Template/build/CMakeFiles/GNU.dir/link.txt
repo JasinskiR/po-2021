@@ -1,0 +1,2 @@
+/usr/bin/ar qc libGNU.a  CMakeFiles/GNU.dir/src/Dr2D_gnuplot_api.cpp.o
+/usr/bin/ranlib libGNU.a

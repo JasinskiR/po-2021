@@ -2,32 +2,14 @@
 #include <iomanip>
 #include <iostream>
 
-#include "Dr2D_gnuplot_api.hh"
-#include "Figure.hh"
-#include "MacierzRot.hh"
-#include "Wektor.hh"
+#include "Dr3D_gnuplot_api.hpp"
+#include "Figure.hpp"
+#include "MacierzRot.hpp"
+#include "Wektor.hpp"
 
 using namespace std;
 
 int main(int argc, char** argv) {
-//Testy operacji na wektorach 3x
-//   Wektor<3> a({1.0,2.0,3.0});
-//   Wektor<3> b({4.0,5.0,6.0});
-//   Wektor<3> c({7.0,8.0,9.0});
-  
-// MacierzRot<3> d({a,b,c});
-// MacierzRot<3> e({c,b,a});
-// cout<<d*e;
-
-//Testy operacji na wektorach 6x
-// Wektor<6> a({1.0,2.0,3.0,4.0,5.0,6.0});
-// Wektor<6> b({6.0,5.0,4.0,3.0,2.0,1.0});
-// cout<<"Testy arytmetyki wektorow 6x\n";
-// cout<<"Dodawanie:\n"<< a+b<<endl;
-// cout<<"Odejmowanie: "<<a-b<<endl;
-// cout<<"Iloczyn skalarny: "*b<<endl;
-// cout<<"------------------------------------------------------\n";
-
   Figura figura;
   bool status = false;
   char wybor;
@@ -37,25 +19,27 @@ int main(int argc, char** argv) {
     } else
       cerr << "Blad otwarcia pliku" << std::endl;
   } else {
-    cout << "Brak nazwy pliku z figura jako argument wywolania" << endl;
-    for (int i = 0; i < 4; ++i) {
+    cout << "Brak nazwy pliku z wierzcholkami bryly jako argument wywolania"
+         << endl;
+    for (int i = 0; i < 8; ++i) {
       cout << "\nPodaj wspolrzedne wierzcholka " << i + 1
-           << " (dwie liczby odzielone spacja): ";
+           << " (trzy liczby odzielone spacja): ";
       cin >> figura[i];
     }
     if (!figura.czy_Figura()) {
-      cerr << "Podana figura nie jest prostokatem" << endl;
+      cerr << "Podana bryla nie jest prostopadloscianem" << endl;
       exit(0);
     }
     status = true;
   }
 
   if (status) {
-    shared_ptr<drawNS::Draw2DAPI> rysownik(
-        new drawNS::APIGnuPlot2D(-10, 10, -10, 10, 0));
+    shared_ptr<drawNS::Draw3DAPI> rysownik(
+        new drawNS::APIGnuPlot3D(-10, 10, -10, 10, -10, 10, 0));
+    //system("clear");
     cout << "\t\tMENU\n";
-    cout << "o - obrot figuraa o zadany kat\n";
-    cout << "p - przesuniecie figuraa o zadany wektor\n";
+    cout << "o - obrot bryly o zadany kat\n";
+    cout << "p - przesuniecie bryly o zadany wektor\n";
     cout << "w - wyswietlenie wspolrzednych wierzcholkow\n";
     cout << "m - wyswietl menu\n";
     cout << "c - wyczysc ekran menu\n";
@@ -70,16 +54,19 @@ int main(int argc, char** argv) {
         }
         case 'o': {
           // obrot a kat / potrzebny kat i ilosc powtorzen "o liczba liczba"
+          // oraz os obrotu
           double kat;
           cin >> kat;
           int l_pow;
           cin >> l_pow;
+          OS os;
+          cin >> os;
           if (!cin.good()) {
             cin.clear();
             cin.ignore(numeric_limits<int>::max(), '\n');
           }
           kat = kat * l_pow;
-          figura.rotacja(kat);
+          figura.rotacja(kat, os);
           figura.rysuj(rysownik);
           if (!figura.czy_Figura()) {
             cerr << "Podana figura nie jest juz prostokatem" << endl;
@@ -89,10 +76,10 @@ int main(int argc, char** argv) {
         }
 
         case 'p': {
-          // przesuniecie figuraa / potrzebny wektor
-          double x, y;
-          cin >> x >> y;
-          Wektor<2> W_translacji({x, y});
+          // przesuniecie bryly / potrzebny wektor
+          double x, y, z;
+          cin >> x >> y >> z;
+          Wektor<3> W_translacji({x, y, z});
           if (!cin.good()) {
             cin.clear();
             cin.ignore(numeric_limits<int>::max(), '\n');
@@ -108,8 +95,8 @@ int main(int argc, char** argv) {
         }
         case 'm': {  // wyswietlenie menu
           cout << "\t\tMENU\n";
-          cout << "o - obrot figuraa o zadany kat\n";
-          cout << "p - przesuniecie figuraa o zadany wektor\n";
+          cout << "o - obrot bryly o zadany kat\n";
+          cout << "p - przesuniecie bryly o zadany wektor\n";
           cout << "w - wyswietlenie wspolrzednych wierzcholkow\n";
           cout << "m - wyswietl menu\n";
           cout << "c - wyczysc ekran menu\n";
