@@ -110,3 +110,6 @@ template std::ostream &operator<<(std::ostream &strm, const Wektor<2> &Wektor);
 template std::istream &operator>>(std::istream &strm, Wektor<2> &Wektor);
 template std::ostream &operator<<(std::ostream &strm, const Wektor<3> &Wektor);
 template std::istream &operator>>(std::istream &strm, Wektor<3> &Wektor);
+//pod testy
+template class Wektor<6>;
+template std::ostream &operator<<(std::ostream &strm, const Wektor<6> &Wektor);

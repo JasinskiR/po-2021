@@ -10,16 +10,24 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-  Wektor<3> a({1.0,2.0,3.0});
-  Wektor<3> b({4.0,5.0,6.0});
-  Wektor<3> c({7.0,8.0,9.0});
+//Testy operacji na wektorach 3x
+//   Wektor<3> a({1.0,2.0,3.0});
+//   Wektor<3> b({4.0,5.0,6.0});
+//   Wektor<3> c({7.0,8.0,9.0});
   
-MacierzRot<3> d({a,b,c});
-MacierzRot<3> e({c,b,a});
-cout<<d*e;
+// MacierzRot<3> d({a,b,c});
+// MacierzRot<3> e({c,b,a});
+// cout<<d*e;
 
+//Testy operacji na wektorach 6x
+// Wektor<6> a({1.0,2.0,3.0,4.0,5.0,6.0});
+// Wektor<6> b({6.0,5.0,4.0,3.0,2.0,1.0});
+// cout<<"Testy arytmetyki wektorow 6x\n";
+// cout<<"Dodawanie:\n"<< a+b<<endl;
+// cout<<"Odejmowanie: "<<a-b<<endl;
+// cout<<"Iloczyn skalarny: "*b<<endl;
+// cout<<"------------------------------------------------------\n";
 
-  //Wektor<2> wektor;
   Figura figura;
   bool status = false;
   char wybor;
