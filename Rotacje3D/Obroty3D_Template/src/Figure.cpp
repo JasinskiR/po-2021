@@ -63,7 +63,6 @@ Figura::Figura(std::array<Wektor<3>, 8> W) {
 }
 
 void Figura::rysuj(std::shared_ptr<drawNS::Draw3DAPI> rysownik) {
-  int static id = -1;
   int pom;
   std::vector<std::vector<drawNS::Point3D>> tmp;
   std::vector<drawNS::Point3D> punkty;
@@ -130,4 +129,32 @@ bool Figura::czy_Figura() {
     return false;
   }
   return true;
+}
+
+void Figura::dodaj() {
+  for (uint32_t i = 0; i < 8; ++i) {
+    std::cout << "\nPodaj wspolrzedne wierzcholka " << i + 1
+              << " (trzy liczby odzielone spacja): ";
+    std::cin >> Wierzcholki[i];
+  }
+}
+
+void Figura::usun(std::shared_ptr<drawNS::Draw3DAPI> rysownik) {
+  if (id != -1) {
+    rysownik->erase_shape(id);
+  }
+}
+
+// Figura::Figura(const Figura &F) {
+//   Wierzcholki = F.Wierzcholki;
+//   id = F.id;
+
+// }
+
+const Figura &Figura::operator=(const Figura &F) {
+  if (this!=&F) {
+  Wierzcholki = F.Wierzcholki;
+  id = F.id;
+  }
+  return F;
 }

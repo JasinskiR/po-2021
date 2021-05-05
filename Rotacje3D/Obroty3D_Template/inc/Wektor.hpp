@@ -1,5 +1,5 @@
-#ifndef WEKTOR_H
-#define WEKTOR_H
+#ifndef WEKTOR_HPP
+#define WEKTOR_HPP
 
 #include <array>
 #include <cmath>

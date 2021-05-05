@@ -1,5 +1,5 @@
-#ifndef MACIERZROT_H
-#define MACIERZROT_H
+#ifndef MACIERZROT_HPP
+#define MACIERZROT_HPP
 
 #include <iostream>
 
