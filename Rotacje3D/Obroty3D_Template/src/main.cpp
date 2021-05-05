@@ -8,7 +8,7 @@
 #include "Wektor.hpp"
 
 using namespace std;
-
+//test dev
 int main(int argc, char** argv) {
   Figura figura;
   bool status = false;
