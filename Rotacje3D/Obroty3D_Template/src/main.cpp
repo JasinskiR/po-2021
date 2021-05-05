@@ -19,7 +19,8 @@ int main(int argc, char** argv) {
     if (bryla.otworz(argv[1])) {
       if (bryla.wczytaj()) {
         status = true;
-        scena.figures.push_back(bryla);
+        scena.Add(&bryla);
+        // scena.figures.push_back(bryla);
       }
     } else
       cerr << "Blad otwarcia pliku" << std::endl;
@@ -56,7 +57,8 @@ int main(int argc, char** argv) {
           exit(0);
         }
         case 'a': {
-          scena.Add(bryla);
+          scena.Add();
+          scena.rysuj(rysownik);
           break;
         }
         case 'd': {
@@ -137,6 +139,7 @@ int main(int argc, char** argv) {
         }
       }
       cout << "Twoj wybor? (m - menu) > ";
+      scena.rysuj(rysownik);
     }
   }
 }
