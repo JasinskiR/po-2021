@@ -22,4 +22,4 @@ set(LIBS WEKTOR MACIERZ FIGURE)
 add_executable(Obroty_3D ./src/main.cpp)
 target_link_libraries(Obroty_3D MACIERZ GNU FIGURE ${CMAKE_THREAD_LIBS_INIT})
 
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+target_compile_options(-Wall -Wextra -pedantic -Werror)
