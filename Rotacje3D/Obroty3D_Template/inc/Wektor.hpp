@@ -14,7 +14,7 @@ class Wektor {
 
  public:
   Wektor(std::array<double, SIZE> arg) : cords(arg){};
-  Wektor() = default;
+  Wektor() : cords{} {};
   Wektor<SIZE> operator+(const Wektor<SIZE> &Arg2) const;
   Wektor<SIZE> operator-(const Wektor<SIZE> &Arg2) const;
   Wektor<SIZE> operator*(const double &Arg2) const;

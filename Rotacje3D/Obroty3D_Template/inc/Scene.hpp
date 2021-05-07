@@ -4,12 +4,14 @@
 #include <iostream>
 
 #include "Figure.hpp"
+#include "MacierzRot.hpp"
 
 class Scene {
  private:
+  std::vector<Figura *> figures;
+
  public:
-  std::vector<Figura*> figures; //mem//
-  void Add(Figura *obj = nullptr); //Add()
+  void Add(Figura *obj = nullptr);  // Add()
   void Remove(const uint32_t &ind, std::shared_ptr<drawNS::Draw3DAPI> rysownik);
   Figura &operator[](const uint32_t &ind);
   std::size_t n_figures() const { return figures.size(); };

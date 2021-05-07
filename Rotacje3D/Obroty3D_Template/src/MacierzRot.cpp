@@ -43,14 +43,9 @@ std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz) {
 }
 
 template <uint32_t SIZE>
-MacierzRot<SIZE>::MacierzRot() {
+MacierzRot<SIZE>::MacierzRot() : Macierz{} {
   for (uint32_t i = 0; i < SIZE; ++i) {
-    for (uint32_t j = 0; j < SIZE; ++j) {
-      if (i == j)
-        Macierz[i][j] = 1;
-      else
-        Macierz[i][j] = 0;
-    }
+    Macierz[i][i] = 1;
   }
 }
 template <uint32_t SIZE>
@@ -61,14 +56,6 @@ const Wektor<SIZE> &MacierzRot<SIZE>::operator[](uint32_t indeks) const {
   }
   return Macierz[indeks];
 }
-// Chyba nie potrzebne ?
-// template <>
-// MacierzRot<2>::MacierzRot(const double &kat, OS o) {
-//   Macierz[0][0] = cos(kat * M_PI / 180);
-//   Macierz[0][1] = -sin(kat * M_PI / 180);
-//   Macierz[1][0] = sin(kat * M_PI / 180);
-//   Macierz[1][1] = cos(kat * M_PI / 180);
-// }
 
 template <>
 MacierzRot<3>::MacierzRot(const double &kat, OS o) {

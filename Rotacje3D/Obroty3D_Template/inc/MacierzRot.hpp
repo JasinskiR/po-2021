@@ -14,7 +14,6 @@ class MacierzRot {
 
  public:
   MacierzRot();
-  MacierzRot(std::array<Wektor<SIZE>, SIZE> arg) : Macierz(arg){};
   MacierzRot(const double &kat, enum OS);
   Wektor<SIZE> operator*(const Wektor<SIZE> &Arg2) const;
   MacierzRot<SIZE> operator*(const MacierzRot<SIZE> &Arg2) const;

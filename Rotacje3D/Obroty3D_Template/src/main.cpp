@@ -13,6 +13,7 @@ using namespace std;
 int main(int argc, char** argv) {
   Figura bryla;
   Scene scena;
+  MacierzRot<3> mrot;
   bool status = false;
   char wybor;
   if (argc >= 2) {
@@ -20,7 +21,6 @@ int main(int argc, char** argv) {
       if (bryla.wczytaj()) {
         status = true;
         scena.Add(&bryla);
-        // scena.figures.push_back(bryla);
       }
     } else
       cerr << "Blad otwarcia pliku" << std::endl;
@@ -43,8 +43,11 @@ int main(int argc, char** argv) {
     cout << "a - dodaj nowa bryle\n";
     cout << "d - usun bryle\n";
     cout << "o - obrot bryly o zadany kat\n";
+    cout << "s - obrot bryly o zadana sekwencje\n";
+    cout << "t - powtorzenie poprzedniego obrotu\n";
     cout << "p - przesuniecie bryly o zadany wektor\n";
     cout << "w - wyswietlenie wspolrzednych wierzcholkow\n";
+    cout << "r - wyswietlenie macierzy rotacji\n";
     cout << "m - wyswietl menu\n";
     cout << "c - wyczysc ekran menu\n";
     cout << "k - koniec dzialania programu\n ";
@@ -62,9 +65,10 @@ int main(int argc, char** argv) {
           break;
         }
         case 'd': {
-          uint32_t id_bryly;
-          cin >> id_bryly;
-          scena.Remove(id_bryly, rysownik);
+          uint32_t id_b;
+          cin >> id_b;
+          id_b -= 1;
+          scena.Remove(id_b, rysownik);
           break;
         }
         case 'o': {
@@ -83,13 +87,76 @@ int main(int argc, char** argv) {
           if (!cin.good()) {
             cin.clear();
             cin.ignore(numeric_limits<int>::max(), '\n');
+            cout << "Blad wywolania funkcji\n";
+            break;
           }
           kat = kat * l_pow;
-          scena[id_b].rotacja(kat, os);
+          MacierzRot<3> rot(kat, os);
+          mrot = rot;
+          scena[id_b].rotacja(rot);
           scena[id_b].rysuj(rysownik);
           if (!scena[id_b].czy_Figura()) {
             cerr << "Podana bryla nie jest juz prostopadloscianem" << endl;
             exit(0);
+          }
+          break;
+        }
+
+        case 's': {
+          // indeks bryly
+          // obrot a kat / potrzebny kat i ilosc powtorzen "o liczba liczba"
+          // oraz os obrotu
+          // powielenie kata/ilosci/osi
+          uint32_t id_b;
+          cin >> id_b;
+          id_b -= 1;
+          char kropka;
+
+          while (kropka != '.') {
+            cin >> ws >> kropka;
+            if (kropka != '.')
+              cin.unget();
+            else
+              cin.setstate(ios::failbit);
+
+            double kat;
+            cin >> kat;
+
+            uint32_t l_pow;
+            cin >> l_pow;
+
+            OS os;
+            cin >> os;
+
+            if (!cin.good()) {
+              cin.clear();
+              cin.ignore(numeric_limits<int>::max(), '\n');
+              if (kropka != '.') cout << "Bledna ostatnia czesc sekwencji\n";
+              continue;
+            }
+            kat = kat * l_pow;
+            MacierzRot<3> pom(kat, os);
+            mrot = mrot * pom;
+          }
+          scena[id_b].rotacja(mrot);
+          scena[id_b].rysuj(rysownik);
+          if (!scena[id_b].czy_Figura()) {
+            cerr << "Podana bryla nie jest juz prostopadloscianem" << endl;
+            exit(0);
+          }
+          break;
+        }
+
+        case 't': {
+          uint32_t id_b;
+          cin >> id_b;
+          id_b -= 1;
+          if (!cin.good()) {
+            cin.clear();
+            cin.ignore(numeric_limits<int>::max(), '\n');
+          } else {
+            scena[id_b].rotacja(mrot);
+            scena[id_b].rysuj(rysownik);
           }
           break;
         }
@@ -118,13 +185,21 @@ int main(int argc, char** argv) {
           cout << scena[id_b];
           break;
         }
+
+        case 'r': {
+          cout << mrot << endl;
+          break;
+        }
         case 'm': {  // wyswietlenie menu
           cout << "\t\tMENU\n";
           cout << "a - dodaj nowa bryle\n";
           cout << "d - usun bryle\n";
           cout << "o - obrot bryly o zadany kat\n";
+          cout << "s - obrot bryly o zadana sekwencje\n";
+          cout << "t - powtorzenie poprzedniego obrotu\n";
           cout << "p - przesuniecie bryly o zadany wektor\n";
           cout << "w - wyswietlenie wspolrzednych wierzcholkow\n";
+          cout << "r - wyswietlenie macierzy rotacji\n";
           cout << "m - wyswietl menu\n";
           cout << "c - wyczysc ekran menu\n";
           cout << "k - koniec dzialania programu\n ";
@@ -135,7 +210,7 @@ int main(int argc, char** argv) {
           break;
         }
         default: {
-          continue;
+          break;
         }
       }
       cout << "Twoj wybor? (m - menu) > ";

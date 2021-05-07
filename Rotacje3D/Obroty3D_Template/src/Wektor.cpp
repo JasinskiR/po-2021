@@ -61,7 +61,7 @@ template <uint32_t SIZE>
 double Wektor<SIZE>::dlugosc() const {
   double Wynik = 0;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Wynik += pow(2, this->cords[i]);
+    Wynik += pow(this->cords[i],2);
   }
 
   return sqrt(Wynik);
