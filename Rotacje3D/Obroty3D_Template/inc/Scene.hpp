@@ -6,6 +6,13 @@
 #include "Figure.hpp"
 #include "MacierzRot.hpp"
 
+/*!
+ * \file 
+ * \brief Definicja klasy Scene
+ * 
+ * Plik zawiera definicję klasy Scene
+ */
+
 class Scene {
  private:
   std::vector<Figura *> figures;
