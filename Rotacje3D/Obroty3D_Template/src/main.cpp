@@ -228,4 +228,4 @@ int main(int argc, char** argv) {
       scena.rysuj(rysownik);
     }
   }
-}
+} 
