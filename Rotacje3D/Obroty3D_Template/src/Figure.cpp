@@ -16,6 +16,7 @@ const Wektor<3> &Figura::operator[](uint32_t indeks) const {
   }
   return Wierzcholki[indeks];
 }
+
 /**
  * Możemy za jego pomocą dostać się do poszczególnego wierzchołka
  * prostopadłościanu. Umożliwia on modyfikację wierzchołków. Gdy indeks jest
@@ -33,6 +34,7 @@ Wektor<3> &Figura::operator[](uint32_t indeks) {
   }
   return Wierzcholki[indeks];
 }
+
 /**
  * Wypisanie Figury na odpowiedni strumień
  *
@@ -47,6 +49,7 @@ std::ostream &operator<<(std::ostream &strm, const Figura &F) {
   }
   return strm;
 }
+
 /**
  * Wczytanie Figury z odpowiedniego strumienia
  *
@@ -59,6 +62,7 @@ std::istream &operator>>(std::istream &strm, Figura &F) {
 
   return strm;
 }
+
 /**
  * Realizuje translację prostopadłościanu o zadany wektor
  * Do kolejnych wierzchołków jest dodawany wektor translacyjny.
@@ -70,6 +74,7 @@ void Figura::translacje(Wektor<3> W) {
     Wierzcholki[i] = Wierzcholki[i] + W;
   }
 }
+
 /**
  * Rotacja jest wykonywana na podstawie macierzy rotacji.
  * Na kolejnych wierzchołkach jest wykonywana operacja mnożenia przez macierz
@@ -83,6 +88,7 @@ void Figura::rotacja(const MacierzRot<3> &Macierz) {
     Wierzcholki[i] = Macierz * Wierzcholki[i];
   }
 }
+
 /**
  * Inicjalizuje obiekt Figure na podstawie wektorów z wierzchołkami
  *
@@ -107,6 +113,7 @@ Figura::Figura(std::array<Wektor<3>, 8> W) {
     Wierzcholki[i] = W[i];
   }
 }
+
 /**
  * Rysuje dany prostopadłościan w zewnętrznej aplikacji Gnuplot
  *
@@ -130,6 +137,7 @@ void Figura::rysuj(std::shared_ptr<drawNS::Draw3DAPI> rysownik) {
   }
   id = pom;
 }
+
 /**
  * Konwertuje wierchołek na odpowiednie parametry do rysowania w Gnuplot'cie
  *
@@ -140,6 +148,7 @@ void Figura::rysuj(std::shared_ptr<drawNS::Draw3DAPI> rysownik) {
 drawNS::Point3D Figura::konwertuj(Wektor<3> W) {
   return drawNS::Point3D(W[0], W[1], W[2]);
 }
+
 /**
  * Otwiera plik w trybie do odczytu
  *
@@ -154,6 +163,7 @@ bool Figura::otworz(std::string name) {
   }
   return true;
 }
+
 /**
  * Wczytuje oraz inicjalizuje wszystkie wierzchołki na podstawie danych z pliku.
  *
@@ -211,6 +221,7 @@ bool Figura::czy_Figura() {
   }
   return true;
 }
+
 /**
  * Operacja ręcznego dodawania obiektu klasy Figure na podstawie wierzchołków
  *
@@ -222,6 +233,7 @@ void Figura::dodaj() {
     std::cin >> Wierzcholki[i];
   }
 }
+
 /**
  * Usuwa kształt narysowny w zewnętrznej aplikacji Gnuplot
  *
@@ -232,18 +244,19 @@ void Figura::usun(std::shared_ptr<drawNS::Draw3DAPI> rysownik) {
     rysownik->erase_shape(id);
   }
 }
+
 /**
  * Funkcja kopiująca wierzchołki obiektu klasy Figure do innego obiektu tej
  * samej klasy
  *
  * @param F - obiekt klasy Figure z którego następuje przekopiowanie
  * wierzchołków
- * @return zwraca referencję do przekazywanego obiektu
+ * @return zwraca referencję do obiektu do którego zostały wpisane dane
  */
-const Figura &Figura::operator=(const Figura &F) {
+Figura &Figura::operator=(const Figura &F) {
   if (this != &F) {
     Wierzcholki = F.Wierzcholki;
     id = F.id;
   }
-  return F;
+  return *(this);
 }

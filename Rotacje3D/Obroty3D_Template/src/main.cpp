@@ -10,6 +10,16 @@
 
 using namespace std;
 
+/**
+ * @brief  Funkcja main
+ *
+ * Zawiera główną funkcjonalność programu
+ *
+ * @param argc - ilość argumentów przysłanych w linii wywołania
+ * @param argv - tablica argumentów wywołania
+ * @return - informacja o powodzeniu, bądź nie programu
+ */
+
 int main(int argc, char** argv) {
   Figura bryla;
   Scene scena;
@@ -38,7 +48,7 @@ int main(int argc, char** argv) {
   if (status) {
     shared_ptr<drawNS::Draw3DAPI> rysownik(
         new drawNS::APIGnuPlot3D(-10, 10, -10, 10, -10, 10, 0));
-    // system("clear");
+    system("clear");
     cout << "\t\tMENU\n";
     cout << "a - dodaj nowa bryle\n";
     cout << "d - usun bryle\n";
@@ -82,16 +92,17 @@ int main(int argc, char** argv) {
           cin >> kat;
           uint32_t l_pow;
           cin >> l_pow;
-          OS os;
-          cin >> os;
+          OS axis;
+          cin >> axis;
           if (!cin.good()) {
             cin.clear();
             cin.ignore(numeric_limits<int>::max(), '\n');
             cout << "Blad wywolania funkcji\n";
             break;
           }
-          kat = kat * l_pow;
-          MacierzRot<3> rot(kat, os);
+          kat = (double)(kat * l_pow);
+          double xd=2.0;
+          MacierzRot<3> rot(xd, axis);
           mrot = rot;
           scena[id_b].rotacja(rot);
           scena[id_b].rysuj(rysownik);
@@ -125,8 +136,8 @@ int main(int argc, char** argv) {
             uint32_t l_pow;
             cin >> l_pow;
 
-            OS os;
-            cin >> os;
+            OS axis;
+            cin >> axis;
 
             if (!cin.good()) {
               cin.clear();
@@ -135,7 +146,7 @@ int main(int argc, char** argv) {
               continue;
             }
             kat = kat * l_pow;
-            MacierzRot<3> pom(kat, os);
+            MacierzRot<3> pom(kat, axis);
             mrot = mrot * pom;
           }
           scena[id_b].rotacja(mrot);
