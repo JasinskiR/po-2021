@@ -14,44 +14,64 @@
 #include "Dr3D_gnuplot_api.hpp"
 #include "MacierzRot.hpp"
 
-/*!
- * \brief Modeluje pojęcie prostopadłościanu
+/**
+ * @brief Modeluje pojęcie prostopadłościanu
  *
  */
 
 class Figura {
  private:
+  /**
+   * @brief Tablica przechowująca 8 wierzchołków prostopadłościanu
+   *
+   * Prostopadłościan jest zlokalizowany w przestrzeni 3D
+   * Pojedyńczy punkt jest zmodelowany za pomocą klasy Wektor
+   */
   std::array<Wektor<3>, 8> Wierzcholki;
+  /**
+   * @brief Zmienna typu fstream, która służy do otwierania oraz wczytywania
+   * pliku z danymi
+   *
+   */
   std::fstream read;
+  /**
+   * @brief  Konwersja wierchołka na odpowiednie parametry do rysowania w
+   * Gnuplot'cie
+   */
   drawNS::Point3D konwertuj(Wektor<3> W);
+  /**
+   * @brief Zmienna pomocnicza do odpowiedniego rysowania jak i usuwania
+   * obiektów z Gnuplot'a
+   *
+   */
   int id = -1;
 
  public:
-  /*!
-   * \brief Konstruktor domyślny dla prostopadłościanu
+  /**
+   * @brief Konstruktor domyślny dla prostopadłościanu
    * Ustawia je wszystkie na zera
    *
    */
   Figura() = default;
-  /*!
-   * \brief Konstruktor kopiujący
+  /**
+   * @brief Konstruktor kopiujący
    *
    */
   Figura(const Figura &F) : Wierzcholki{F.Wierzcholki}, id{F.id} {}
-  /*!
-   * \brief Operator przypisania
+  /**
+   * @brief Operator przypisania
    * Kopiujący operator przypisania
    *
    */
   const Figura &operator=(const Figura &F);
-  /*!
-   * \brief Inicjalizuje figurę
+  /**
+   * @brief Inicjalizuje figurę
    * Inicjalizuje figurę na podstawie innego obiektu klasy Figure
    *
    */
   Figura(std::array<Wektor<3>, 8> W);
-  /*!
-   * \brief Funkcja składowa wykonująca rotację bryły
+  /**
+   * @brief Funkcja składowa wykonująca rotację bryły
    *
    */
   void rotacja(const MacierzRot<3> &Macierz);

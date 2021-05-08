@@ -6,9 +6,9 @@
 #include "Figure.hpp"
 #include "MacierzRot.hpp"
 
-/*!
+/**
  * \file 
- * \brief Definicja klasy Scene
+ * @brief Definicja klasy Scene
  * 
  * Plik zawiera definicję klasy Scene
  */
