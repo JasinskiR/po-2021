@@ -101,8 +101,7 @@ int main(int argc, char** argv) {
             break;
           }
           kat = (double)(kat * l_pow);
-          double xd=2.0;
-          MacierzRot<3> rot(xd, axis);
+          MacierzRot<3> rot(kat, axis);
           mrot = rot;
           scena[id_b].rotacja(rot);
           scena[id_b].rysuj(rysownik);
