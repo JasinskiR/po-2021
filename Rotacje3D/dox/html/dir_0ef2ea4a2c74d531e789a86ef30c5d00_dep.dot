@@ -1,0 +1,12 @@
+digraph "Obroty3D_Template" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_0ef2ea4a2c74d531e789a86ef30c5d00 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_0ef2ea4a2c74d531e789a86ef30c5d00.html"];
+    dir_0ef2ea4a2c74d531e789a86ef30c5d00 [shape=plaintext label="Obroty3D_Template"];
+  dir_677ef74f2f31f89624274d749b2ae06e [shape=box label="inc" fillcolor="white" style="filled" URL="dir_677ef74f2f31f89624274d749b2ae06e.html"];
+  dir_20ed765ac1e696285fdb377567f64395 [shape=box label="src" fillcolor="white" style="filled" URL="dir_20ed765ac1e696285fdb377567f64395.html"];
+  }
+  dir_20ed765ac1e696285fdb377567f64395->dir_677ef74f2f31f89624274d749b2ae06e [headlabel="10", labeldistance=1.5 headhref="dir_000001_000002.html"];
+}

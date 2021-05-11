@@ -1,0 +1,12 @@
+digraph "drawNS::APIGnuPlot3D::replot_loop"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="drawNS::APIGnuPlot3D\l::replot_loop",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="drawNS::APIGnuPlot3D\l::APIGnuPlot3D",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a9fd786880bdcfc90d260127a83362a01",tooltip="Constructor."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="drawNS::APIGnuPlot3D\l::change_ref_time_ms",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aa7da7ed9eaaea392a5710143fda0da67",tooltip="change mode for ploting and/or time between auto-replots"];
+}

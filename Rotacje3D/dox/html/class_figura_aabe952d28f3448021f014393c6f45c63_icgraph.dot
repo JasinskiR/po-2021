@@ -1,0 +1,18 @@
+digraph "Figura::l_punktow"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Figura::l_punktow",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Funkcja składowa zliczająca ilość wierzchołków."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="operator\<\<",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_figure_8hpp.html#a9944652b62da9d127cf56ae7185dd7f5",tooltip="Wypisuje prostopadłościan do strumienia."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Figura::operator[]",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_figura.html#ad5617e79a2ecee78ef2674da4c05bfa5",tooltip="Operator dostępowy do wierzchołków prostopadłościanu."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Figura::rotacja",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_figura.html#a05b26ea77cac1dc2c1f1bfcbaef2cecd",tooltip="Funkcja składowa wykonująca rotację bryły."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Figura::rysuj",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_figura.html#ad518143f75f12490f5fc5844e1abc4d6",tooltip="Funkcja składowa odpowiedzialna za rysowanie bryły w gnuplot'cie."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Figura::translacje",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_figura.html#a674b9ae84f91b6c84b22d73099925140",tooltip="Funkcja składowa wykonująca translację bryły."];
+}

@@ -1,0 +1,17 @@
+digraph "drawNS::APIGnuPlot3D::APIGnuPlot3D"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="drawNS::APIGnuPlot3D\l::APIGnuPlot3D",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Constructor."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="drawNS::APIGnuPlot3D\l::replot_loop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#afa364d7d8a0a74d51b680a9560e1f1ed",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="drawNS::APIGnuPlot3D\l::draw_all_shapes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="drawNS::APIGnuPlot3D\l::send2gnuplot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a6a8a5e074e337ed9be9cfb45b6738b89",tooltip=" "];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="drawNS::APIGnuPlot3D\l::translate_color",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ad9c71531a2f5c76ecdb65fa913962961",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

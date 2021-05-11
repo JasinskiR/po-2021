@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Obroty 3D: Plik źródłowy Scene.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="tenor (1).gif"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Obroty 3D
+   &#160;<span id="projectnumber">0.1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Szukaj');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_scene_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Scene.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_scene_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html">Scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_scene.html#aeca49f886e70d2dbae4e4eebdadc84a0">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_scene.html#aeca49f886e70d2dbae4e4eebdadc84a0">Scene::Add</a>(<a class="code" href="class_figura.html">Figura</a> *obj) {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordflow">if</span> (obj == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    obj = <span class="keyword">new</span> <a class="code" href="class_figura.html">Figura</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    obj-&gt;<a class="code" href="class_figura.html#a80628589dbfb3b0107ad06ac5722f179">dodaj</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  this-&gt;<a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>.push_back(obj);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_scene.html#a295bf464bc2d1742208562f4838fac06">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_scene.html#a295bf464bc2d1742208562f4838fac06">Scene::Remove</a>(<span class="keyword">const</span> uint32_t &amp;ind,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                   std::shared_ptr&lt;drawNS::Draw3DAPI&gt; rysownik) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordflow">if</span> (ind &lt; 0 || ind &gt;= <a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>.size()) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Poza pamiecia&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    exit(0);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>[ind]-&gt;usun(rysownik);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    this-&gt;<a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>.erase(<a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>.begin() + ind);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_scene.html#a872b4ead60a5db2b7c461db186341a43">   46</a></span>&#160;<a class="code" href="class_figura.html">Figura</a> &amp;<a class="code" href="class_scene.html#a872b4ead60a5db2b7c461db186341a43">Scene::operator[]</a>(<span class="keyword">const</span> uint32_t &amp;ind) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">if</span> (ind &lt; 0 || ind &gt;= <a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>.size()) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Poza pamiecia!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    exit(0);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">return</span> *(<a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>[ind]);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="_scene_8hpp.html#a3c39667a1ecb914b50f461909f5795bb">   62</a></span>&#160;std::ostream &amp;<a class="code" href="_scene_8cpp.html#a3c39667a1ecb914b50f461909f5795bb">operator&lt;&lt;</a>(std::ostream &amp;strm, <span class="keyword">const</span> <a class="code" href="class_scene.html">Scene</a> &amp;figures) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  strm &lt;&lt; <span class="stringliteral">&quot;Dostepne indeksy figur to :&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; figures.<a class="code" href="class_scene.html#a0cd16580ed3a1db978c03724516266d9">n_figures</a>(); ++i) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    strm &lt;&lt; i + 1 &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">return</span> strm;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_scene.html#a7b4c726188d4f98614caed842839bd29">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_scene.html#a7b4c726188d4f98614caed842839bd29">Scene::rysuj</a>(std::shared_ptr&lt;drawNS::Draw3DAPI&gt; rysownik) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; <a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>.size(); ++i) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">figures</a>[i]-&gt;rysuj(rysownik);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="ttc" id="a_scene_8cpp_html_a3c39667a1ecb914b50f461909f5795bb"><div class="ttname"><a href="_scene_8cpp.html#a3c39667a1ecb914b50f461909f5795bb">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;strm, const Scene &amp;figures)</div><div class="ttdoc">Wpisuje scene do strumienia.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00062">Scene.cpp:62</a></div></div>
+<div class="ttc" id="a_scene_8hpp_html"><div class="ttname"><a href="_scene_8hpp.html">Scene.hpp</a></div><div class="ttdoc">Definicja klasy Scena.</div></div>
+<div class="ttc" id="aclass_figura_html"><div class="ttname"><a href="class_figura.html">Figura</a></div><div class="ttdoc">Modeluje pojęcie prostopadłościanu.</div><div class="ttdef"><b>Definition:</b> <a href="_figure_8hpp_source.html#l00022">Figure.hpp:22</a></div></div>
+<div class="ttc" id="aclass_figura_html_a80628589dbfb3b0107ad06ac5722f179"><div class="ttname"><a href="class_figura.html#a80628589dbfb3b0107ad06ac5722f179">Figura::dodaj</a></div><div class="ttdeci">void dodaj()</div><div class="ttdoc">Funkcja składowa odpowiedzialna za przypisanie wartości wierzchołkom.</div><div class="ttdef"><b>Definition:</b> <a href="_figure_8cpp_source.html#l00229">Figure.cpp:229</a></div></div>
+<div class="ttc" id="aclass_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdoc">Klasa modeluje pojęcie wielu brył naraz w przestrzeni 3D.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8hpp_source.html#l00020">Scene.hpp:20</a></div></div>
+<div class="ttc" id="aclass_scene_html_a08b47efc2fa8d692beb609b74e50d20a"><div class="ttname"><a href="class_scene.html#a08b47efc2fa8d692beb609b74e50d20a">Scene::figures</a></div><div class="ttdeci">std::vector&lt; Figura * &gt; figures</div><div class="ttdoc">Wektor przechowujący wszystkie figury.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8hpp_source.html#l00028">Scene.hpp:28</a></div></div>
+<div class="ttc" id="aclass_scene_html_a0cd16580ed3a1db978c03724516266d9"><div class="ttname"><a href="class_scene.html#a0cd16580ed3a1db978c03724516266d9">Scene::n_figures</a></div><div class="ttdeci">std::size_t n_figures() const</div><div class="ttdoc">Zwracanie ilości figur w przestrzeni.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8hpp_source.html#l00051">Scene.hpp:51</a></div></div>
+<div class="ttc" id="aclass_scene_html_a295bf464bc2d1742208562f4838fac06"><div class="ttname"><a href="class_scene.html#a295bf464bc2d1742208562f4838fac06">Scene::Remove</a></div><div class="ttdeci">void Remove(const uint32_t &amp;ind, std::shared_ptr&lt; drawNS::Draw3DAPI &gt; rysownik)</div><div class="ttdoc">Usunięcie bryły z przestrzeni na podstawie jej numeru.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00026">Scene.cpp:26</a></div></div>
+<div class="ttc" id="aclass_scene_html_a7b4c726188d4f98614caed842839bd29"><div class="ttname"><a href="class_scene.html#a7b4c726188d4f98614caed842839bd29">Scene::rysuj</a></div><div class="ttdeci">void rysuj(std::shared_ptr&lt; drawNS::Draw3DAPI &gt; rysownik)</div><div class="ttdoc">Rysuje wszystkie figury zawarte w wektorze.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00075">Scene.cpp:75</a></div></div>
+<div class="ttc" id="aclass_scene_html_a872b4ead60a5db2b7c461db186341a43"><div class="ttname"><a href="class_scene.html#a872b4ead60a5db2b7c461db186341a43">Scene::operator[]</a></div><div class="ttdeci">Figura &amp; operator[](const uint32_t &amp;ind)</div><div class="ttdoc">Operator dostępowy do figur na scenie.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00046">Scene.cpp:46</a></div></div>
+<div class="ttc" id="aclass_scene_html_aeca49f886e70d2dbae4e4eebdadc84a0"><div class="ttname"><a href="class_scene.html#aeca49f886e70d2dbae4e4eebdadc84a0">Scene::Add</a></div><div class="ttdeci">void Add(Figura *obj=nullptr)</div><div class="ttdoc">Dodanie nowej figury.</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00010">Scene.cpp:10</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_0ef2ea4a2c74d531e789a86ef30c5d00.html">Obroty3D_Template</a></li><li class="navelem"><a class="el" href="dir_20ed765ac1e696285fdb377567f64395.html">src</a></li><li class="navelem"><a class="el" href="_scene_8cpp.html">Scene.cpp</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
