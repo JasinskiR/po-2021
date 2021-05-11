@@ -50,6 +50,8 @@ int main(int argc, char** argv) {
         new drawNS::APIGnuPlot3D(-10, 10, -10, 10, -10, 10, 0));
     system("clear");
     cout << "\t\tMENU\n";
+    cout << "Poszczególne funkcje wywoluje sie poprzez podanie opcji, id "
+            "bryly, (specyfikacje)\n";
     cout << "a - dodaj nowa bryle\n";
     cout << "d - usun bryle\n";
     cout << "o - obrot bryly o zadany kat\n";
@@ -82,6 +84,7 @@ int main(int argc, char** argv) {
           break;
         }
         case 'o': {
+          mrot = MacierzRot<3>();
           // indeks bryly
           // obrot a kat / potrzebny kat i ilosc powtorzen "o liczba liczba"
           // oraz os obrotu
@@ -113,6 +116,7 @@ int main(int argc, char** argv) {
         }
 
         case 's': {
+          mrot = MacierzRot<3>();
           // indeks bryly
           // obrot a kat / potrzebny kat i ilosc powtorzen "o liczba liczba"
           // oraz os obrotu
@@ -120,11 +124,11 @@ int main(int argc, char** argv) {
           uint32_t id_b;
           cin >> id_b;
           id_b -= 1;
-          char kropka;
+          char sign = 'a';
 
-          while (kropka != '.') {
-            cin >> ws >> kropka;
-            if (kropka != '.')
+          while (sign != '.') {
+            cin >> ws >> sign;
+            if (sign != '.')
               cin.unget();
             else
               cin.setstate(ios::failbit);
@@ -141,10 +145,10 @@ int main(int argc, char** argv) {
             if (!cin.good()) {
               cin.clear();
               cin.ignore(numeric_limits<int>::max(), '\n');
-              if (kropka != '.') cout << "Bledna ostatnia czesc sekwencji\n";
+              if (sign != '.') cout << "Bledna ostatnia czesc sekwencji\n";
               continue;
             }
-            kat = kat * l_pow;
+            kat = (double)(kat * l_pow);
             MacierzRot<3> pom(kat, axis);
             mrot = mrot * pom;
           }
@@ -182,9 +186,11 @@ int main(int argc, char** argv) {
           if (!cin.good()) {
             cin.clear();
             cin.ignore(numeric_limits<int>::max(), '\n');
+            cerr << "Blad wywolania funkcji\n";
+          } else {
+            scena[id_b].translacje(W_translacji);
+            scena[id_b].rysuj(rysownik);
           }
-          scena[id_b].translacje(W_translacji);
-          scena[id_b].rysuj(rysownik);
           break;
         }
         case 'w': {
@@ -227,4 +233,4 @@ int main(int argc, char** argv) {
       scena.rysuj(rysownik);
     }
   }
-} 
+}

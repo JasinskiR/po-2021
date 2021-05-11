@@ -65,6 +65,12 @@ class MacierzRot {
    */
   MacierzRot<SIZE> operator*(const MacierzRot<SIZE> &Arg2) const;
 
+/**
+ * @brief Operator kopiujący
+ * 
+ */
+  MacierzRot<SIZE> &operator=(const MacierzRot<SIZE> &Matrix);
+
   /**
    * \brief Operator dostępowy do wierszów macierzy
    */

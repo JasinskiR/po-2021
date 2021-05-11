@@ -97,15 +97,15 @@ void Figura::rotacja(const MacierzRot<3> &Macierz) {
  */
 Figura::Figura(std::array<Wektor<3>, 8> W) {
   double epsilon = 0.01;
-  if (epsilon < abs((W[0] - W[1]) * (W[1] - W[2])) ||
-      epsilon < abs((W[0] - W[1]) * (W[1] - W[5])) ||
-      epsilon < abs((W[1] - W[2]) * (W[1] - W[5]))) {
+  if (epsilon < std::abs((W[0] - W[1]) * (W[1] - W[2])) ||
+      epsilon < std::abs((W[0] - W[1]) * (W[1] - W[5])) ||
+      epsilon < std::abs((W[1] - W[2]) * (W[1] - W[5]))) {
     std::cerr << "Boki nie sa prostopadle" << std::endl;
     exit(0);
   }
-  if (epsilon < abs(((W[0] - W[1]).dlugosc() - (W[6] - W[7]).dlugosc())) ||
-      epsilon < abs((W[0] - W[3]).dlugosc() - (W[5] - W[6]).dlugosc()) ||
-      epsilon < abs((W[0] - W[4]).dlugosc() - (W[2] - W[6]).dlugosc())) {
+  if (epsilon < std::abs(((W[0] - W[1]).dlugosc() - (W[6] - W[7]).dlugosc())) ||
+      epsilon < std::abs((W[0] - W[3]).dlugosc() - (W[5] - W[6]).dlugosc()) ||
+      epsilon < std::abs((W[0] - W[4]).dlugosc() - (W[2] - W[6]).dlugosc())) {
     std::cerr << "Boki nie sa rowne" << std::endl;
     exit(0);
   }
@@ -203,20 +203,20 @@ się nie zgadza
  */
 bool Figura::czy_Figura() {
   double epsilon = 0.01;
-  if (epsilon < abs((Wierzcholki[0] - Wierzcholki[1]) *
-                    (Wierzcholki[1] - Wierzcholki[2])) ||
-      epsilon < abs((Wierzcholki[0] - Wierzcholki[1]) *
-                    (Wierzcholki[1] - Wierzcholki[5])) ||
-      epsilon < abs((Wierzcholki[1] - Wierzcholki[2]) *
-                    (Wierzcholki[1] - Wierzcholki[5]))) {
+  if (epsilon < std::abs((Wierzcholki[0] - Wierzcholki[1]) *
+                         (Wierzcholki[1] - Wierzcholki[2])) ||
+      epsilon < std::abs((Wierzcholki[0] - Wierzcholki[1]) *
+                         (Wierzcholki[1] - Wierzcholki[5])) ||
+      epsilon < std::abs((Wierzcholki[1] - Wierzcholki[2]) *
+                         (Wierzcholki[1] - Wierzcholki[5]))) {
     return false;
   }
-  if (epsilon < abs(((Wierzcholki[1] - Wierzcholki[0]).dlugosc() -
-                     (Wierzcholki[7] - Wierzcholki[6]).dlugosc())) ||
-      epsilon < abs((Wierzcholki[3] - Wierzcholki[0]).dlugosc() -
-                    (Wierzcholki[6] - Wierzcholki[5]).dlugosc()) ||
-      epsilon < abs((Wierzcholki[4] - Wierzcholki[0]).dlugosc() -
-                    (Wierzcholki[6] - Wierzcholki[2]).dlugosc())) {
+  if (epsilon < std::abs(((Wierzcholki[1] - Wierzcholki[0]).dlugosc() -
+                          (Wierzcholki[7] - Wierzcholki[6]).dlugosc())) ||
+      epsilon < std::abs((Wierzcholki[3] - Wierzcholki[0]).dlugosc() -
+                         (Wierzcholki[6] - Wierzcholki[5]).dlugosc()) ||
+      epsilon < std::abs((Wierzcholki[4] - Wierzcholki[0]).dlugosc() -
+                         (Wierzcholki[6] - Wierzcholki[2]).dlugosc())) {
     return false;
   }
   return true;
@@ -227,6 +227,8 @@ bool Figura::czy_Figura() {
  *
  */
 void Figura::dodaj() {
+  std::cout << "Wierzcholki nalezy podac w kolejnosci "
+               "LDP,PDP,PGP,LGP,LDT,PDT,PGT,LGT \n? ? P - przod \n? ? T - tyl\n";
   for (uint32_t i = 0; i < 8; ++i) {
     std::cout << "\nPodaj wspolrzedne wierzcholka " << i + 1
               << " (trzy liczby odzielone spacja): ";

@@ -195,6 +195,25 @@ std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz) {
   return strm;
 }
 
+/**
+ * Funkcja kopiująca wartości macierzy rotacji do innej macierzy tego samego typu
+ * 
+ * @tparam SIZE - Określa wymiar macierzy rotacji
+ * @param Matrix - Obiekt klasy MacierzRot z którego następuje przekopiowanie wartości
+ * @return  Zwraca referencję do obiektu do którego zostały wpisane dane
+ */
+template <uint32_t SIZE>
+MacierzRot<SIZE> &MacierzRot<SIZE>::operator=(const MacierzRot<SIZE> &Matrix) {
+  if (this != &Matrix) {
+    for (uint32_t i = 0; i < SIZE; ++i) {
+      for (uint32_t j = 0; j < SIZE; ++j) {
+        Macierz[i][j] = Matrix[i][j];
+      }
+    }
+  }
+  return *this;
+}
+
 template class MacierzRot<3>;
 template std::ostream &operator<<(std::ostream &strm,
                                   const MacierzRot<3> &Macierz);
