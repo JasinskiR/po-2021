@@ -31,10 +31,10 @@ class Vector {
  public:
   /**
    * @brief Inicjalizuje wektor na podstawie wspołrzędnych w tablicy
-   * @param pkt - tablica współrzędnych które zostaną skopiowane do tablicy
+   * @param pt - tablica współrzędnych które zostaną skopiowane do tablicy
    * wektora
    */
-  Vector(std::array<double, SIZE> pkt) : cords(pkt){};
+  Vector(std::array<double, SIZE> pt) : cords(pt){};
 
   /**
    * @brief Inicjalizuje wektor
@@ -46,27 +46,27 @@ class Vector {
   /**
    * @brief Modeluje operacje dodania dwóch wektorów do siebie
    */
-  Vector<SIZE> operator+(const Vector<SIZE> &Arg2) const;
+  Vector<SIZE> operator+(const Vector<SIZE> &secondV) const;
 
   /**
    * @brief Modeluje operacje odejmowania dwóch wektorów od siebie
    */
-  Vector<SIZE> operator-(const Vector<SIZE> &Arg2) const;
+  Vector<SIZE> operator-(const Vector<SIZE> &secondV) const;
 
   /**
    * @brief Modeluje pojęcie mnożenia wektora przez stałą
    */
-  Vector<SIZE> operator*(const double &Arg2) const;
+  Vector<SIZE> operator*(const double &constValue) const;
 
   /**
    * @brief Modeluje pojęcie mnożenia skalarnego wektorów
    */
-  double operator*(const Vector<SIZE> &Arg2) const;
+  double operator*(const Vector<SIZE> &secondV) const;
 
   /**
    * @brief Liczy długość wektora
    */
-  double dlugosc() const;
+  double length() const;
 
   /**
    * @brief Operator dostępowy do współrzędnych wektora.
@@ -83,13 +83,13 @@ class Vector {
  * @brief  Wczytuje wektor ze strumienia.
  */
 template <uint32_t SIZE>
-std::istream &operator>>(std::istream &strm, Vector<SIZE> &Vector);
+std::istream &operator>>(std::istream &strm, Vector<SIZE> &vector);
 
 /**
  * @brief  Wpisuje wektor do strumienia.
  */
 template <uint32_t SIZE>
-std::ostream &operator<<(std::ostream &strm, const Vector<SIZE> &Vector);
+std::ostream &operator<<(std::ostream &strm, const Vector<SIZE> &vector);
 
 #include "Vector.tpp"
 #endif

@@ -42,51 +42,51 @@ const double &Vector<SIZE>::operator[](uint32_t index) const {
  * Dodaje odpowiednie składowe dwóch wektorów i zwraca wynik.
  *
  * @tparam SIZE - Określa wymiar wektora
- * @param Arg2 - Wektor który dodajemy
+ * @param secondV - Wektor który dodajemy
  * @return Zwraca wynik dodawania dwóch wektorów
  */
 template <uint32_t SIZE>
-Vector<SIZE> Vector<SIZE>::operator+(const Vector<SIZE> &Arg2) const {
-  Vector<SIZE> Wynik;
+Vector<SIZE> Vector<SIZE>::operator+(const Vector<SIZE> &secondV) const {
+  Vector<SIZE> resultV;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Wynik[i] = this->cords[i] + Arg2[i];
+    resultV[i] = this->cords[i] + secondV[i];
   }
 
-  return Wynik;
+  return resultV;
 }
 
 /**
  * Odejmuje odpowiednie składowe dwóch wektorów i zwraca wynik.
  *
  * @tparam SIZE - Określa wymiar wektora
- * @param Arg2 - Wektor który odejmujemy
+ * @param secondV - Wektor który odejmujemy
  * @return Zwraca wynik odejmowania dwóch wektorów
  */
 template <uint32_t SIZE>
-Vector<SIZE> Vector<SIZE>::operator-(const Vector<SIZE> &Arg2) const {
-  Vector<SIZE> Wynik;
+Vector<SIZE> Vector<SIZE>::operator-(const Vector<SIZE> &secondV) const {
+  Vector<SIZE> resultV;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Wynik[i] = this->cords[i] - Arg2[i];
+    resultV[i] = this->cords[i] - secondV[i];
   }
 
-  return Wynik;
+  return resultV;
 }
 
 /**
  * Mnoży wszystkie składowe wektora przez przysłaną stałą.
  *
  * @tparam SIZE - Określa wymiar wektora
- * @param Arg2 - stała przez którą mnożymy
+ * @param constValue - stała przez którą mnożymy
  * @return Zwraca wynik przemnożenia wektora przez stałą.
  */
 template <uint32_t SIZE>
-Vector<SIZE> Vector<SIZE>::operator*(const double &Arg2) const {
-  Vector<SIZE> Wynik;
+Vector<SIZE> Vector<SIZE>::operator*(const double &constValue) const {
+  Vector<SIZE> resultV;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Wynik[i] = this->cords[i] * Arg2;
+    resultV[i] = this->cords[i] * constValue;
   }
 
-  return Wynik;
+  return resultV;
 }
 
 /**
@@ -94,16 +94,16 @@ Vector<SIZE> Vector<SIZE>::operator*(const double &Arg2) const {
  * dodaje je do siebie
  *
  * @tparam SIZE - Określa wymiar wektora
- * @param Arg2 - stała przez którą mnożymy
+ * @param secondV - stała przez którą mnożymy
  * @return Zwraca wynik przemnożenia wektora przez wektor.
  */
 template <uint32_t SIZE>
-double Vector<SIZE>::operator*(const Vector<SIZE> &Arg2) const {
-  double Wynik = 0;
+double Vector<SIZE>::operator*(const Vector<SIZE> &secondV) const {
+  double result = 0;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Wynik += this->cords[i] * Arg2[i];
+    result += this->cords[i] * secondV[i];
   }
-  return Wynik;
+  return result;
 }
 
 /**
@@ -112,26 +112,26 @@ double Vector<SIZE>::operator*(const Vector<SIZE> &Arg2) const {
  * @return Zwraca długość wektora
  */
 template <uint32_t SIZE>
-double Vector<SIZE>::dlugosc() const {
-  double Wynik = 0;
+double Vector<SIZE>::length() const {
+  double result = 0;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Wynik += pow(this->cords[i], 2);
+    result += pow(this->cords[i], 2);
   }
 
-  return sqrt(Wynik);
+  return sqrt(result);
 }
 
 /**
  * Wczytanie wektora z odpowiedniego strumienia
  *
  * @param strm - strumien z którego ma zostać wczytany wektor
- * @param Vector - wektor który ma zostać wczytany
+ * @param vector - wektor który ma zostać wczytany
  * @return zwracamy referencję do przysłanego strumienia
  */
 template <uint32_t SIZE>
-std::istream &operator>>(std::istream &strm, Vector<SIZE> &Vector) {
+std::istream &operator>>(std::istream &strm, Vector<SIZE> &vector) {
   for (uint32_t i = 0; i < SIZE; ++i) {
-    strm >> Vector[i];
+    strm >> vector[i];
   }
   // compilator sam ustawi failbita na strm jezeli zostanie wczytana
   // nieprawidlowa wartosc
@@ -149,20 +149,15 @@ std::istream &operator>>(std::istream &strm, Vector<SIZE> &Vector) {
  * Wypisanie wektora na odpowiedni strumień
  *
  * @param strm - strumien na który ma zostać wypisany wektor
- * @param Vector - wektor który ma zostać wypisany
+ * @param vector - wektor który ma zostać wypisany
  * @return zwracamy referencję do przysłanego strumienia
  */
 template <uint32_t SIZE>
-std::ostream &operator<<(std::ostream &strm, const Vector<SIZE> &Vector) {
+std::ostream &operator<<(std::ostream &strm, const Vector<SIZE> &vector) {
   for (uint32_t i = 0; i < SIZE; ++i) {
-    strm << std::setw(12) << std::fixed << std::setprecision(10) << Vector[i]
+    strm << std::setw(12) << std::fixed << std::setprecision(10) << vector[i]
          << " ";
   }
   strm << std::endl;
   return strm;
 }
-
-template class Vector<3>;
-
-template std::ostream &operator<<(std::ostream &strm, const Vector<3> &Vector);
-template std::istream &operator>>(std::istream &strm, Vector<3> &Vector);

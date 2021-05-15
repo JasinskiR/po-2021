@@ -1,17 +1,21 @@
-#include <iomanip>
 #include <iostream>
 
-#include "Dr3D_gnuplot_api.hpp"
-// #include "Figure.hpp"
-#include "MatrixRot.hpp"
-// #include "Scene.hpp"
-#include "Vector.hpp"
+#include "Drone.hpp"
+#include "Surface.hpp"
 
 using namespace std;
 
 int main() {
-  std::shared_ptr<drawNS::Draw3DAPI> api(
-      new drawNS::APIGnuPlot3D(-50, 50, -50, 50, -50, 50, 0));
+  shared_ptr<drawNS::Draw3DAPI> api(
+      new drawNS::APIGnuPlot3D(-5, 5, -5, 5, -1, 10, 0));
   cout << "Obsluga drona \"DragonFly\"" << endl;
-  return 0;
+  Surface(-1, api);
+  Drone dron(Vector<3>({0, 0, 0}), MatrixRot<3>());
+  dron.draw(api);
+  int i = 0;
+  while (i != 2) {
+    cin >> i;
+  }
+  dron.animation(5, 45, 3, api);
+  dron.animation(2, -45, -3, api);
 }

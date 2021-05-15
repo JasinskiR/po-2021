@@ -35,13 +35,13 @@ class MatrixRot {
    *
    * Składa się ona z wektorów
    */
-  std::array<Vector<SIZE>, SIZE> matrixRot;
+  std::array<Vector<SIZE>, SIZE> matrixR;
 
   /**
    * @brief Funkcja odpowiedzialana za transponowanie macierzy
    *
    */
-  MatrixRot<SIZE> transponowanie() const;
+  MatrixRot<SIZE> transposition() const;
 
  public:
   /**
@@ -58,12 +58,12 @@ class MatrixRot {
   /**
    * @brief Modeluje pojęcie mnożenia macierzy przez wektor
    */
-  Vector<SIZE> operator*(const Vector<SIZE> &Arg2) const;
+  Vector<SIZE> operator*(const Vector<SIZE> &secondM) const;
 
   /**
    * @brief Modeluje pojęcie mnozenia macierzy przez inną macierz
    */
-  MatrixRot<SIZE> operator*(const MatrixRot<SIZE> &Arg2) const;
+  MatrixRot<SIZE> operator*(const MatrixRot<SIZE> &secondM) const;
 
 /**
  * @brief Operator kopiujący
@@ -87,7 +87,7 @@ std::ostream &operator<<(std::ostream &strm, const MatrixRot<SIZE> &matrix);
 /**
  * @brief  Pobiera os ze strumienia
  */
-std::istream &operator>>(std::istream &strm, OS &os);
+std::istream &operator>>(std::istream &strm, Axis &os);
 
 #include "MatrixRot.tpp"
 

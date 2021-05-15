@@ -9,9 +9,9 @@
  * @tparam SIZE - Określa wymiar macierzy rotacji
  */
 template <uint32_t SIZE>
-MacierzRot<SIZE>::MacierzRot() : Macierz{} {
+MatrixRot<SIZE>::MatrixRot() : matrixR{} {
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Macierz[i][i] = 1;
+    matrixR[i][i] = 1;
   }
 }
 
@@ -19,16 +19,16 @@ MacierzRot<SIZE>::MacierzRot() : Macierz{} {
  * Mnoży odpowiednie składowe macierzy z odpowiednimi składowymi wektora.
  *
  * @tparam SIZE - Określa wymiar macierzy rotacji oraz rozmiar wektora
- * @param Arg2 - wektor przez który chcemy przemnożyć macierz
+ * @param secondM - wektor przez który chcemy przemnożyć macierz
  * @return Zwracamy wektor który jest wynikiem mnożenia
  */
 template <uint32_t SIZE>
-Vector<SIZE> MacierzRot<SIZE>::operator*(const Vector<SIZE> &Arg2) const {
-  Vector<SIZE> Wynik;
+Vector<SIZE> MatrixRot<SIZE>::operator*(const Vector<SIZE> &secondM) const {
+  Vector<SIZE> result;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    Wynik[i] = this->Macierz[i] * Arg2;
+    result[i] = this->matrixR[i] * secondM;
   }
-  return Wynik;
+  return result;
 }
 
 /**
@@ -38,14 +38,14 @@ Vector<SIZE> MacierzRot<SIZE>::operator*(const Vector<SIZE> &Arg2) const {
  * @return  Zwraca macierz która jest wynikiem jej transponowania
  */
 template <uint32_t SIZE>
-MacierzRot<SIZE> MacierzRot<SIZE>::transponowanie() const {
-  MacierzRot<SIZE> T;
+MatrixRot<SIZE> MatrixRot<SIZE>::transposition() const {
+  MatrixRot<SIZE> transM;
   for (uint32_t i = 0; i < SIZE; ++i) {
     for (uint32_t j = 0; j < SIZE; ++j) {
-      T.Macierz[i][j] = Macierz[j][i];
+      transM.matrixR[i][j] = matrixR[j][i];
     }
   }
-  return T;
+  return transM;
 }
 
 /**
@@ -53,20 +53,20 @@ MacierzRot<SIZE> MacierzRot<SIZE>::transponowanie() const {
  * macierzy.
  *
  * @tparam SIZE - Określa wymiar obu macierzy rotacji
- * @param Arg2 - macierz przez którą chcemy przemnożyć pierwszą macierz
+ * @param secondM - macierz przez którą chcemy przemnożyć pierwszą macierz
  * @return Zwraca macierz która jest wynikiem mnożenia
  */
 template <uint32_t SIZE>
-MacierzRot<SIZE> MacierzRot<SIZE>::operator*(
-    const MacierzRot<SIZE> &Arg2) const {
-  MacierzRot<SIZE> MacierzW, T;
-  T = Arg2.transponowanie();
+MatrixRot<SIZE> MatrixRot<SIZE>::operator*(
+    const MatrixRot<SIZE> &secondM) const {
+  MatrixRot<SIZE> resultM, T;
+  T = secondM.transposition();
   for (uint32_t i = 0; i < SIZE; ++i) {
     for (uint32_t j = 0; j < SIZE; ++j) {
-      MacierzW.Macierz[i][j] = Macierz[i] * T[j];
+     resultM.matrixR[i][j] = matrixR[i] * T[j];
     }
   }
-  return MacierzW;
+  return resultM;
 }
 
 /**
@@ -80,12 +80,12 @@ MacierzRot<SIZE> MacierzRot<SIZE>::operator*(
  * @return zwraca odpowiedni niemodyfikowalny wiersz macierzy rotacji
  */
 template <uint32_t SIZE>
-const Vector<SIZE> &MacierzRot<SIZE>::operator[](uint32_t index) const {
+const Vector<SIZE> &MatrixRot<SIZE>::operator[](uint32_t index) const {
   if (index < 0 || index > SIZE) {
     std::cerr << "Poza pamiecia!" << std::endl;
     exit(0);
   }
-  return Macierz[index];
+  return matrixR[index];
 }
 
 /**
@@ -96,56 +96,21 @@ const Vector<SIZE> &MacierzRot<SIZE>::operator[](uint32_t index) const {
  * @param o - oś układu współrzędnych wokół której chcemy wykonywać obrót
  */
 template <uint32_t SIZE>
-MacierzRot<SIZE>::MacierzRot(const double &angle, Axis o) {
-  static_assert(!(SIZE <> 3), "Program nie obsluguje obrotow w innych wymiarach niz 3!");
-}
-
-/**
- * Wczytuje oś ze strumienia
- *
- * @param strm - strumień z którego ma zostać wczytana oś
- * @param os - oś która ma zostać wczytana
- * @return Zwracamy referencję do przysłanego strumienia
- */
-std::istream &operator>>(std::istream &strm, Axis &os) {
-  char tmp;
-  strm >> tmp;
-  switch (tmp) {
-    case 'x':
-    case 'X': {
-      os = Axis::OX;
-      break;
-    }
-    case 'y':
-    case 'Y': {
-      os = Axis::OY;
-      break;
-    }
-    case 'z':
-    case 'Z': {
-      os = Axis::OZ;
-      break;
-    }
-    default: {
-      strm.setstate(std::ios::failbit);
-      break;
-    }
-  }
-
-  return strm;
+MatrixRot<SIZE>::MatrixRot(const double &angle, Axis o) {
+  static_assert(SIZE == 3, "Program nie obsluguje obrotow w innych wymiarach niz 3!");
 }
 
 /**
  * Wypisanie macierzy rotacji na odpowiedni strumień
  *
  * @param strm - strumień na który ma zostać wypisana macierz
- * @param Macierz - macierz rotacji która zostanie wpisana do strumienia
+ * @param matrix - macierz rotacji która zostanie wpisana do strumienia
  * @return Zwracamy referencję do przysłanego strumienia
  */
 template <uint32_t SIZE>
-std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz) {
+std::ostream &operator<<(std::ostream &strm, const MatrixRot<SIZE> &matrix) {
   for (uint32_t i = 0; i < SIZE; ++i) {
-    strm << Macierz[i] << std::endl;
+    strm << matrix[i] << std::endl;
   }
 
   return strm;
@@ -155,21 +120,17 @@ std::ostream &operator<<(std::ostream &strm, const MacierzRot<SIZE> &Macierz) {
  * Funkcja kopiująca wartości macierzy rotacji do innej macierzy tego samego typu
  * 
  * @tparam SIZE - Określa wymiar macierzy rotacji
- * @param Matrix - Obiekt klasy MacierzRot z którego następuje przekopiowanie wartości
+ * @param matrix - Obiekt klasy MatrixRot z którego następuje przekopiowanie wartości
  * @return  Zwraca referencję do obiektu do którego zostały wpisane dane
  */
 template <uint32_t SIZE>
-MacierzRot<SIZE> &MacierzRot<SIZE>::operator=(const MacierzRot<SIZE> &Matrix) {
-  if (this != &Matrix) {
+MatrixRot<SIZE> &MatrixRot<SIZE>::operator=(const MatrixRot<SIZE> &matrix) {
+  if (this != &matrix) {
     for (uint32_t i = 0; i < SIZE; ++i) {
       for (uint32_t j = 0; j < SIZE; ++j) {
-        Macierz[i][j] = Matrix[i][j];
+        matrixR[i][j] = matrix[i][j];
       }
     }
   }
   return *this;
 }
-
-template class MacierzRot<3>;
-template std::ostream &operator<<(std::ostream &strm,
-                                  const MacierzRot<3> &Macierz);
