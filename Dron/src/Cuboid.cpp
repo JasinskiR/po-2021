@@ -26,7 +26,8 @@ std::array<Vector<3>, 8> Cuboid::calcVert() {
   for (uint32_t i = 0, j = 0; j < 8; ++i, ++j) {
     if (i % 2 == 1) signy = -signy;
     if (i % 3 == 2) signx = -signx;
-    resultV[j] = coordSInGlob(Vector<3>({signx * width / 2, signy * depth / 2, signz * height / 2}));
+    resultV[j] = coordSInGlob(
+        Vector<3>({signx * width / 2, signy * depth / 2, signz * height / 2}));
     if (i % 4 == 3) {
       signz = -signz;
       signy = 1;

@@ -14,7 +14,8 @@ Vector<3> CoordS::pointInPredec(const Vector<3> &point) {
   return (this->orientation * point + this->center);
 }
 Vector<3> CoordS::coordSInGlob(Vector<3> resultV) {
- if (this->predecessor != nullptr) {
+  if (this->predecessor != nullptr) {
+    resultV = pointInPredec(resultV);
     return this->predecessor->coordSInGlob(resultV);
   }
   return pointInPredec(resultV);

@@ -12,10 +12,7 @@ int main() {
   Surface(-1, api);
   Drone dron(Vector<3>({0, 0, 0}), MatrixRot<3>());
   dron.draw(api);
-  int i = 0;
-  while (i != 2) {
-    cin >> i;
-  }
+  wait4key();
   dron.animation(5, 45, 3, api);
   dron.animation(2, -45, -3, api);
 }

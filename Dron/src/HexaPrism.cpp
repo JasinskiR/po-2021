@@ -24,9 +24,8 @@ std::array<Vector<3>, 12> HexaP::calcVert() {
   std::array<Vector<3>, 12> resultV;
   int signz = 1;
   for (uint32_t i = 0, j = 0; j < 12; ++i, ++j) {
-    resultV[j] = coordSInGlob(MatrixRot<3>(60 * (i + 1), Axis::OZ) *
-                     Vector<3>({0, radius, signz * height / 2}) +
-                 this->center);
+    resultV[j] = coordSInGlob((MatrixRot<3>(60 * (i + 1), Axis::OZ) *
+                               Vector<3>({0, radius, signz * height / 2})));
     if (i % 6 == 5) {
       signz = -signz;
       i = -1;

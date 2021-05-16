@@ -15,7 +15,7 @@
 /**
  * @brief Modeluje pojęcie Wektora/Punktu w przestrzeni n-wymiarowej
  *
- * Przechuje wszystkie współrzędne wierzchołka w tablicy
+ * Przechowuje wszystkie współrzędne wierzchołka w tablicy
  * oraz pozwala wykonywać na nich podstawowe operacje
  *
  * @tparam SIZE - Określa w ilo-wymiarowej przestrzeni przechowujemy nasz wektor
