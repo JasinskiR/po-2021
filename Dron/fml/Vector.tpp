@@ -13,8 +13,7 @@
 template <uint32_t SIZE>
 double &Vector<SIZE>::operator[](uint32_t index) {
   if (index < 0 || index > SIZE) {
-    std::cerr << "Poza pamiecia!" << std::endl;
-    exit(0);
+    throw std::out_of_range{"Wektor<" + std::to_string(SIZE) + "> out of range!"};
   }
   return cords[index];
 }
@@ -32,8 +31,7 @@ double &Vector<SIZE>::operator[](uint32_t index) {
 template <uint32_t SIZE>
 const double &Vector<SIZE>::operator[](uint32_t index) const {
   if (index < 0 || index > SIZE) {
-    std::cerr << "Poza pamiecia!" << std::endl;
-    exit(0);
+    throw std::out_of_range{"Wektor<" + std::to_string(SIZE) + "> out of range!"};
   }
   return cords[index];
 }
@@ -138,9 +136,7 @@ std::istream &operator>>(std::istream &strm, Vector<SIZE> &vector) {
   if (!strm.good()) {
     strm.clear();
     strm.ignore(std::numeric_limits<int>::max(), '\n');
-    std::cerr << "Blad danych - brak conajmniej jednej skladowej wierzcholka"
-              << std::endl;
-    exit(0);
+    throw std::runtime_error("Nie udalo sie wczytac Wektora<" + std::to_string(SIZE) + ">!");
   }
   return strm;
 }

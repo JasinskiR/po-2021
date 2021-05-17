@@ -32,6 +32,7 @@ void Drone::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
 }
 void Drone::animation(double height, double angle, double distance,
                       std::shared_ptr<drawNS::Draw3DAPI> api) {
+  wait4key();
   this->goVertical(height);
   this->draw(api);
   wait4key();
@@ -48,6 +49,7 @@ void Drone::animation(double height, double angle, double distance,
 }  // w innej klasie
 void Drone::rotorSpin() {
   for (uint32_t i = 0; i < 4; ++i) {
-    for (uint32_t j = 0; j < 2; ++j) rotorBlades[i][j].rotation(MatrixRot<3>(30, Axis::OZ));
+    for (uint32_t j = 0; j < 2; ++j)
+      rotorBlades[i][j].rotation(MatrixRot<3>(30, Axis::OZ));
   }
 }

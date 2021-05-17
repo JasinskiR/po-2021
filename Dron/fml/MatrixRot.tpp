@@ -82,8 +82,7 @@ MatrixRot<SIZE> MatrixRot<SIZE>::operator*(
 template <uint32_t SIZE>
 const Vector<SIZE> &MatrixRot<SIZE>::operator[](uint32_t index) const {
   if (index < 0 || index > SIZE) {
-    std::cerr << "Poza pamiecia!" << std::endl;
-    exit(0);
+    throw std::out_of_range{ "MacierzRot<" + std::to_string(SIZE) + "> out of range!" };
   }
   return matrixR[index];
 }

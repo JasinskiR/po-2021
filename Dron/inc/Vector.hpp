@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <iostream>
 #include <limits>
+#include <cassert>
 
 /**
  * @brief Modeluje pojęcie Wektora/Punktu w przestrzeni n-wymiarowej
