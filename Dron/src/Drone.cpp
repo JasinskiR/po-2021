@@ -32,6 +32,7 @@ void Drone::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
 }
 void Drone::animation(double height, double angle, double distance,
                       std::shared_ptr<drawNS::Draw3DAPI> api) {
+  route(height, angle, distance, api);
   wait4key();
   this->goVertical(height);
   this->draw(api);
@@ -52,4 +53,23 @@ void Drone::rotorSpin() {
     for (uint32_t j = 0; j < 2; ++j)
       rotorBlades[i][j].rotation(MatrixRot<3>(30, Axis::OZ));
   }
+}
+
+void Drone::route(double height, double angle, double distance,
+                  std::shared_ptr<drawNS::Draw3DAPI> api) {
+  int tmp;
+  tmp = api->draw_polygonal_chain(
+      {convert(this->center), convert(this->center + Vector<3>({0, 0, height})),
+       convert(this->orientation * MatrixRot<3>(angle, Axis::OZ) *
+                   Vector<3>({0, distance, height}) +
+               this->center),
+       convert(this->orientation * MatrixRot<3>(angle, Axis::OZ) *
+                   Vector<3>({0, distance, 0}) +
+               this->center)},
+      "blue");
+
+  if (routeId != -1) {
+    api->erase_shape(routeId);
+  }
+  routeId = tmp;
 }

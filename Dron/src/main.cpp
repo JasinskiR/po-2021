@@ -15,7 +15,7 @@ int main() {
   char choice;
   while (true) {
     system("clear");
-    cout << "Obsluga drona \"DragonFly\"" << endl;
+    cout << "Obsluga drona \"BeeMo\"" << endl;
     cout << "a - animacja drona" << endl;
     cout << "k - wyjscie z programu" << endl;
     cout << "Twoj wybor? > ";
