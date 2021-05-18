@@ -67,7 +67,7 @@ class Vector {
   /**
    * @brief Liczy długość wektora
    */
-  double length() const;
+  const double length() const;
 
   /**
    * @brief Operator dostępowy do współrzędnych wektora.

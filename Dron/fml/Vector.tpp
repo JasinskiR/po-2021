@@ -110,7 +110,7 @@ double Vector<SIZE>::operator*(const Vector<SIZE> &secondV) const {
  * @return Zwraca długość wektora
  */
 template <uint32_t SIZE>
-double Vector<SIZE>::length() const {
+const double Vector<SIZE>::length() const {
   double result = 0;
   for (uint32_t i = 0; i < SIZE; ++i) {
     result += pow(this->cords[i], 2);

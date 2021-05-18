@@ -46,6 +46,7 @@ void Drone::animation(double height, double angle, double distance,
   this->goVertical(-height);
   this->draw(api);
   wait4key();
+  api->erase_shape(routeId);
 
 }  // w innej klasie
 void Drone::rotorSpin() {
