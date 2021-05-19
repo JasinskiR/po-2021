@@ -51,7 +51,7 @@ void Drone::animation(double height, double angle, double distance,
 void Drone::rotorSpin() {
   for (uint32_t i = 0; i < 4; ++i) {
     for (uint32_t j = 0; j < 2; ++j)
-      rotorBlades[i][j].rotation(MatrixRot<3>(30, Axis::OZ));
+      rotorBlades[i][j].rotation(MatrixRot<3>(15, Axis::OZ));
   }
 }
 

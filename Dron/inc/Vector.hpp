@@ -28,6 +28,8 @@ class Vector {
    * @brief Tablica przechowująca wszystkie współrzędne wektora
    */
   std::array<double, SIZE> cords;
+  static uint32_t rightNow;
+  static uint32_t overall;
 
  public:
   /**

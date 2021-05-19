@@ -1,25 +1,40 @@
 #include "Animation.hpp"
 
+/**
+ * @brief Przypisanie wartości do statycznej zmiennej odpowiedzialnej za
+ * prędkość ruchów obiektu
+ *
+ */
 double Animation::velocity = 10;
 
-// void Scene::animeTime(dronPtr fPtr, Drone* dron, double value) {
-//   uint32_t fps = value / velocity;
-//   for (uint32_t i = 0; i < fps; ++i) {
-//     dron->goVertical(i / fps * value);
-
-//   }
-// }
+/**
+ * Na podstawie przesłannej zmiennej interpretuje zmienną liczbę klatek do
+ * wyświetlenia Wykonuje proces animacji oraz opóźnienia dla każdego przesłanego
+ * wskaźnika na funkcję
+ * @param fPairL - lista par składających się z wskaźnika na funkcję oraz
+ * zmiennej, która ta funkcja przyjmuje
+ * @param dron - wskaźnik na aktualny obiekt
+ * @param api - wskaźnik do dołączonej klasy Gnuplot
+ */
 void Animation::animeTime(
     std::initializer_list<std::pair<droneFPtr, const double&> > fPairL,
     Drone* dron, std::shared_ptr<drawNS::Draw3DAPI> api) {
   for (auto fPair : fPairL) {
-    std::cout<<"Test"<<std::endl;
-    int fps = fPair.second * velocity;
-    for (auto i = 0; i < fps; ++i) {
-      std::cout<<"Test2"<<std::endl;
-      (dron->*(fPair.first))(fPair.second/fps);
-      (dron->draw(api));
-      std::this_thread::sleep_for (std::chrono::milliseconds(200));
+    double time = std::abs(fPair.second / velocity);
+    if (fPair.first == &Drone::rotate) {
+      double fps = 2.5 * time;
+      for (double i = 0; i < fps; ++i) {
+        (dron->*(fPair.first))(fPair.second / fps);
+        (dron->draw(api));
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+      }
+    } else {
+      double fps = 45 * time;
+      for (double i = 0; i < fps; ++i) {
+        (dron->*(fPair.first))(fPair.second / fps);
+        (dron->draw(api));
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+      }
     }
   }
 }
