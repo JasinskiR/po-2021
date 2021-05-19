@@ -4,6 +4,7 @@
 #include "Cuboid.hpp"
 #include "HexaPrism.hpp"
 
+
 class Drone : protected CoordS {
   Cuboid dBody;
   std::array<HexaP, 4> rotor;

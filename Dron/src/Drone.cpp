@@ -1,5 +1,10 @@
 #include "Drone.hpp"
 
+#include <initializer_list>
+#include <utility>
+
+#include "Animation.hpp"
+
 void wait4key() {
   do {
     std::cout << "\n Press a key to continue..." << std::endl;
@@ -33,19 +38,13 @@ void Drone::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
 void Drone::animation(double height, double angle, double distance,
                       std::shared_ptr<drawNS::Draw3DAPI> api) {
   route(height, angle, distance, api);
-  wait4key();
-  this->goVertical(height);
-  this->draw(api);
-  wait4key();
-  this->rotate(angle);
-  this->draw(api);
-  wait4key();
-  this->goForward(distance);
-  this->draw(api);
-  wait4key();
-  this->goVertical(-height);
-  this->draw(api);
-  wait4key();
+  double fall = -height;
+  std::initializer_list<std::pair<Animation::droneFPtr, const double &> >
+      fPairL = {{&Drone::goVertical, height},
+                {&Drone::rotate, angle},
+                {&Drone::goForward, distance},
+                {&Drone::goVertical, fall}};
+  Animation::animeTime(fPairL, this, api);
   api->erase_shape(routeId);
 
 }  // w innej klasie

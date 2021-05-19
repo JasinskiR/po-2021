@@ -8,10 +8,11 @@ LIBS = -lpthread
 # 	./Dron
 
 Dron: obj obj/main.o obj/MatrixRot.o obj/Vector.o obj/Dr3D_gnuplot_api.o\
-												obj/CoordinateS.o obj/Cuboid.o obj/HexaPrism.o obj/Drone.o obj/Surface.o
+												obj/CoordinateS.o obj/Cuboid.o obj/HexaPrism.o obj/Drone.o obj/Surface.o obj/Animation.o
 	g++ -Wall -pedantic -std=c++0x -o Dron obj/main.o obj/Vector.o\
                         obj/MatrixRot.o obj/Dr3D_gnuplot_api.o\
-												obj/CoordinateS.o obj/Cuboid.o obj/HexaPrism.o obj/Drone.o obj/Surface.o -lpthread 
+												obj/CoordinateS.o obj/Cuboid.o obj/HexaPrism.o obj/Drone.o\
+												obj/Surface.o obj/Animation.o -lpthread 
 # obj/Figure.o obj/Scene.o
 												
 obj:
@@ -46,6 +47,9 @@ obj/Drone.o: src/Drone.cpp inc/Drone.hpp
 
 obj/Surface.o: src/Surface.cpp inc/Surface.hpp
 	g++ -c ${CXXFLAGS} -o obj/Surface.o src/Surface.cpp
+
+obj/Animation.o: src/Animation.cpp inc/Animation.hpp
+	g++ -c ${CXXFLAGS} -o obj/Animation.o src/Animation.cpp
 
 clean:
 	rm -f obj/*.o Dron
