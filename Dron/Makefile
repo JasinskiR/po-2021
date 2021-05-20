@@ -1,7 +1,7 @@
 #
 #  To sa opcje dla kompilacji
 #
-CXXFLAGS=-g -Iinc -Isrc -Ifml -Wall -pedantic -std=c++0x
+CXXFLAGS=-g -Iinc -Isrc -Ifml -Wall -pedantic -std=c++17
 LIBS = -lpthread
 
 # __start__: Dron

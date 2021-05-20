@@ -13,7 +13,8 @@
 template <uint32_t SIZE>
 double &Vector<SIZE>::operator[](uint32_t index) {
   if (index < 0 || index > SIZE) {
-    throw std::out_of_range{"Wektor<" + std::to_string(SIZE) + "> out of range!"};
+    throw std::out_of_range{"Wektor<" + std::to_string(SIZE) +
+                            "> out of range!"};
   }
   return cords[index];
 }
@@ -31,7 +32,8 @@ double &Vector<SIZE>::operator[](uint32_t index) {
 template <uint32_t SIZE>
 const double &Vector<SIZE>::operator[](uint32_t index) const {
   if (index < 0 || index > SIZE) {
-    throw std::out_of_range{"Wektor<" + std::to_string(SIZE) + "> out of range!"};
+    throw std::out_of_range{"Wektor<" + std::to_string(SIZE) +
+                            "> out of range!"};
   }
   return cords[index];
 }
@@ -136,7 +138,8 @@ std::istream &operator>>(std::istream &strm, Vector<SIZE> &vector) {
   if (!strm.good()) {
     strm.clear();
     strm.ignore(std::numeric_limits<int>::max(), '\n');
-    throw std::runtime_error("Nie udalo sie wczytac Wektora<" + std::to_string(SIZE) + ">!");
+    throw std::runtime_error("Nie udalo sie wczytac Wektora<" +
+                             std::to_string(SIZE) + ">!");
   }
   return strm;
 }
@@ -156,4 +159,38 @@ std::ostream &operator<<(std::ostream &strm, const Vector<SIZE> &vector) {
   }
   strm << std::endl;
   return strm;
+}
+
+/**
+ * @brief Operator kopiujący wartości obiektu klasy Vector do innego obiektu tej
+ * samej klasy
+ *
+ * @tparam SIZE - Określa wymiar wektora
+ * @param vector - wektor z którego wartości zostaną przekopiowane
+ * @return Vector<SIZE> - Zwraca referencję do obiektu do którego zostały
+ * wpisane dane
+ */
+template <uint32_t SIZE>
+Vector<SIZE> Vector<SIZE>::operator=(const Vector<SIZE> &vector) {
+  if (&vector == this) return (*this);
+
+  for (uint32_t i = 0; i < SIZE; ++i) this->cords[i] = vector[i];
+  ++rightNow;
+  ++overall;
+  return (*this);
+}
+
+/**
+ * @brief Construct a new Vector object
+ *
+ * @tparam SIZE - Specifies the dimension of the vector
+ * @param vector - vector to be coppied from
+ */
+template <uint32_t SIZE>
+Vector<SIZE>::Vector(const Vector<SIZE> &vector) {
+  if (&vector != this) {
+    for (uint32_t i = 0; i < SIZE; ++i) this->cords[i] = vector[i];
+    ++rightNow;
+    ++overall;
+  }
 }

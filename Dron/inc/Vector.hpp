@@ -7,11 +7,11 @@
  */
 
 #include <array>
+#include <cassert>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
 #include <limits>
-#include <cassert>
 
 /**
  * @brief Modeluje pojęcie Wektora/Punktu w przestrzeni n-wymiarowej
@@ -28,24 +28,65 @@ class Vector {
    * @brief Tablica przechowująca wszystkie współrzędne wektora
    */
   std::array<double, SIZE> cords;
-  static uint32_t rightNow;
-  static uint32_t overall;
+
+  /**
+   * @brief Zmienna przechowujaca aktualną ilość obiektów typu Vector
+   * Inicjalizacja zmiennej wartością 0
+   */
+  inline static uint64_t rightNow = 0;
+
+  /**
+   * @brief Zmienna przechowujaca łączną ilość obiektów typu Vector
+   * Inicjalizacja zmiennej wartością 0
+   */
+  inline static uint64_t overall = 0;
 
  public:
   /**
+   * @brief Funkcja zwracająca aktualną ilość obiektów typu Vector
+   */
+  uint64_t rightNowG() { return rightNow; }
+
+  /**
+   * @brief Funkcja zwracająca łączną ilość obiektów typu Vector
+   */
+  uint64_t overallG() { return overall; }
+  /**
    * @brief Inicjalizuje wektor na podstawie wspołrzędnych w tablicy
+   * oraz dodaje ilość obiektów typu Vector
    * @param pt - tablica współrzędnych które zostaną skopiowane do tablicy
    * wektora
    */
-  Vector(std::array<double, SIZE> pt) : cords(pt){};
+  Vector(std::array<double, SIZE> pt) : cords(pt) {
+    ++rightNow;
+    ++overall;
+  };
 
   /**
    * @brief Inicjalizuje wektor
    *
    * Ustawia wszystkie współrzędne na zera
+   * oraz dodaje ilość obiektów typu Vector
    */
-  Vector() : cords{} {};
+  Vector() : cords{} {
+    ++rightNow;
+    ++overall;
+  }
+  /**
+   * @brief Construct a new Vector object
+   */
+  Vector(const Vector<SIZE> &vector);
 
+  /**
+   * @brief Copy operator of Vector object
+   */
+  Vector<SIZE> operator=(const Vector<SIZE> &vector);
+
+  /**
+   * @brief Destroy the Vector object
+   * and subtracts the number of current Vector objects
+   */
+  ~Vector() { --rightNow; }
   /**
    * @brief Modeluje operacje dodania dwóch wektorów do siebie
    */

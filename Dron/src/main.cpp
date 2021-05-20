@@ -10,13 +10,15 @@ int main() {
       new drawNS::APIGnuPlot3D(-5, 5, -5, 5, -1, 10, 100));
   system("clear");
   Surface(-1, api);
-  Drone dron(Vector<3>({0, 0, 0}), MatrixRot<3>());
+  Vector<3> vector({0, 0, 0});
+  Drone dron(vector, MatrixRot<3>());
   dron.draw(api);
   char choice;
   while (true) {
     system("clear");
     cout << "Obsluga drona \"BeeMo\"" << endl;
     cout << "a - animacja drona" << endl;
+    cout << "w - wyswietl liczbe wektorow" << endl;
     cout << "k - wyjscie z programu" << endl;
     cout << "Twoj wybor? > ";
     cin >> choice;
@@ -86,11 +88,23 @@ int main() {
         wait4key();
         break;
       }
+      case 'W':
+      case 'w': {
+        cout << "\nAktualna ilosc obiektow klasy Vector: " << vector.rightNowG()
+             << endl;
+        cout << "Laczna ilosc obiektow klasy Vector: " << vector.overallG()
+             << endl;
+        cin.clear();
+        cin.ignore(std::numeric_limits<int>::max(), '\n');
+        wait4key();
+        break;
+      }
       case 'K':
       case 'k':
         return 0;
       default:
         cout << "Nie rozpoznana opcja!" << endl;
+        cin.clear();
         cin.ignore(std::numeric_limits<int>::max(), '\n');
     }
   }
