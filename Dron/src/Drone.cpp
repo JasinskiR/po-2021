@@ -5,11 +5,7 @@
 
 #include "Animation.hpp"
 
-void wait4key() {
-  do {
-    std::cout << "\n Press a key to continue..." << std::endl;
-  } while (std::cin.get() != '\n');
-}
+
 
 void Drone::goForward(const double &distance) {
   Vector<3> course({0, distance, 0});
@@ -35,7 +31,8 @@ void Drone::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
   }
   rotorSpin();
 }
-void Drone::animation(double height, double angle, double distance,
+void Drone::animation(const double &height, const double &angle,
+                      const double &distance,
                       std::shared_ptr<drawNS::Draw3DAPI> api) {
   route(height, angle, distance, api);
   double fall = -height;
@@ -49,13 +46,22 @@ void Drone::animation(double height, double angle, double distance,
 
 }  // w innej klasie
 void Drone::rotorSpin() {
+  double angleS;
   for (uint32_t i = 0; i < 4; ++i) {
+    angleS = 30;
+    if (i % 2 == 0) angleS = -angleS;
     for (uint32_t j = 0; j < 2; ++j)
-      rotorBlades[i][j].rotation(MatrixRot<3>(15, Axis::OZ));
+      rotorBlades[i][j].rotation(MatrixRot<3>(angleS, Axis::OZ));
   }
 }
 
-void Drone::route(double height, double angle, double distance,
+void Drone::lean(const double &angle) {
+  MatrixRot<3> matrixR(angle, Axis::OX);
+  dBody.rotation(MatrixRot<3>(angle, Axis::OX));
+}
+
+void Drone::route(const double &height, const double &angle,
+                  const double &distance,
                   std::shared_ptr<drawNS::Draw3DAPI> api) {
   int tmp;
   tmp = api->draw_polygonal_chain(

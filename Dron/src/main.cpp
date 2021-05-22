@@ -5,14 +5,21 @@
 
 using namespace std;
 
+void wait4key() {
+  do {
+    std::cout << "\n Press a key to continue..." << std::endl;
+  } while (std::cin.get() != '\n');
+}
+
 int main() {
   shared_ptr<drawNS::Draw3DAPI> api(
-      new drawNS::APIGnuPlot3D(-5, 5, -5, 5, -1, 10, 100));
+      new drawNS::APIGnuPlot3D(-5, 5, -5, 5, -1, 10, -1));
   system("clear");
   Surface(-1, api);
   Vector<3> vector({0, 0, 0});
   Drone dron(vector, MatrixRot<3>());
   dron.draw(api);
+  api->redraw();
   char choice;
   while (true) {
     system("clear");
