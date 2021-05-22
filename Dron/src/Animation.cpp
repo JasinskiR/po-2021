@@ -45,10 +45,16 @@ void Animation::animeTime(
       }
 
       (dron->draw(api));
+      dron->rotorSpin();
       api->redraw();
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
   }
 }
 
-
+// double Animation::varFlight(double i, double fps) {
+//   if (i * 9 < 3 * fps) return (fps * (i * 2 + 1) / 9);
+//   // if (i * 9 >= 6) return ();
+//   else
+//     return fps;
+// }

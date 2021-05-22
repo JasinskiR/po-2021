@@ -58,8 +58,8 @@ class Vector {
    * wektora
    */
   Vector(std::array<double, SIZE> pt) : cords(pt) {
-    ++rightNow;
-    ++overall;
+    rightNow++;
+    overall++;
   };
 
   /**
@@ -69,13 +69,17 @@ class Vector {
    * oraz dodaje ilość obiektów typu Vector
    */
   Vector() : cords{} {
-    ++rightNow;
-    ++overall;
+    rightNow++;
+    overall++;
   }
+  
   /**
    * @brief Construct a new Vector object
    */
-  Vector(const Vector<SIZE> &vector);
+  Vector(const Vector<SIZE> &vector) : cords(vector.cords) {
+    rightNow++;
+    overall++;
+  };
 
   /**
    * @brief Copy operator of Vector object

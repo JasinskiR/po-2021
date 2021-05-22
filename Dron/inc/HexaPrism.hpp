@@ -9,7 +9,8 @@ class HexaP : public CoordS {
   int id;
 
  public:
-  HexaP(Vector<3> ctr, MatrixRot<3> ort, CoordS *predec, double r, double h)
+  HexaP(const Vector<3> &ctr, const MatrixRot<3> &ort, CoordS *predec,
+        const double &r, const double &h)
       : CoordS(ctr, ort, predec), radius(r), height(h), id(-1) {}
   void draw(std::shared_ptr<drawNS::Draw3DAPI> api);
   std::array<Vector<3>, 12> calcVert();

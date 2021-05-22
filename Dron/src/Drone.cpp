@@ -29,7 +29,6 @@ void Drone::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
   for (uint32_t i = 0; i < 4; ++i) {
     for (uint32_t j = 0; j < 2; ++j) rotorBlades[i][j].draw(api);
   }
-  rotorSpin();
 }
 void Drone::animation(const double &height, const double &angle,
                       const double &distance,

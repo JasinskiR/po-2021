@@ -13,7 +13,7 @@ class Drone : protected CoordS {
   int routeId;
 
  public:
-  Drone(Vector<3> ctr, MatrixRot<3> ort)
+  Drone(const Vector<3> &ctr, const MatrixRot<3> &ort)
       : CoordS(ctr, ort, nullptr),
         dBody(Vector<3>({0, 0, 0}), MatrixRot<3>(), this, 0.5, 1, 2),
         rotor({

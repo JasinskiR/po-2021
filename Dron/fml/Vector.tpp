@@ -175,8 +175,6 @@ Vector<SIZE> Vector<SIZE>::operator=(const Vector<SIZE> &vector) {
   if (&vector == this) return (*this);
 
   for (uint32_t i = 0; i < SIZE; ++i) this->cords[i] = vector[i];
-  ++rightNow;
-  ++overall;
   return (*this);
 }
 
@@ -186,11 +184,11 @@ Vector<SIZE> Vector<SIZE>::operator=(const Vector<SIZE> &vector) {
  * @tparam SIZE - Specifies the dimension of the vector
  * @param vector - vector to be coppied from
  */
-template <uint32_t SIZE>
-Vector<SIZE>::Vector(const Vector<SIZE> &vector) {
-  if (&vector != this) {
-    for (uint32_t i = 0; i < SIZE; ++i) this->cords[i] = vector[i];
-    ++rightNow;
-    ++overall;
-  }
-}
+// template <uint32_t SIZE>
+// Vector<SIZE>::Vector(const Vector<SIZE> &vector) {
+//   if (&vector != this) {
+//     for (uint32_t i = 0; i < SIZE; ++i) this->cords[i] = vector[i];
+//     ++rightNow;
+//     ++overall;
+//   }
+// }

@@ -10,7 +10,7 @@ void CoordS::rotation(const MatrixRot<3> &matrix) {
   this->orientation = this->orientation * matrix;
 }
 
-Vector<3> CoordS::pointInPredec(const Vector<3> &point) {
+Vector<3> CoordS::pointInPredec(Vector<3> point) {
   return (this->orientation * point + this->center);
 }
 Vector<3> CoordS::coordSInGlob(Vector<3> resultV) {
@@ -21,6 +21,6 @@ Vector<3> CoordS::coordSInGlob(Vector<3> resultV) {
   return pointInPredec(resultV);
 }
 
-drawNS::Point3D CoordS::convert(Vector<3> vector) {
+drawNS::Point3D CoordS::convert(const Vector<3> &vector) {
   return drawNS::Point3D(vector[0], vector[1], vector[2]);
 }

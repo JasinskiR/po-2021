@@ -9,16 +9,16 @@
 
 #include "Vector.hpp"
 
-  /**
-   * @brief Określa rodzaj osi wokół której wykonywany będzie obrót
-   *
-   * Obrót może być wykonany wokół jednej z 3 osi układu współrzędnych
-   */
-  enum class Axis {
-    OX /** Oś OX układu współrzędnych */,
-    OY /** Oś OY układu współrzędnych */,
-    OZ /** Oś OZ układu współrzędnych */
-  };
+/**
+ * @brief Określa rodzaj osi wokół której wykonywany będzie obrót
+ *
+ * Obrót może być wykonany wokół jednej z 3 osi układu współrzędnych
+ */
+enum class Axis {
+  OX /** Oś OX układu współrzędnych */,
+  OY /** Oś OY układu współrzędnych */,
+  OZ /** Oś OZ układu współrzędnych */
+};
 
 /**
  * @brief Modeluje pojęcie macierzy rotacji
@@ -65,10 +65,10 @@ class MatrixRot {
    */
   MatrixRot<SIZE> operator*(const MatrixRot<SIZE> &secondM) const;
 
-/**
- * @brief Operator kopiujący
- * 
- */
+  /**
+   * @brief Operator kopiujący
+   *
+   */
   MatrixRot<SIZE> &operator=(const MatrixRot<SIZE> &matrix);
 
   /**
@@ -82,7 +82,6 @@ class MatrixRot {
  */
 template <uint32_t SIZE>
 std::ostream &operator<<(std::ostream &strm, const MatrixRot<SIZE> &matrix);
-
 
 /**
  * @brief  Pobiera os ze strumienia
