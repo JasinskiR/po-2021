@@ -1,12 +1,13 @@
 #ifndef SURFACE_HPP
 #define SURFACE_HPP
 
-#include "Dr3D_gnuplot_api.hpp"
+#include "DrawingInterface.hpp"
 
-class Surface {
+class Surface : public DInter {
   double height;
 
  public:
-  Surface(const double &height, std::shared_ptr<drawNS::Draw3DAPI> api);
+  Surface(const double &height);
+  void draw() override;
 };
 #endif

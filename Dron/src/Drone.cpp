@@ -5,8 +5,6 @@
 
 #include "Animation.hpp"
 
-
-
 void Drone::goForward(const double &distance) {
   Vector<3> course({0, distance, 0});
   course = this->orientation * course;
@@ -22,28 +20,29 @@ void Drone::rotate(const double &angle) {
   this->orientation = this->orientation * matrixR;
 }
 
-void Drone::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
-  dBody.draw(api);
-  for (uint32_t i = 0; i < 4; ++i) rotor[i].draw(api);
-  for (uint32_t i = 0; i < 2; ++i) searchlight[i].draw(api);
+void Drone::draw() {
+  dBody.draw();
+  for (uint32_t i = 0; i < 4; ++i) rotor[i].draw();
+  for (uint32_t i = 0; i < 2; ++i) searchlight[i].draw();
   for (uint32_t i = 0; i < 4; ++i) {
-    for (uint32_t j = 0; j < 2; ++j) rotorBlades[i][j].draw(api);
+    for (uint32_t j = 0; j < 2; ++j) rotorBlades[i][j].draw();
   }
+  DInter::apiGet()->redraw();
 }
 void Drone::animation(const double &height, const double &angle,
-                      const double &distance,
-                      std::shared_ptr<drawNS::Draw3DAPI> api) {
-  route(height, angle, distance, api);
+                      const double &distance) {
+  route(height, angle, distance);
   double fall = -height;
   std::initializer_list<std::pair<Animation::droneFPtr, const double &> >
       fPairL = {{&Drone::goVertical, height},
                 {&Drone::rotate, angle},
                 {&Drone::goForward, distance},
                 {&Drone::goVertical, fall}};
-  Animation::animeTime(fPairL, this, api);
-  api->erase_shape(routeId);
+  Animation::animeTime(fPairL, this);
+  DInter::apiGet()->erase_shape(routeId);
+  DInter::apiGet()->redraw();
+}
 
-}  // w innej klasie
 void Drone::rotorSpin() {
   double angleS;
   for (uint32_t i = 0; i < 4; ++i) {
@@ -60,10 +59,9 @@ void Drone::lean(const double &angle) {
 }
 
 void Drone::route(const double &height, const double &angle,
-                  const double &distance,
-                  std::shared_ptr<drawNS::Draw3DAPI> api) {
+                  const double &distance) {
   int tmp;
-  tmp = api->draw_polygonal_chain(
+  tmp = DInter::apiGet()->draw_polygonal_chain(
       {convert(this->center), convert(this->center + Vector<3>({0, 0, height})),
        convert(this->orientation * MatrixRot<3>(angle, Axis::OZ) *
                    Vector<3>({0, distance, height}) +
@@ -74,7 +72,7 @@ void Drone::route(const double &height, const double &angle,
       "blue");
 
   if (routeId != -1) {
-    api->erase_shape(routeId);
+    DInter::apiGet()->erase_shape(routeId);
   }
   routeId = tmp;
 }

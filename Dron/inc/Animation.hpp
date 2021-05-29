@@ -16,7 +16,7 @@
  *
  */
 
-class Animation {
+class Animation : public DInter {
   /**
    * @brief Zmienna statyczna odpowiedzialna za stałą prędkość ruchu
    *
@@ -36,8 +36,8 @@ class Animation {
    */
   static void animeTime(
       std::initializer_list<std::pair<droneFPtr, const double&> > fPairL,
-      Drone* dron, std::shared_ptr<drawNS::Draw3DAPI> api);
-  //static double varFlight(double i, double fps);
+      Drone* dron);
+  // static double varFlight(double i, double fps);
 };
 
 #endif

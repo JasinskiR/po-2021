@@ -14,11 +14,10 @@ double Animation::velocity = 10;
  * @param fPairL - lista par składających się z wskaźnika na funkcję oraz
  * zmiennej, która ta funkcja przyjmuje
  * @param dron - wskaźnik na aktualny obiekt
- * @param api - wskaźnik do dołączonej klasy Gnuplot
  */
 void Animation::animeTime(
     std::initializer_list<std::pair<droneFPtr, const double&> > fPairL,
-    Drone* dron, std::shared_ptr<drawNS::Draw3DAPI> api) {
+    Drone* dron) {
   double fps = 0;
   for (auto fPair : fPairL) {
     double time = std::abs(fPair.second / velocity);
@@ -44,9 +43,8 @@ void Animation::animeTime(
         if (i * 9 >= 8 * fps) dron->lean(-(velocity / 8));
       }
 
-      (dron->draw(api));
       dron->rotorSpin();
-      api->redraw();
+      dron->draw();
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
   }

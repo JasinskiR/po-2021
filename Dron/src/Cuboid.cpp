@@ -1,6 +1,6 @@
 #include "Cuboid.hpp"
 
-void Cuboid::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
+void Cuboid::draw() {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
   std::vector<drawNS::Point3D> points;
@@ -12,10 +12,10 @@ void Cuboid::draw(std::shared_ptr<drawNS::Draw3DAPI> api) {
       points.clear();
     }
   }
-  tmp = api->draw_polyhedron(vertices, "red");
+  tmp = (DInter::apiGet())->draw_polyhedron(vertices, "red");
 
   if (id != -1) {
-    api->erase_shape(id);
+     DInter::apiGet()->erase_shape(id);
   }
   id = tmp;
 }

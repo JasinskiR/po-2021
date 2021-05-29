@@ -4,7 +4,7 @@
 #include "Cuboid.hpp"
 #include "HexaPrism.hpp"
 
-class Drone : protected CoordS {
+class Drone : protected CoordS, public DInter {
   Cuboid dBody;
   std::array<HexaP, 4> rotor;
   std::array<HexaP, 2> searchlight;
@@ -53,13 +53,11 @@ class Drone : protected CoordS {
   void goForward(const double &distance);
   void goVertical(const double &height);
   void rotate(const double &angle);
-  void draw(std::shared_ptr<drawNS::Draw3DAPI> api);
+  void draw() override;
   void animation(
-      const double &height, const double &angle, const double &distance,
-      std::shared_ptr<drawNS::Draw3DAPI> api);  // w innej klasie (pozniej)
+      const double &height, const double &angle, const double &distance);  // w innej klasie (pozniej)
   void rotorSpin();
-  void route(const double &height, const double &angle, const double &distance,
-             std::shared_ptr<drawNS::Draw3DAPI> api);
+  void route(const double &height, const double &angle, const double &distance);
   void lean(const double &angle);
 };
 

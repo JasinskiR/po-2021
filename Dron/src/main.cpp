@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "Drone.hpp"
+#include "Hill.hpp"
+#include "Plateau.hpp"
 #include "Surface.hpp"
 
 using namespace std;
@@ -12,14 +14,21 @@ void wait4key() {
 }
 
 int main() {
-  shared_ptr<drawNS::Draw3DAPI> api(
-      new drawNS::APIGnuPlot3D(-5, 5, -5, 5, -1, 10, -1));
   system("clear");
-  Surface(-1, api);
+  Surface surf(-1);
+  surf.draw();
   Vector<3> vector({0, 0, 0});
+  Vector<3> hillBase({2, 2, 0});
+  Vector<3> platBase({-2,-2,0});
+  Hill TestMt(hillBase, MatrixRot<3>(), 5, {1, 3});
+  Plat TestPt(platBase, MatrixRot<3>(), 5, {1, 3});
+  cout << TestMt.numberOfVert << endl;
+  cout << TestPt.numberOfVert << endl;
+  TestMt.draw();
+  TestPt.draw();
   Drone dron(vector, MatrixRot<3>());
-  dron.draw(api);
-  api->redraw();
+  dron.draw();
+  wait4key();
   char choice;
   while (true) {
     system("clear");
@@ -89,7 +98,7 @@ int main() {
         cout << "Rozpoczecie symulacji ruchu drona..." << endl;
         cin.clear();
         cin.ignore(std::numeric_limits<int>::max(), '\n');
-        dron.animation(height, angle, distance, api);
+        dron.animation(height, angle, distance);
         cout << "\nSymulacja zakonczona..." << endl;
 
         wait4key();

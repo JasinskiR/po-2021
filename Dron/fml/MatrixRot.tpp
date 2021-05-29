@@ -19,14 +19,14 @@ MatrixRot<SIZE>::MatrixRot() : matrixR{} {
  * Mnoży odpowiednie składowe macierzy z odpowiednimi składowymi wektora.
  *
  * @tparam SIZE - Określa wymiar macierzy rotacji oraz rozmiar wektora
- * @param secondM - wektor przez który chcemy przemnożyć macierz
+ * @param vector - wektor przez który chcemy przemnożyć macierz
  * @return Zwracamy wektor który jest wynikiem mnożenia
  */
 template <uint32_t SIZE>
-Vector<SIZE> MatrixRot<SIZE>::operator*(const Vector<SIZE> &secondM) const {
+Vector<SIZE> MatrixRot<SIZE>::operator*(const Vector<SIZE> &vector) const {
   Vector<SIZE> result;
   for (uint32_t i = 0; i < SIZE; ++i) {
-    result[i] = this->matrixR[i] * secondM;
+    result[i] = this->matrixR[i] * vector;
   }
   return result;
 }
