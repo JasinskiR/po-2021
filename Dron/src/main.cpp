@@ -1,9 +1,6 @@
 #include <iostream>
 
-#include "Drone.hpp"
-#include "Hill.hpp"
-#include "Plateau.hpp"
-#include "Surface.hpp"
+#include "Scene.hpp"
 
 using namespace std;
 
@@ -15,25 +12,14 @@ void wait4key() {
 
 int main() {
   system("clear");
-  Surface surf(-1);
-  surf.draw();
-  Vector<3> vector({0, 0, 0});
-  Vector<3> hillBase({2, 2, 0});
-  Vector<3> platBase({-2,-2,0});
-  Hill TestMt(hillBase, MatrixRot<3>(), 5, {1, 3});
-  Plat TestPt(platBase, MatrixRot<3>(), 5, {1, 3});
-  cout << TestMt.numberOfVert << endl;
-  cout << TestPt.numberOfVert << endl;
-  TestMt.draw();
-  TestPt.draw();
-  Drone dron(vector, MatrixRot<3>());
-  dron.draw();
-  wait4key();
+  Scene scene;
   char choice;
   while (true) {
     system("clear");
     cout << "Obsluga drona \"BeeMo\"" << endl;
     cout << "a - animacja drona" << endl;
+    cout << "d - dodaj drona" << endl;
+    cout << "p - dodaj przeszkode" << endl;
     cout << "w - wyswietl liczbe wektorow" << endl;
     cout << "k - wyjscie z programu" << endl;
     cout << "Twoj wybor? > ";
@@ -41,6 +27,9 @@ int main() {
     switch (choice) {
       case 'A':
       case 'a': {
+        int id;
+        cout << "Podaj id drona: ";
+        cin >> id;
         double height;
         double angle;
         double distance;
@@ -98,7 +87,7 @@ int main() {
         cout << "Rozpoczecie symulacji ruchu drona..." << endl;
         cin.clear();
         cin.ignore(std::numeric_limits<int>::max(), '\n');
-        dron.animation(height, angle, distance);
+        scene.sAnimation(id - 1, height, angle, distance);
         cout << "\nSymulacja zakonczona..." << endl;
 
         wait4key();
@@ -106,13 +95,145 @@ int main() {
       }
       case 'W':
       case 'w': {
-        cout << "\nAktualna ilosc obiektow klasy Vector: " << vector.rightNowG()
-             << endl;
-        cout << "Laczna ilosc obiektow klasy Vector: " << vector.overallG()
+        cout << "\nAktualna ilosc obiektow klasy Vector: "
+             << Vector<3>::rightNowG() << endl;
+        cout << "Laczna ilosc obiektow klasy Vector: " << Vector<3>::overallG()
              << endl;
         cin.clear();
         cin.ignore(std::numeric_limits<int>::max(), '\n');
         wait4key();
+        break;
+      }
+
+      case 'P':
+      case 'p': {
+        bool var = true;
+        int choiceN = 0;
+        while (var) {
+          cout << "Wybierz rodzaj elementu krajobrazu: " << endl;
+          cout << "1 - Wzgorze" << endl;
+          cout << "2 - Plaskowyz" << endl;
+          cout << "Twoj wybor? > ";
+          cin >> choiceN;
+          switch (choiceN) {
+            case 1: {
+              cout << "Podaj wektor polozenia wzgorza (x,y): ";
+              double x, y;
+              while (true) {
+                cin >> x;
+                cin >> y;
+                if (!cin.good()) {
+                  cin.clear();
+                  cin.ignore(std::numeric_limits<int>::max(), '\n');
+                  cout << "Blednie podane wspolrzedne, sprobuj jeszcze raz:"
+                       << endl;
+                  continue;
+                } else
+                  break;
+              }
+              cout << "Podaj wysokosc wzgorza: ";
+              double height;
+              while (true) {
+                cin >> height;
+                if (!cin.good()) {
+                  cin.clear();
+                  cin.ignore(std::numeric_limits<int>::max(), '\n');
+                  cout << "Blednie podana wysokosc, sprobuj jeszcze raz:"
+                       << endl;
+                  continue;
+                } else
+                  break;
+              }
+              cout << "Podaj zakres rozmiaru wzgorza (min,max) :";
+              int min, max;
+              while (true) {
+                cin >> min;
+                cin >> max;
+                if (!cin.good()) {
+                  cin.clear();
+                  cin.ignore(std::numeric_limits<int>::max(), '\n');
+                  cout << "Blednie podany zakres, sprobuj jeszcze raz:" << endl;
+                  continue;
+                } else
+                  break;
+              }
+              scene.addHill(Vector<3>({x, y, -1}), height, {min, max});
+              var = false;
+              break;
+            }
+            case 2: {
+              cout << "Podaj wektor polozenia plaskowyzu (x,y): ";
+              double x, y;
+              while (true) {
+                cin >> x;
+                cin >> y;
+                if (!cin.good()) {
+                  cin.clear();
+                  cin.ignore(std::numeric_limits<int>::max(), '\n');
+                  cout << "Blednie podane wspolrzedne, sprobuj jeszcze raz:"
+                       << endl;
+                  continue;
+                } else
+                  break;
+              }
+              cout << "Podaj wysokosc plaskowyzu: ";
+              double height;
+              while (true) {
+                cin >> height;
+                if (!cin.good()) {
+                  cin.clear();
+                  cin.ignore(std::numeric_limits<int>::max(), '\n');
+                  cout << "Blednie podana wysokosc, sprobuj jeszcze raz:"
+                       << endl;
+                  continue;
+                } else
+                  break;
+              }
+              cout << "Podaj zakres rozmiaru plaskowyzu (min,max) :";
+              int min, max;
+              while (true) {
+                cin >> min;
+                cin >> max;
+                if (!cin.good()) {
+                  cin.clear();
+                  cin.ignore(std::numeric_limits<int>::max(), '\n');
+                  cout << "Blednie podany zakres, sprobuj jeszcze raz:" << endl;
+                  continue;
+                } else
+                  break;
+              }
+              scene.addPlat(Vector<3>({x, y, -1}), height, {min, max});
+              var = false;
+              break;
+            }
+            default: {
+              cout << "Nie rozpoznana opcja!" << endl;
+              cin.clear();
+              cin.ignore(std::numeric_limits<int>::max(), '\n');
+              break;
+            }
+          }
+        }
+        cin.clear();
+        cin.ignore(std::numeric_limits<int>::max(), '\n');
+        break;
+      }
+      case 'D':
+      case 'd': {
+        cout << "Podaj wektor polozenia wzgorza (x,y): ";
+        double x, y;
+        while (true) {
+          cin >> x;
+          cin >> y;
+          if (!cin.good()) {
+            cin.clear();
+            cin.ignore(std::numeric_limits<int>::max(), '\n');
+            cout << "Blednie podane wspolrzedne, sprobuj jeszcze raz:" << endl;
+            continue;
+          } else
+            break;
+        }
+        scene.addDron(Vector<3>({x, y, 0}));
         break;
       }
       case 'K':

@@ -16,6 +16,7 @@ void Hill::draw() {
     points.push_back(convert(calcV[i]));
     if (i % numberOfVert == numberOfVert - 1) {
       vertices.push_back(points);
+      vertices.push_back(points);
       points.clear();
     }
   }

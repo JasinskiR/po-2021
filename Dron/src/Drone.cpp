@@ -33,6 +33,7 @@ void Drone::animation(const double &height, const double &angle,
                       const double &distance) {
   route(height, angle, distance);
   double fall = -height;
+  this->draw();
   std::initializer_list<std::pair<Animation::droneFPtr, const double &> >
       fPairL = {{&Drone::goVertical, height},
                 {&Drone::rotate, angle},

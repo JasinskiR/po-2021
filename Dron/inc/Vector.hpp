@@ -45,12 +45,12 @@ class Vector {
   /**
    * @brief Funkcja zwracająca aktualną ilość obiektów typu Vector
    */
-  uint64_t rightNowG() { return rightNow; }
+  static uint64_t rightNowG() { return rightNow; }
 
   /**
    * @brief Funkcja zwracająca łączną ilość obiektów typu Vector
    */
-  uint64_t overallG() { return overall; }
+  static uint64_t overallG() { return overall; }
   /**
    * @brief Inicjalizuje wektor na podstawie wspołrzędnych w tablicy
    * oraz dodaje ilość obiektów typu Vector
