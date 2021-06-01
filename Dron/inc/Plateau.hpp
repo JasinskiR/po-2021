@@ -1,11 +1,11 @@
 #ifndef PLATEAU_HPP
 #define PLATEAU_HPP
 
+#include <chrono>
 #include <random>
 
 #include "CoordinateS.hpp"
 #include "DrawingInterface.hpp"
-#include <chrono>
 
 class Plat : protected CoordS, public DInter {
   double height;
@@ -19,8 +19,10 @@ class Plat : protected CoordS, public DInter {
       : CoordS(ctr, ort, nullptr), height(h), size(s.first, s.second), id(-1) {
     numberOfVert = drawNumber(3, 9);
   }
-  int drawNumber(int min,int max);
+  int drawNumber(int min, int max);
   void draw() override;
+  int idGet() { return id; }
+  // void removeP();
   std::vector<Vector<3>> calcVert();
 };
 

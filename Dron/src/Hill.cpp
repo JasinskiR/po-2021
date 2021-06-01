@@ -33,8 +33,9 @@ std::vector<Vector<3>> Hill::calcVert() {
   Vector<3> tmp;
   std::vector<Vector<3>> resultV;
   for (int i = 0; i < numberOfVert; ++i) {
-    tmp = coordSInGlob((MatrixRot<3>(360 / numberOfVert * (i + 1), Axis::OZ) *
-                        Vector<3>({0, (double)this->drawNumber(size.first, size.second), 0})));
+    tmp = coordSInGlob(
+        (MatrixRot<3>(360 / numberOfVert * (i + 1), Axis::OZ) *
+         Vector<3>({0, (double)this->drawNumber(size.first, size.second), 0})));
     resultV.push_back(tmp);
   }
   for (int i = 0; i < numberOfVert; ++i) {
@@ -44,3 +45,10 @@ std::vector<Vector<3>> Hill::calcVert() {
 
   return resultV;
 }
+
+// void Hill::removeH() {
+//   if (id != -1) {
+//     DInter::apiGet()->erase_shape(id);
+//     DInter::apiGet()->redraw();
+//   }
+// }

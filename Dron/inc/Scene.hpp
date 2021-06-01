@@ -20,6 +20,9 @@ class Scene {
   void addPlat(const Vector<3> &vector, const double &height,
                std::pair<int, int> range);
   void addDron(const Vector<3> &vector);
+  // void removeH(const uint32_t &id);
+  // void removeP(const uint32_t &id);
+  // void removeD(const uint32_t &id);
 };
 
 #endif

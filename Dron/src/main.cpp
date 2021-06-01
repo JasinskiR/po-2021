@@ -19,6 +19,7 @@ int main() {
     cout << "Obsluga drona \"BeeMo\"" << endl;
     cout << "a - animacja drona" << endl;
     cout << "d - dodaj drona" << endl;
+    // cout << "u - usun element" << endl;
     cout << "p - dodaj przeszkode" << endl;
     cout << "w - wyswietl liczbe wektorow" << endl;
     cout << "k - wyjscie z programu" << endl;
@@ -117,7 +118,8 @@ int main() {
           cin >> choiceN;
           switch (choiceN) {
             case 1: {
-              cout << "Podaj wektor polozenia wzgorza (x,y): ";
+              cout << "Podaj wektor polozenia wzgorza (x,y) (bez nawiasow, "
+                      "wartosci odzielone znakiem bialym):";
               double x, y;
               while (true) {
                 cin >> x;
@@ -144,7 +146,8 @@ int main() {
                 } else
                   break;
               }
-              cout << "Podaj zakres rozmiaru wzgorza (min,max) :";
+              cout << "Podaj zakres rozmiaru wzgorza (min,max) (bez nawiasow, "
+                      "wartosci odzielone znakiem bialym):";
               int min, max;
               while (true) {
                 cin >> min;
@@ -162,7 +165,8 @@ int main() {
               break;
             }
             case 2: {
-              cout << "Podaj wektor polozenia plaskowyzu (x,y): ";
+              cout << "Podaj wektor polozenia plaskowyzu (x,y) (bez nawiasow, "
+                      "wartosci odzielone znakiem bialym):";
               double x, y;
               while (true) {
                 cin >> x;
@@ -189,7 +193,8 @@ int main() {
                 } else
                   break;
               }
-              cout << "Podaj zakres rozmiaru plaskowyzu (min,max) :";
+              cout << "Podaj zakres rozmiaru plaskowyzu (min,max) (bez "
+                      "nawiasow, wartosci odzielone znakiem bialym):";
               int min, max;
               while (true) {
                 cin >> min;
@@ -220,7 +225,8 @@ int main() {
       }
       case 'D':
       case 'd': {
-        cout << "Podaj wektor polozenia wzgorza (x,y): ";
+        cout << "Podaj wektor polozenia wzgorza (x,y) (bez nawiasow, wartosci "
+                "odzielone znakiem bialym):";
         double x, y;
         while (true) {
           cin >> x;
@@ -233,9 +239,84 @@ int main() {
           } else
             break;
         }
-        scene.addDron(Vector<3>({x, y, 0}));
+        scene.addDron(Vector<3>({x, y, -0.75}));
         break;
       }
+      // case 'U':
+      // case 'u': {
+      //   bool var = true;
+      //   int choiceN = 0;
+      //   while (var) {
+      //     cout << "Wybierz rodzaj elementu do usuniecia: " << endl;
+      //     cout << "1 - Wzgorze" << endl;
+      //     cout << "2 - Plaskowyz" << endl;
+      //     cout << "3 - Dron" << endl;
+      //     cout << "Twoj wybor? > ";
+      //     cin >> choiceN;
+      //     switch (choiceN) {
+      //       case 1: {
+      //         cout << "Podaj id wzgorza:";
+      //         int id;
+      //         while (true) {
+      //           cin >> id;
+      //           if (!cin.good()) {
+      //             cin.clear();
+      //             cin.ignore(std::numeric_limits<int>::max(), '\n');
+      //             cout << "Blednie podane id, sprobuj jeszcze raz:" << endl;
+      //             continue;
+      //           } else
+      //             break;
+      //         }
+      //         scene.removeH(id-1);
+      //         var = false;
+      //         break;
+      //       }
+      //       case 2: {
+      //         cout << "Podaj id plaskowyzu:";
+      //         int id;
+      //         while (true) {
+      //           cin >> id;
+      //           if (!cin.good()) {
+      //             cin.clear();
+      //             cin.ignore(std::numeric_limits<int>::max(), '\n');
+      //             cout << "Blednie podane id, sprobuj jeszcze raz:" << endl;
+      //             continue;
+      //           } else
+      //             break;
+      //         }
+      //         scene.removeP(id-1);
+      //         var = false;
+      //         break;
+      //       }
+      //       case 3: {
+      //         cout << "Podaj id drona:";
+      //         int id;
+      //         while (true) {
+      //           cin >> id;
+      //           if (!cin.good()) {
+      //             cin.clear();
+      //             cin.ignore(std::numeric_limits<int>::max(), '\n');
+      //             cout << "Blednie podane id, sprobuj jeszcze raz:" << endl;
+      //             continue;
+      //           } else
+      //             break;
+      //         }
+      //         scene.removeD(id-1);
+      //         var = false;
+      //         break;
+      //       }
+      //       default: {
+      //         cout << "Nie rozpoznana opcja!" << endl;
+      //         cin.clear();
+      //         cin.ignore(std::numeric_limits<int>::max(), '\n');
+      //         break;
+      //       }
+      //     }
+      //   }
+      //   cin.clear();
+      //   cin.ignore(std::numeric_limits<int>::max(), '\n');
+      //   break;
+      // }
       case 'K':
       case 'k':
         return 0;

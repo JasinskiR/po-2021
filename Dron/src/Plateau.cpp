@@ -50,3 +50,10 @@ std::vector<Vector<3>> Plat::calcVert() {
 
   return resultV;
 }
+
+// void Plat::removeP() {
+//   if (id != -1) {
+//     DInter::apiGet()->erase_shape(id);
+//     DInter::apiGet()->redraw();
+//   }
+// }
