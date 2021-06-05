@@ -1,7 +1,7 @@
 #
 #  To sa opcje dla kompilacji
 #
-CXXFLAGS=-g -Iinc -Isrc -Ifml -Wall -pedantic -std=c++17
+CXXFLAGS=-g -Iinc -Isrc -Ifml -Iint/src -Iint/inc -Wall -pedantic -std=c++17
 LIBS = -lpthread
 
 # __start__: Dron
@@ -9,17 +9,18 @@ LIBS = -lpthread
 
 Dron: obj obj/main.o obj/MatrixRot.o obj/Vector.o obj/Dr3D_gnuplot_api.o\
 												obj/CoordinateS.o obj/Cuboid.o obj/HexaPrism.o obj/Drone.o obj/Surface.o obj/Animation.o\
-												obj/DrawingInterface.o obj/Hill.o obj/Plateau.o obj/Scene.o
+												obj/DrawingInterface.o obj/Hill.o obj/Plateau.o obj/Scene.o obj/Block.o\
+												obj/CuboidPlat.o
 	g++ -Wall -pedantic -std=c++0x -o Dron obj/main.o obj/Vector.o\
                         obj/MatrixRot.o obj/Dr3D_gnuplot_api.o\
 												obj/CoordinateS.o obj/Cuboid.o obj/HexaPrism.o obj/Drone.o\
 												obj/Surface.o obj/Animation.o obj/DrawingInterface.o obj/Hill.o\
-												obj/Plateau.o obj/Scene.o -lpthread 
+												obj/Plateau.o obj/Scene.o obj/Block.o obj/CuboidPlat.o -lpthread 
 												
 obj:
 	mkdir obj
 
-obj/main.o: src/main.cpp inc/Surface.hpp inc/Drone.hpp inc/DrawingInterface.hpp inc/Hill.hpp inc/Plateau.hpp inc/Scene.hpp
+obj/main.o: src/main.cpp inc/Scene.hpp
 	g++ -c ${CXXFLAGS} -o obj/main.o src/main.cpp
 
 obj/MatrixRot.o: src/MatrixRot.cpp inc/MatrixRot.hpp fml/MatrixRot.tpp
@@ -28,8 +29,8 @@ obj/MatrixRot.o: src/MatrixRot.cpp inc/MatrixRot.hpp fml/MatrixRot.tpp
 obj/Vector.o: src/Vector.cpp inc/Vector.hpp fml/Vector.tpp
 	g++ -c ${CXXFLAGS} -o obj/Vector.o src/Vector.cpp
 
-obj/Dr3D_gnuplot_api.o: src/Dr3D_gnuplot_api.cpp inc/Dr3D_gnuplot_api.hpp
-	g++ -c ${CXXFLAGS} -o obj/Dr3D_gnuplot_api.o src/Dr3D_gnuplot_api.cpp
+obj/Dr3D_gnuplot_api.o: int/src/Dr3D_gnuplot_api.cpp int/inc/Dr3D_gnuplot_api.hpp
+	g++ -c ${CXXFLAGS} -o obj/Dr3D_gnuplot_api.o int/src/Dr3D_gnuplot_api.cpp
 
 obj/Scene.o: src/Scene.cpp inc/Scene.hpp
 	g++ -c ${CXXFLAGS} -o obj/Scene.o src/Scene.cpp
@@ -43,23 +44,29 @@ obj/Cuboid.o: src/Cuboid.cpp inc/Cuboid.hpp
 obj/HexaPrism.o: src/HexaPrism.cpp inc/HexaPrism.hpp
 	g++ -c ${CXXFLAGS} -o obj/HexaPrism.o src/HexaPrism.cpp
 
-obj/Drone.o: src/Drone.cpp inc/Drone.hpp
+obj/Drone.o: src/Drone.cpp inc/Drone.hpp int/inc/DroneInterface.hpp
 	g++ -c ${CXXFLAGS} -o obj/Drone.o src/Drone.cpp
 
-obj/Surface.o: src/Surface.cpp inc/Surface.hpp inc/DrawingInterface.hpp
+obj/Surface.o: src/Surface.cpp inc/Surface.hpp int/inc/DrawingInterface.hpp
 	g++ -c ${CXXFLAGS} -o obj/Surface.o src/Surface.cpp
 
 obj/Animation.o: src/Animation.cpp inc/Animation.hpp
 	g++ -c ${CXXFLAGS} -o obj/Animation.o src/Animation.cpp
 
-obj/DrawingInterface.o: src/DrawingInterface.cpp inc/DrawingInterface.hpp
-	g++ -c ${CXXFLAGS} -o obj/DrawingInterface.o src/DrawingInterface.cpp
+obj/DrawingInterface.o: int/src/DrawingInterface.cpp int/inc/DrawingInterface.hpp
+	g++ -c ${CXXFLAGS} -o obj/DrawingInterface.o int/src/DrawingInterface.cpp
 
 obj/Hill.o: src/Hill.cpp inc/Hill.hpp
 	g++ -c ${CXXFLAGS} -o obj/Hill.o src/Hill.cpp
 
 obj/Plateau.o: src/Plateau.cpp inc/Plateau.hpp
 	g++ -c ${CXXFLAGS} -o obj/Plateau.o src/Plateau.cpp
+
+obj/Block.o: src/Block.cpp inc/Block.hpp
+	g++ -c ${CXXFLAGS} -o obj/Block.o src/Block.cpp
+
+obj/CuboidPlat.o: src/CuboidPlat.cpp inc/CuboidPlat.hpp
+	g++ -c ${CXXFLAGS} -o obj/CuboidPlat.o src/CuboidPlat.cpp
 
 clean:
 	rm -f obj/*.o Dron

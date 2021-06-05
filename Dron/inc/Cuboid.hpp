@@ -15,6 +15,8 @@ class Cuboid : public CoordS, public DInter {
          const double &h, const double &w, const double &d)
       : CoordS(ctr, ort, predec), height(h), width(w), depth(d), id(-1) {}
   void draw() override;
+  int idGet() { return id; }
   std::array<Vector<3>, 8> calcVert();
+  ~Cuboid() { DInter::apiGet()->erase_shape(id); }
 };
 #endif

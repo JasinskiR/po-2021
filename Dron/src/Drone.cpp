@@ -120,9 +120,18 @@ void Drone::route(const double &height, const double &angle,
   routeId = tmp;
 }
 
-// void Drone::removeD() {
-//   if (id != -1) {
-//     DInter::apiGet()->erase_shape(id);
-//     DInter::apiGet()->redraw();
-//   }
-// }
+Drone::~Drone() {
+  DInter::apiGet()->erase_shape(dBody.idGet());
+
+  DInter::apiGet()->erase_shape(dBody.idGet());
+
+  for (uint32_t i = 0; i < 4; ++i)
+    DInter::apiGet()->erase_shape(rotor[i].idGet());
+  for (uint32_t i = 0; i < 2; ++i)
+    DInter::apiGet()->erase_shape(searchlight[i].idGet());
+  for (uint32_t i = 0; i < 4; ++i) {
+    for (uint32_t j = 0; j < 2; ++j)
+      DInter::apiGet()->erase_shape(rotorBlades[i][j].idGet());
+  }
+  DInter::apiGet()->redraw();
+}

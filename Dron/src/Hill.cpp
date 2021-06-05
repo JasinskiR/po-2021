@@ -1,12 +1,5 @@
 #include "Hill.hpp"
 
-int Hill::drawNumber(int min, int max) {
-  int n = std::chrono::steady_clock::now().time_since_epoch().count();
-  static std::default_random_engine generator(n);
-  std::uniform_int_distribution<int> distribution(min, max);
-  return distribution(generator);
-}
-
 void Hill::draw() {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
@@ -46,9 +39,7 @@ std::vector<Vector<3>> Hill::calcVert() {
   return resultV;
 }
 
-// void Hill::removeH() {
-//   if (id != -1) {
-//     DInter::apiGet()->erase_shape(id);
-//     DInter::apiGet()->redraw();
-//   }
-// }
+Hill::~Hill() {
+  DInter::apiGet()->erase_shape(id);
+  DInter::apiGet()->redraw();
+}

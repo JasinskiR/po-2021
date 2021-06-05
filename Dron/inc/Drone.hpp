@@ -9,6 +9,7 @@
 
 #include "Cuboid.hpp"
 #include "HexaPrism.hpp"
+#include "LandscapeInterface.hpp"
 
 /**
  * @brief Modeluje pojęcie Drona jako złożonego obiektu
@@ -16,7 +17,7 @@
  * elementów dodatkowych Zawiera również funkcje pozwalające na
  * przemieszczanie/animacje drona
  */
-class Drone : protected CoordS, public DInter {
+class Drone : protected CoordS, public DInter, public DroneI, public LandI {
   /**
    * @brief obiekt klasy Cuboid odpowiedzialany za tworzenie korpusu drona
    *
@@ -95,65 +96,34 @@ class Drone : protected CoordS, public DInter {
                        Cuboid(Vector<3>({0, 0, 0}), MatrixRot<3>(135, Axis::OZ),
                               &this->rotor[3], 0.03, 0.7, 0.02)}}}),
         id(-1),
-        routeId(-1){};
-  /**
-   * @brief Funkcja opisująca poziomy ruch drona
-   *
-   * @param distance - parametr przechowujący odległość do pokonania
-   */
-  void goForward(const double &distance);
-  /**
-   * @brief Funkcja opisująca pionowy ruch drona
-   *
-   * @param height - parametr przechowujący wysokość do pokonania
-   */
-  void goVertical(const double &height);
-  /**
-   * @brief Funkcja opisująca rotację drona
-   *
-   * @param angle - parametr przechowujący kąt obrotu drona
-   */
-  void rotate(const double &angle);
-  /**
-   * @brief Funkcja pozwalająca rysowanie drona
-   *
-   */
+        routeId(-1){draw();}
+
+  void goForward(const double &distance) override;
+
+  void goVertical(const double &height) override;
+
+  void rotate(const double &angle) override;
+
   void draw() override;
-  /**
-   * @brief Funkcja realizująca animacje ruchu drona
-   *
-   * @param height - wysokość przelotu
-   * @param angle - kąt roatacji drona
-   * @param distance  - odległość przelotu
-   */
+
   void animation(const double &height, const double &angle,
-                 const double &distance);
-  /**
-   * @brief Funkcja realizująca obracanie się łopatek wirnika
-   *
-   */
-  void rotorSpin();
-  /**
-   * @brief Funkcja rysująca planowaną trasę drona
-   *
-   * @param height - wysokość
-   * @param angle - kąt
-   * @param distance - odległość
-   */
-  void route(const double &height, const double &angle, const double &distance);
-  /**
-   * @brief Funkcja realizująca pochylanie się drona podczas lotu
-   *
-   * @param angle - kąt pochylenia
-   */
-  void lean(const double &angle);
-  /**
-   * @brief Funkcja zwracająca prywatny element id
-   * 
-   * @return int - zwraca wartość id drona
-   */
+                 const double &distance) override;
+
+  void rotorSpin() override;
+
+  void route(const double &height, const double &angle,
+             const double &distance) override;
+
+  void lean(const double &angle) override;
+
   int idGet() { return id; }
-//   void removeD();
+  bool isAbove(std::shared_ptr<DroneI> drone) override { return true; }
+  bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
+    return true;
+  }
+  std::string type() override { return "Dron"; }
+  Vector<3> cords() override { return center; }
+  ~Drone();
 };
 
 #endif

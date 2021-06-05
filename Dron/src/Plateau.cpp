@@ -1,12 +1,5 @@
 #include "Plateau.hpp"
 
-int Plat::drawNumber(int min, int max) {
-  int n = std::chrono::steady_clock::now().time_since_epoch().count();
-  static std::default_random_engine generator(n);
-  std::uniform_int_distribution<int> distribution(min, max);
-  return distribution(generator);
-}
-
 void Plat::draw() {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
@@ -51,9 +44,7 @@ std::vector<Vector<3>> Plat::calcVert() {
   return resultV;
 }
 
-// void Plat::removeP() {
-//   if (id != -1) {
-//     DInter::apiGet()->erase_shape(id);
-//     DInter::apiGet()->redraw();
-//   }
-// }
+Plat::~Plat() {
+  DInter::apiGet()->erase_shape(id);
+  DInter::apiGet()->redraw();
+}

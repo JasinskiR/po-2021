@@ -15,5 +15,7 @@ class HexaP : public CoordS, public DInter {
       : CoordS(ctr, ort, predec), radius(r), height(h), id(-1) {}
   void draw() override;
   std::array<Vector<3>, 12> calcVert();
+  int idGet() { return id; }
+   ~HexaP() { DInter::apiGet()->erase_shape(id); }
 };
 #endif
