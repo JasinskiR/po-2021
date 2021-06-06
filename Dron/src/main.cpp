@@ -4,12 +4,23 @@
 
 using namespace std;
 
+/**
+ * @brief Funkcja, która oczekuje na dowolny znak od użytkownika
+ * Pełni rolę tymczasowego przerwania działania programu
+ *
+ */
 void wait4key() {
   do {
     std::cout << "\n Press a key to continue..." << std::endl;
   } while (std::cin.get() != '\n');
 }
 
+/**
+ * @brief  Funkcja main
+ *
+ * Zawiera główną funkcjonalność programu
+ * @return int - informacja o powodzeniu, bądź nie programu
+ */
 int main() {
   bool var = true;
   {

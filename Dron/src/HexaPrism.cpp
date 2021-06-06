@@ -1,5 +1,9 @@
 #include "HexaPrism.hpp"
 
+/**
+ * @brief Rysuje obiekt klasy HexaP
+ * 
+ */
 void HexaP::draw() {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
@@ -20,6 +24,14 @@ void HexaP::draw() {
   id = tmp;
 }
 
+/**
+ * @brief /**
+ * @brief Funkcja przeliczająca wierzchołki obiektu
+ * Tworzy wierzchołki obiektu oraz przelicza je do układu globalnego
+ * 
+ * @return std::array<Vector<3>, 12> - zwraca tablicę zawierający poszczegołne
+   * wierzchołki
+ */
 std::array<Vector<3>, 12> HexaP::calcVert() {
   std::array<Vector<3>, 12> resultV;
   int signz = 1;

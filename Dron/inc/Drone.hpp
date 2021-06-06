@@ -96,7 +96,9 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
                        Cuboid(Vector<3>({0, 0, 0}), MatrixRot<3>(135, Axis::OZ),
                               &this->rotor[3], 0.03, 0.7, 0.02)}}}),
         id(-1),
-        routeId(-1){draw();}
+        routeId(-1) {
+    draw();
+  }
 
   void goForward(const double &distance) override;
 
@@ -116,6 +118,11 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
 
   void lean(const double &angle) override;
 
+  /**
+   * @brief metoda zwracająca id obiektu
+   *
+   * @return int - zwraca liczbę reprezentującą id obeiktu
+   */
   int idGet() { return id; }
   bool isAbove(std::shared_ptr<DroneI> drone) override { return true; }
   bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
@@ -123,6 +130,10 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
   }
   std::string type() override { return "Dron"; }
   Vector<3> cords() override { return center; }
+  /**
+   * @brief Destruktor obiektu klasy Drone
+   *
+   */
   ~Drone();
 };
 

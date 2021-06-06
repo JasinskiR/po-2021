@@ -4,6 +4,12 @@
 #include "Hill.hpp"
 #include "Plateau.hpp"
 
+/**
+ * @brief Konstruktor nowego obiektu klasy Scene
+ * Odpowiada za stworzenie powierzchni oraz podstawowych elemntów krajobrazu
+ * wraz z dronem
+ *
+ */
 Scene::Scene() {
   Surface surf(-1);
   surf.draw();
@@ -18,6 +24,12 @@ Scene::Scene() {
       std::shared_ptr<DroneI>(new Drone(droneBase, MatrixRot<3>()))));
 }
 
+/**
+ * @brief Wywietla wszystkie dostępne elementy krajobrazu wraz z ich ondeksem
+ * oraz wektorem położenia
+ * Oddzielnie są wyświtlane dostepne drony oraz przeskody
+ *
+ */
 void Scene::print() {
   std::cout << "\nPRZESZKODY NATURALNE: " << std::endl;
   for (uint32_t i = 0, j = 1; i < objectL.size(); ++i) {
@@ -34,12 +46,25 @@ void Scene::print() {
   }
 }
 
+/**
+ * @brief Funkcja pozwalająca na symulację ruchu drona
+ *
+ * @param index - indeks drona, który ma być animowany
+ * @param height - wyokośc przelotu
+ * @param angle - kąt obrotu
+ * @param distance - dystans do przebycia
+ */
 void Scene::sAnimation(const uint32_t &index, const double &height,
                        const double &angle, const double &distance) {
   std::dynamic_pointer_cast<DroneI>(this->objectL[getDroneIndex(index)])
       ->animation(height, angle, distance);
 }
 
+/**
+ * @brief Funkcja pozwalająca dodanie nowego elementu do sceny
+ * element jest przechowywany jest w vectorze elementów krajobrazu
+ *
+ */
 void Scene::add() {
   std::cout << "p - Dodaj przeszkode" << std::endl;
   std::cout << "d - Dodaj drone" << std::endl;
@@ -265,6 +290,10 @@ void Scene::add() {
   }
 }
 
+/**
+ * @brief Funkcja pozwalająca usunięcie dostępnego elementu ze sceny
+ *
+ */
 void Scene::removeE() {
   bool var = true;
   int choiceN = 0;
@@ -321,6 +350,14 @@ void Scene::removeE() {
   std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 }
 
+/**
+ * @brief Funkcja zwracająca indeks poszukiwanego drona w vectorze elementów
+ * krajobrazu
+ *
+ * @param index - indeks drona który chcemy znaleźć
+ * @return uint32_t - liczba reprezentująca indeks szukanego drona w vectorze
+ * elementów
+ */
 uint32_t Scene::getDroneIndex(const uint32_t &index) const {
   uint32_t find = 0;
   for (uint32_t i = 0; i < this->objectL.size(); ++i) {
@@ -334,6 +371,15 @@ uint32_t Scene::getDroneIndex(const uint32_t &index) const {
   throw std::out_of_range{"Dron id = <" + std::to_string(index + 1) +
                           "> out of range!"};
 }
+
+/**
+ * @brief Funkcja zwracająca indeks poszukiwanej przeszkody w vectorze elementów
+ * krajobrazu
+ *
+ * @param index indeks przeszkody którą chcemy znaleźć
+ * @return uint32_t - liczba reprezentująca indeks szukanej przeszkody w
+ * vectorze elementów
+ */
 uint32_t Scene::getObstacleIndex(const uint32_t &index) const {
   uint32_t find = 0;
   for (uint32_t i = 0; i < this->objectL.size(); ++i) {

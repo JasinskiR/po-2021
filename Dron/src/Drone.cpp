@@ -120,6 +120,11 @@ void Drone::route(const double &height, const double &angle,
   routeId = tmp;
 }
 
+/**
+ * @brief Destruktor obiektu klasy Drone
+ * Usuwa poszczególne elemnty składające się na obiekt Dron
+ *
+ */
 Drone::~Drone() {
   DInter::apiGet()->erase_shape(dBody.idGet());
 

@@ -1,5 +1,9 @@
 #include "CuboidPlat.hpp"
 
+/**
+ * @brief Rysuje obiekt klasy CubPlat
+ * 
+ */
 void CubPlat::draw() {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
@@ -21,6 +25,13 @@ void CubPlat::draw() {
   DInter::apiGet()->redraw();
 }
 
+/**
+ * @brief Funkcja przeliczająca wierzchołki obiektu
+ * Tworzy wierzchołki obiektu oraz przelicza je do układu globalnego
+ * 
+ * @return std::array<Vector<3>, 8> - zwraca tablicę zawierający poszczegołne
+   * wierzchołki
+ */
 std::array<Vector<3>, 8> CubPlat::calcVert() {
   std::array<Vector<3>, 8> resultV;
   int signx = 1, signy = 1;
@@ -43,6 +54,11 @@ std::array<Vector<3>, 8> CubPlat::calcVert() {
   return resultV;
 }
 
+/**
+ * @brief Destruktor obiektu klasy CubPlat
+ * usuwa kształt obiektu/figury oraz odświeża gnuplota
+ *
+ */
 CubPlat::~CubPlat() {
   DInter::apiGet()->erase_shape(id);
   DInter::apiGet()->redraw();

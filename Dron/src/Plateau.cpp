@@ -1,5 +1,9 @@
 #include "Plateau.hpp"
 
+/**
+ * @brief Funkcja rysująca obiekt
+ *
+ */
 void Plat::draw() {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
@@ -21,6 +25,12 @@ void Plat::draw() {
   DInter::apiGet()->redraw();
 }
 
+  /**
+   * @brief Funkcja przeliczająca wierzchołki obiektu
+   * Tworzy wierzchołki obiektu oraz przelicza je do układu globalnego
+   * 
+   * @return std::vector<Vector<3>> - zwraca vector zawierający poszczegołne wierzchołki
+   */
 std::vector<Vector<3>> Plat::calcVert() {
   Vector<3> tmp;
   double tmpH = 0;
@@ -44,6 +54,11 @@ std::vector<Vector<3>> Plat::calcVert() {
   return resultV;
 }
 
+/**
+ * @brief Destruktor obiektu klasy Plat
+ * usuwa kształt obiektu/figury oraz odświeża gnuplota
+ *
+ */
 Plat::~Plat() {
   DInter::apiGet()->erase_shape(id);
   DInter::apiGet()->redraw();

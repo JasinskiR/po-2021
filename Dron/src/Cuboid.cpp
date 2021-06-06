@@ -1,5 +1,9 @@
 #include "Cuboid.hpp"
 
+/**
+ * @brief Rusyje obiektklasy Cuboid
+ *
+ */
 void Cuboid::draw() {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
@@ -15,11 +19,18 @@ void Cuboid::draw() {
   tmp = (DInter::apiGet())->draw_polyhedron(vertices, "red");
 
   if (id != -1) {
-     DInter::apiGet()->erase_shape(id);
+    DInter::apiGet()->erase_shape(id);
   }
   id = tmp;
 }
 
+/**
+ * @brief Funkcja przeliczająca wierzchołki obiektu
+ * Tworzy wierzchołki obiektu oraz przelicza je do układu globalnego
+ *
+ * @return std::array<Vector<3>, 8> - zwraca tablicę zawierający poszczegołne
+ * wierzchołki
+ */
 std::array<Vector<3>, 8> Cuboid::calcVert() {
   std::array<Vector<3>, 8> resultV;
   int signx = 1, signy = 1, signz = 1;
