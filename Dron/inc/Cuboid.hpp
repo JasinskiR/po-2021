@@ -49,7 +49,7 @@ class Cuboid : public CoordS, public DInter {
   Cuboid(const Vector<3> &ctr, const MatrixRot<3> &ort, CoordS *predec,
          const double &h, const double &w, const double &d)
       : CoordS(ctr, ort, predec), height(h), width(w), depth(d), id(-1) {}
-  void draw() override;
+  void draw(std::string colour) override;
 
   /**
    * @brief metoda zwracająca id obiektu
@@ -57,19 +57,20 @@ class Cuboid : public CoordS, public DInter {
    * @return int - zwraca liczbę reprezentującą id obeiktu
    */
   int idGet() { return id; }
-  
+
   /**
-   * @brief   /**
+   * @brief
    * @brief Funkcja przeliczająca wierzchołki obiektu
-   * 
-   * @return std::array<Vector<3>, 8> - zwraca tablicę zawierający poszczegołne wierzchołki
+   *
+   * @return std::array<Vector<3>, 8> - zwraca tablicę zawierający poszczegołne
+   * wierzchołki
    */
   std::array<Vector<3>, 8> calcVert();
 
   /**
    * @brief Destruktor obiektu klasy Cuboid
-   * 
+   *
    */
-  ~Cuboid() { DInter::apiGet()->erase_shape(id); }
+  ~Cuboid() override { DInter::apiGet()->erase_shape(id); }
 };
 #endif

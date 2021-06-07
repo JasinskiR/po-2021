@@ -12,7 +12,7 @@
  */
 Scene::Scene() {
   Surface surf(-1);
-  surf.draw();
+  surf.draw("purple");
   Vector<3> droneBase({0, 0, -0.75});
   Vector<3> hillBase({3, 3, -1});
   Vector<3> platBase({-3, -3, -1});
@@ -392,4 +392,65 @@ uint32_t Scene::getObstacleIndex(const uint32_t &index) const {
   }
   throw std::out_of_range{"Obstacle id = <" + std::to_string(index + 1) +
                           "> out of range!"};
+}
+
+// void Scene::choosenD() {
+//   std::vector<std::shared_ptr<DroneI>> droneL;
+//   for (uint32_t i = 0; i < this->objectL.size(); ++i) {
+//     if (std::dynamic_pointer_cast<DroneI>(this->objectL[i]) != nullptr) {
+//       droneL.push_back(std::dynamic_pointer_cast<DroneI>(this->objectL[i]));
+//     }
+//   }
+//   char arrow;
+//   bool var = true;
+//   std::cout << "Wybierz drona klikajac strzlke w prawo -> " << std::endl;
+//   while (var) {
+//     for (std::shared_ptr<DroneI> drone : droneL) {
+//       drone->draw("green");
+//       std::cin.clear();
+//       std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+//       system("stty raw");
+//       arrow = std::cin.get();
+//       if (arrow == 77) {
+//         std::cout<<"TAK"<<std::endl;
+//         drone->draw("red");
+//         break;
+//       }
+//       if (arrow == 13) {
+//         var = false;
+//         break;
+//       }
+//       system("stty cooked");
+//     }
+//   }
+// }
+
+void Scene::choosenD() {
+  std::vector<std::shared_ptr<DroneI>> droneL;
+  for (uint32_t i = 0; i < this->objectL.size(); ++i) {
+    if (std::dynamic_pointer_cast<DroneI>(this->objectL[i]) != nullptr) {
+      droneL.push_back(std::dynamic_pointer_cast<DroneI>(this->objectL[i]));
+    }
+  }
+  char tab;
+  bool var = true;
+  std::cout << "Wybierz drona klikajac TAB " << std::endl;
+  std::cin.clear();
+  std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+  system("stty raw");
+  while (var) {
+    for (std::size_t i = 0; i < droneL.size(); ++i) {
+      tab = std::cin.get();
+      if (tab == 9) {
+        if (i == 0) droneL[droneL.size() - 1]->draw("red");
+        droneL[i]->draw("green");
+        if (i != 0) droneL[i - 1]->draw("red");
+      }
+      if (tab == 13) {
+        var = false;
+        break;
+      }
+    }
+  }
+  system("stty cooked");
 }

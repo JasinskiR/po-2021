@@ -42,12 +42,12 @@ void Drone::rotate(const double &angle) {
  * @brief Funkcja rysująca obiekt dron wraz z jego elementami
  *
  */
-void Drone::draw() {
-  dBody.draw();
-  for (uint32_t i = 0; i < 4; ++i) rotor[i].draw();
-  for (uint32_t i = 0; i < 2; ++i) searchlight[i].draw();
+void Drone::draw(std::string colour) {
+  dBody.draw(colour);
+  for (uint32_t i = 0; i < 4; ++i) rotor[i].draw(colour);
+  for (uint32_t i = 0; i < 2; ++i) searchlight[i].draw(colour);
   for (uint32_t i = 0; i < 4; ++i) {
-    for (uint32_t j = 0; j < 2; ++j) rotorBlades[i][j].draw();
+    for (uint32_t j = 0; j < 2; ++j) rotorBlades[i][j].draw(colour);
   }
   DInter::apiGet()->redraw();
 }
@@ -62,7 +62,7 @@ void Drone::animation(const double &height, const double &angle,
                       const double &distance) {
   route(height, angle, distance);
   double fall = -height;
-  this->draw();
+  this->draw(colour);
   std::initializer_list<std::pair<Animation::droneFPtr, const double &> >
       fPairL = {{&Drone::goVertical, height},
                 {&Drone::rotate, angle},

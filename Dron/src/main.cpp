@@ -32,6 +32,7 @@ int main() {
       cout << "Obsluga drona \"BeeMo\"" << endl;
       cout << "a - animacja drona" << endl;
       cout << "d - dodaj element" << endl;
+      cout << "c - wybierz aktywnego drona" << endl;
       cout << "u - usun element" << endl;
       cout << "p - wyswietl id elementow" << endl;
       cout << "w - wyswietl liczbe wektorow" << endl;
@@ -138,6 +139,11 @@ int main() {
           cin.clear();
           cin.ignore(std::numeric_limits<int>::max(), '\n');
           wait4key();
+          break;
+        }
+        case 'C':
+        case 'c': {
+          scene.choosenD();
           break;
         }
         case 'K':

@@ -44,10 +44,10 @@ class HexaP : public CoordS, public DInter {
   HexaP(const Vector<3> &ctr, const MatrixRot<3> &ort, CoordS *predec,
         const double &r, const double &h)
       : CoordS(ctr, ort, predec), radius(r), height(h), id(-1) {}
-  void draw() override;
+  void draw(std::string colour) override;
 
   /**
-   * @brief   /**
+   * @brief 
    * @brief Funkcja przeliczająca wierzchołki obiektu
    * 
    * @return std::array<Vector<3>, 12> - zwraca tablicę zawierający poszczegołne wierzchołki

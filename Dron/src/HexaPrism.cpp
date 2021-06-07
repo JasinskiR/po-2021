@@ -4,7 +4,7 @@
  * @brief Rysuje obiekt klasy HexaP
  * 
  */
-void HexaP::draw() {
+void HexaP::draw(std::string colour) {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
   std::vector<drawNS::Point3D> points;
@@ -16,7 +16,7 @@ void HexaP::draw() {
       points.clear();
     }
   }
-  tmp = DInter::apiGet()->draw_polyhedron(vertices, "red");
+  tmp = DInter::apiGet()->draw_polyhedron(vertices, colour);
 
   if (id != -1) {
    DInter::apiGet()->erase_shape(id);
@@ -25,7 +25,7 @@ void HexaP::draw() {
 }
 
 /**
- * @brief /**
+ * @brief
  * @brief Funkcja przeliczająca wierzchołki obiektu
  * Tworzy wierzchołki obiektu oraz przelicza je do układu globalnego
  * 

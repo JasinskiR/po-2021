@@ -4,8 +4,9 @@
 /**
  * @file
  * @brief Definicja klasy sceny
-
+ *
  */
+
 #include "Drone.hpp"
 #include "LandscapeInterface.hpp"
 #include "Surface.hpp"
@@ -15,6 +16,7 @@
  *
  */
 class Scene {
+ private:
   /**
    * @brief vector przechowujący wszystkie elementy krajobrazu
    *
@@ -34,6 +36,11 @@ class Scene {
    * @return uint32_t - zwraca liczbę reprezentującą index obiektu
    */
   uint32_t getObstacleIndex(const uint32_t &index) const;
+  /**
+   * @brief Wskaźnik na aktywnego drona
+   *
+   */
+  std::shared_ptr<DroneI> activeD;
 
  public:
   /**
@@ -65,7 +72,14 @@ class Scene {
    * @brief Wypisuje elemnty krajobrazu
    *
    */
+
+  /**
+   * @brief Metoda pozwalająca wybrać aktualnego drona
+   *
+   */
+  void choosenD();
   void print();
+  ~Scene() {}
 };
 
 #endif

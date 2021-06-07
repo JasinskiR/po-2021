@@ -4,7 +4,7 @@
  * @brief Rysuje obiekt klasy Hill
  *
  */
-void Hill::draw() {
+void Hill::draw(std::string colour) {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
   std::vector<drawNS::Point3D> points;
@@ -17,7 +17,7 @@ void Hill::draw() {
       points.clear();
     }
   }
-  tmp = DInter::apiGet()->draw_polyhedron(vertices, "red");
+  tmp = DInter::apiGet()->draw_polyhedron(vertices, colour);
 
   if (id != -1) {
     DInter::apiGet()->erase_shape(id);

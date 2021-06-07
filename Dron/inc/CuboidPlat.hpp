@@ -18,6 +18,7 @@ class CubPlat : public BlockI, public DInter, public LandI {
    *
    */
   int id;
+  std::string colour;
 
  public:
   /**
@@ -31,8 +32,8 @@ class CubPlat : public BlockI, public DInter, public LandI {
    */
   CubPlat(const Vector<3> &ctr, const MatrixRot<3> &ort, const double &h,
           const double &w, const double &d)
-      : BlockI(ctr, ort, h, w, d), id(-1) {
-    draw();
+      : BlockI(ctr, ort, h, w, d), id(-1), colour("red") {
+    draw(colour);
   }
 
   /**
@@ -41,7 +42,7 @@ class CubPlat : public BlockI, public DInter, public LandI {
    * @return int - zwraca liczbę reprezentującą id obeiktu
    */
   int idGet() { return id; }
-  void draw() override;
+  void draw(std::string colour) override;
   bool isAbove(std::shared_ptr<DroneI> drone) override { return true; }
   bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
     return false;

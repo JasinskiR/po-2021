@@ -12,7 +12,7 @@ class DInter {
 
  public:
   std::shared_ptr<drawNS::Draw3DAPI> apiGet() { return api; }
-  virtual void draw() = 0;
+  virtual void draw(std::string colour) = 0;
   virtual ~DInter() {}
 };
 

@@ -65,11 +65,13 @@ class DroneI {
    * @param angle - kąt pochylenia
    */
   virtual void lean(const double &angle) = 0;
+
   /**
    * @brief Wirtualny destruktor drona
    *
    */
   virtual ~DroneI() {}
+  virtual void draw(std::string colour) = 0;
 };
 
 #endif

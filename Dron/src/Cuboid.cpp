@@ -4,7 +4,7 @@
  * @brief Rusyje obiektklasy Cuboid
  *
  */
-void Cuboid::draw() {
+void Cuboid::draw(std::string colour) {
   int tmp;
   std::vector<std::vector<drawNS::Point3D>> vertices;
   std::vector<drawNS::Point3D> points;
@@ -16,7 +16,7 @@ void Cuboid::draw() {
       points.clear();
     }
   }
-  tmp = (DInter::apiGet())->draw_polyhedron(vertices, "red");
+  tmp = (DInter::apiGet())->draw_polyhedron(vertices, colour);
 
   if (id != -1) {
     DInter::apiGet()->erase_shape(id);

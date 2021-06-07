@@ -20,6 +20,7 @@ class Hill : public BlockI, public DInter, public LandI {
    *
    */
   int id;
+  std::string colour;
 
  public:
   /**
@@ -32,8 +33,8 @@ class Hill : public BlockI, public DInter, public LandI {
    */
   Hill(const Vector<3> &ctr, const MatrixRot<3> &ort, const double &h,
        std::pair<int, int> s)
-      : BlockI(ctr, ort, h, {s.first, s.second}), id(-1) {
-    draw();
+      : BlockI(ctr, ort, h, {s.first, s.second}), id(-1), colour("red") {
+    draw(colour);
   }
   /**
    * @brief metoda zwracająca id obiektu
@@ -41,7 +42,7 @@ class Hill : public BlockI, public DInter, public LandI {
    * @return int - zwraca liczbę reprezentującą id obeiktu
    */
   int idGet() { return id; }
-  void draw() override;
+  void draw(std::string colour) override;
   bool isAbove(std::shared_ptr<DroneI> drone) override { return true; }
   bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
     return false;

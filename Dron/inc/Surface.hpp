@@ -8,6 +8,6 @@ class Surface : public DInter {
 
  public:
   Surface(const double &height);
-  void draw() override;
+  void draw(std::string colour) override;
 };
 #endif

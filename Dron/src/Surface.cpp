@@ -2,7 +2,7 @@
 
 Surface::Surface(const double &H) { height = H; }
 
-void Surface::draw() {
+void Surface::draw(std::string colour) {
   for (int x = -5; x < 5; ++x) {
     int y = -5;
     for (y = -5; y < 5; ++y) {
@@ -19,7 +19,7 @@ void Surface::draw() {
                    drawNS::Point3D(x + 1, y + 1, height),
                    drawNS::Point3D(x, y + 1, height),
                    drawNS::Point3D(x, y + 1, height)}},
-              "purple");
+              colour);
     }
   }
   DInter::apiGet()->redraw();
