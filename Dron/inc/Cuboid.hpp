@@ -71,6 +71,6 @@ class Cuboid : public CoordS, public DInter {
    * @brief Destruktor obiektu klasy Cuboid
    *
    */
-  ~Cuboid() override { DInter::apiGet()->erase_shape(id); }
+  ~Cuboid() { DInter::apiGet()->erase_shape(id); }
 };
 #endif

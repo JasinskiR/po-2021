@@ -56,6 +56,7 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
    * @brief Kolor rysowania drona
    *
    */
+  std::string colour;
 
  public:
   /**
@@ -100,8 +101,9 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
                        Cuboid(Vector<3>({0, 0, 0}), MatrixRot<3>(135, Axis::OZ),
                               &this->rotor[3], 0.03, 0.7, 0.02)}}}),
         id(-1),
-        routeId(-1) {
-    draw("red");
+        routeId(-1),
+        colour("red") {
+    draw(colour);
   }
 
   void goForward(const double &distance) override;
@@ -132,6 +134,8 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
   bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
     return true;
   }
+  std::string colourGet() { return colour; };
+  void colourSet(std::string colourN) { colour = colourN; };
   std::string type() override { return "Dron"; }
   Vector<3> cords() override { return center; }
   /**

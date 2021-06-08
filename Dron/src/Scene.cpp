@@ -26,6 +26,8 @@ Scene::Scene() {
 
   activeD = std::make_shared<Drone>(droneBase, MatrixRot<3>());
   objectL.push_back(std::dynamic_pointer_cast<LandI>(activeD));
+  activeD->draw("green");
+  activeD->colourSet("green");
 }
 
 /**
@@ -323,6 +325,7 @@ void Scene::removeE() {
           } else
             break;
         }
+
         objectL.erase(objectL.begin() + getObstacleIndex(index - 1));
         var = false;
         break;
@@ -340,7 +343,8 @@ void Scene::removeE() {
           } else
             break;
         }
-        objectL.erase(objectL.begin() + getDroneIndex(index - 1));
+        if (getDroneIndex(index - 1) != -1)
+          objectL.erase(objectL.begin() + getDroneIndex(index - 1));
         var = false;
         break;
       }
@@ -364,11 +368,15 @@ void Scene::removeE() {
  * @return uint32_t - liczba reprezentująca indeks szukanego drona w vectorze
  * elementów
  */
-uint32_t Scene::getDroneIndex(const uint32_t &index) const {
+int Scene::getDroneIndex(const uint32_t &index) const {
   uint32_t find = 0;
   for (uint32_t i = 0; i < this->objectL.size(); ++i) {
     if (std::dynamic_pointer_cast<DroneI>(this->objectL[i]) != nullptr) {
       if (find == index) {
+        if (activeD == std::dynamic_pointer_cast<DroneI>(objectL[i])) {
+          std::cout << "Wybrany dron jest aktwnym dronem" << std::endl;
+          return (-1);
+        }
         return i;
       }
       find++;
@@ -413,9 +421,8 @@ void Scene::choosenD() {
   std::cin.clear();
   std::cin.ignore(std::numeric_limits<int>::max(), '\n');
   system("stty raw");
-  activeD->draw("green");
   static std::size_t i = 0;
-  for (;;) {
+  while (true) {
     tab = std::cin.get();
     if (tab == TAB) {
       if (++i == droneL.size()) i = 0;

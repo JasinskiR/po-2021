@@ -7,10 +7,11 @@
  *
  */
 
+#include <memory>
+
 #include "Drone.hpp"
 #include "LandscapeInterface.hpp"
 #include "Surface.hpp"
-#include <memory>
 
 /**
  * @brief Modeluje pojęcie klasy Scene
@@ -29,7 +30,7 @@ class Scene {
    * @param index - kolejny indeks drona
    * @return uint32_t - zwraca liczbę reprezentującą index obiektu
    */
-  uint32_t getDroneIndex(const uint32_t &index) const;
+  int getDroneIndex(const uint32_t &index) const;
   /**
    * @brief metoda zwracająca indeks przeszkody
    *
@@ -80,7 +81,7 @@ class Scene {
    */
   void choosenD();
   void print();
-  ~Scene() {}
+  ~Scene() { activeD = NULL; }
 };
 
 #endif

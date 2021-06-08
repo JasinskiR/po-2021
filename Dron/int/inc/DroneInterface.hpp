@@ -73,8 +73,8 @@ class DroneI {
    *
    */
   virtual ~DroneI() {}
-  std::string colourGet() { return colour; };
-  void colourSet(std::string colourN) { colour = colourN; };
+  virtual std::string colourGet() { return colour; };
+  virtual void colourSet(std::string colourN) { colour = colourN; };
   virtual void draw(std::string colour) = 0;
 };
 

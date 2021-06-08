@@ -16,7 +16,7 @@
  *
  */
 
-class Animation : public DInter {
+class Animation {
   /**
    * @brief Zmienna statyczna odpowiedzialna za stałą prędkość ruchu
    *
