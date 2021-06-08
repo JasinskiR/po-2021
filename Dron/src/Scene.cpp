@@ -408,6 +408,13 @@ uint32_t Scene::getObstacleIndex(const uint32_t &index) const {
                           "> out of range!"};
 }
 
+/**
+ * @brief Funkcja pozwalająca na wybranie aktualnego/aktywnego drona
+ * Aktualnie wybrany dron będzie wyróżniał się innym kolorem
+ * Klawisz TAB pozwala przemieszczać się pomiędzy dronami natomiat ENTER
+ * zatwierdza wybor
+ *
+ */
 void Scene::choosenD() {
   std::vector<std::shared_ptr<DroneI>> droneL;
   for (uint32_t i = 0; i < this->objectL.size(); ++i) {
@@ -417,7 +424,7 @@ void Scene::choosenD() {
   }
   char tab;
   std::cout << "Wybierz drona klikajac TAB " << std::endl;
-  std::cout << "Naciśnięcie klawisza ENTER zatwierdza wybór " << std::endl;
+  std::cout << "Nacisniecie klawisza ENTER zatwierdza wybor " << std::endl;
   std::cin.clear();
   std::cin.ignore(std::numeric_limits<int>::max(), '\n');
   system("stty raw");

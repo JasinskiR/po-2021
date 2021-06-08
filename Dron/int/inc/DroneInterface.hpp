@@ -73,8 +73,18 @@ class DroneI {
    *
    */
   virtual ~DroneI() {}
-  virtual std::string colourGet() { return colour; };
-  virtual void colourSet(std::string colourN) { colour = colourN; };
+  /**
+   * @brief Wirtualna metoda zwracająca kolor drona
+   *
+   * @return std::string - ciąg znaków zawierający nazwę
+   */
+  virtual std::string colourGet() { return ""; };
+  /**
+   * @brief Wirtualna metoda pozwalająca ustawić kolor drona
+   *
+   * @param colourN - nowy domyślny kolor
+   */
+  virtual void colourSet(std::string colourN) = 0;
   virtual void draw(std::string colour) = 0;
 };
 

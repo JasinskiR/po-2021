@@ -19,6 +19,9 @@ void wait4key() {
  * @brief  Funkcja main
  *
  * Zawiera główną funkcjonalność programu
+ * Przy zakończeniu przy użyciu odpowiedniej funkcji na standardowe wyjście
+ * zostanie zamieszczona informacja o aktualne i całkowitej liczbie stworzonych
+ * wektorów w celu kontroli potencjalnej nieprawidłowości programu
  * @return int - informacja o powodzeniu, bądź nie programu
  */
 int main() {

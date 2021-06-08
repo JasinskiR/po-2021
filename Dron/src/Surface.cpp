@@ -1,7 +1,18 @@
 #include "Surface.hpp"
 
+/**
+ * @brief Konstruktor obiektu klasy Surface
+ * Tworzy powierzchnię na adanej wyoskości
+ *
+ * @param H
+ */
 Surface::Surface(const double &H) { height = H; }
 
+/**
+ * @brief Funkcja pozwalająca narysować powierzchnię o zadanych wymiarach
+ *
+ * @param colour - kolor rysowanej powierzchni
+ */
 void Surface::draw(std::string colour) {
   for (int x = -5; x < 5; ++x) {
     int y = -5;

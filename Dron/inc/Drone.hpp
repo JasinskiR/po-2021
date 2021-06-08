@@ -134,8 +134,9 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
   bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
     return true;
   }
-  std::string colourGet() { return colour; };
-  void colourSet(std::string colourN) { colour = colourN; };
+
+  std::string colourGet() override { return colour; };
+  void colourSet(std::string colourN) override { colour = colourN; };
   std::string type() override { return "Dron"; }
   Vector<3> cords() override { return center; }
   /**

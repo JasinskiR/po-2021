@@ -74,13 +74,17 @@ class Scene {
    * @brief Wypisuje elemnty krajobrazu
    *
    */
-
+  void print();
   /**
    * @brief Metoda pozwalająca wybrać aktualnego drona
    *
    */
   void choosenD();
-  void print();
+
+/**
+ * @brief Destruktor obiektu klasy Scene
+ * ustawia wskaźnik aktywnego drona na NULL
+ */
   ~Scene() { activeD = NULL; }
 };
 
