@@ -10,6 +10,7 @@
 #include "Drone.hpp"
 #include "LandscapeInterface.hpp"
 #include "Surface.hpp"
+#include <memory>
 
 /**
  * @brief Modeluje pojęcie klasy Scene
@@ -40,7 +41,7 @@ class Scene {
    * @brief Wskaźnik na aktywnego drona
    *
    */
-  std::shared_ptr<DroneI> activeD;
+  inline static std::shared_ptr<DroneI> activeD = NULL;
 
  public:
   /**
@@ -66,7 +67,7 @@ class Scene {
    * @param angle - kąt obrotu
    * @param distance - dystans do przebycia
    */
-  void sAnimation(const uint32_t &id, const double &height, const double &angle,
+  void sAnimation(const double &height, const double &angle,
                   const double &distance);
   /**
    * @brief Wypisuje elemnty krajobrazu

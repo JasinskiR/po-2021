@@ -11,6 +11,8 @@
  *
  */
 class DroneI {
+  std::string colour;
+
  public:
   /**
    * @brief Wirtualna metoda realizująca lot horyzontalny drona
@@ -71,6 +73,8 @@ class DroneI {
    *
    */
   virtual ~DroneI() {}
+  std::string colourGet() { return colour; };
+  void colourSet(std::string colourN) { colour = colourN; };
   virtual void draw(std::string colour) = 0;
 };
 

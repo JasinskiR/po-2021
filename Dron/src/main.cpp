@@ -30,7 +30,7 @@ int main() {
     while (var) {
       system("clear");
       cout << "Obsluga drona \"BeeMo\"" << endl;
-      cout << "a - animacja drona" << endl;
+      cout << "a - animacja aktywnego drona" << endl;
       cout << "d - dodaj element" << endl;
       cout << "c - wybierz aktywnego drona" << endl;
       cout << "u - usun element" << endl;
@@ -42,9 +42,6 @@ int main() {
       switch (choice) {
         case 'A':
         case 'a': {
-          int id;
-          cout << "Podaj id drona: ";
-          cin >> id;
           double height;
           double angle;
           double distance;
@@ -102,10 +99,9 @@ int main() {
               break;
           }
           system("clear");
-          cout << "Rozpoczecie symulacji ruchu drona..." << endl;
           cin.clear();
           cin.ignore(std::numeric_limits<int>::max(), '\n');
-          scene.sAnimation(id - 1, height, angle, distance);
+          scene.sAnimation(height, angle, distance);
           cout << "\nSymulacja zakonczona..." << endl;
 
           wait4key();

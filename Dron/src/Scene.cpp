@@ -4,6 +4,9 @@
 #include "Hill.hpp"
 #include "Plateau.hpp"
 
+#define TAB 9
+#define ENTER 13
+
 /**
  * @brief Konstruktor nowego obiektu klasy Scene
  * Odpowiada za stworzenie powierzchni oraz podstawowych elemntów krajobrazu
@@ -20,8 +23,9 @@ Scene::Scene() {
       std::shared_ptr<Hill>(new Hill(hillBase, MatrixRot<3>(), 3, {1, 3}))));
   objectL.push_back(std::dynamic_pointer_cast<LandI>(
       std::shared_ptr<Plat>(new Plat(platBase, MatrixRot<3>(), 2, {1, 3}))));
-  objectL.push_back(std::dynamic_pointer_cast<LandI>(
-      std::shared_ptr<DroneI>(new Drone(droneBase, MatrixRot<3>()))));
+
+  activeD = std::make_shared<Drone>(droneBase, MatrixRot<3>());
+  objectL.push_back(std::dynamic_pointer_cast<LandI>(activeD));
 }
 
 /**
@@ -54,10 +58,12 @@ void Scene::print() {
  * @param angle - kąt obrotu
  * @param distance - dystans do przebycia
  */
-void Scene::sAnimation(const uint32_t &index, const double &height,
-                       const double &angle, const double &distance) {
-  std::dynamic_pointer_cast<DroneI>(this->objectL[getDroneIndex(index)])
-      ->animation(height, angle, distance);
+void Scene::sAnimation(const double &height, const double &angle,
+                       const double &distance) {
+  if (activeD != NULL)
+    activeD->animation(height, angle, distance);
+  else
+    std::cout << "Nie wybrano drona!" << std::endl;
 }
 
 /**
@@ -394,37 +400,6 @@ uint32_t Scene::getObstacleIndex(const uint32_t &index) const {
                           "> out of range!"};
 }
 
-// void Scene::choosenD() {
-//   std::vector<std::shared_ptr<DroneI>> droneL;
-//   for (uint32_t i = 0; i < this->objectL.size(); ++i) {
-//     if (std::dynamic_pointer_cast<DroneI>(this->objectL[i]) != nullptr) {
-//       droneL.push_back(std::dynamic_pointer_cast<DroneI>(this->objectL[i]));
-//     }
-//   }
-//   char arrow;
-//   bool var = true;
-//   std::cout << "Wybierz drona klikajac strzlke w prawo -> " << std::endl;
-//   while (var) {
-//     for (std::shared_ptr<DroneI> drone : droneL) {
-//       drone->draw("green");
-//       std::cin.clear();
-//       std::cin.ignore(std::numeric_limits<int>::max(), '\n');
-//       system("stty raw");
-//       arrow = std::cin.get();
-//       if (arrow == 77) {
-//         std::cout<<"TAK"<<std::endl;
-//         drone->draw("red");
-//         break;
-//       }
-//       if (arrow == 13) {
-//         var = false;
-//         break;
-//       }
-//       system("stty cooked");
-//     }
-//   }
-// }
-
 void Scene::choosenD() {
   std::vector<std::shared_ptr<DroneI>> droneL;
   for (uint32_t i = 0; i < this->objectL.size(); ++i) {
@@ -433,23 +408,24 @@ void Scene::choosenD() {
     }
   }
   char tab;
-  bool var = true;
   std::cout << "Wybierz drona klikajac TAB " << std::endl;
+  std::cout << "Naciśnięcie klawisza ENTER zatwierdza wybór " << std::endl;
   std::cin.clear();
   std::cin.ignore(std::numeric_limits<int>::max(), '\n');
   system("stty raw");
-  while (var) {
-    for (std::size_t i = 0; i < droneL.size(); ++i) {
-      tab = std::cin.get();
-      if (tab == 9) {
-        if (i == 0) droneL[droneL.size() - 1]->draw("red");
-        droneL[i]->draw("green");
-        if (i != 0) droneL[i - 1]->draw("red");
-      }
-      if (tab == 13) {
-        var = false;
-        break;
-      }
+  activeD->draw("green");
+  static std::size_t i = 0;
+  for (;;) {
+    tab = std::cin.get();
+    if (tab == TAB) {
+      if (++i == droneL.size()) i = 0;
+      activeD->draw("red");
+      activeD = droneL[i];
+      activeD->draw("green");
+    }
+    if (tab == ENTER) {
+      activeD->colourSet("green");
+      break;
     }
   }
   system("stty cooked");
