@@ -35,7 +35,7 @@
  * @brief stała odstępu drona
  *
  */
-#define dConst 0.2
+#define dConst 0.3
 
 /**
  * @brief Modeluje pojęcie Drona jako złożonego obiektu
