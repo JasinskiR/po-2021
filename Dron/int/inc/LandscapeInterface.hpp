@@ -21,7 +21,7 @@ class LandI {
    * @return true - jeżeli obiekt Dron jest nad innym obiektem
    * @return false - jeżeli obiekt Dron nie jest nad innym obiektem
    */
-  virtual bool isAbove(std::shared_ptr<DroneI> drone) = 0;
+  virtual bool isAbove(DroneI* drone, const double& altitude) = 0;
   /**
    * @brief Wirtualna metoda informująca czy można lądować w danym miejscu
    *
@@ -30,8 +30,16 @@ class LandI {
    * @return true - wartość zwracana w przypadku kiedy lądowanie jest dozwolone
    * @return false - wartość zwracana kiedy lądowanie nie jest możliwe
    */
-  virtual bool canLand(std::shared_ptr<DroneI> drone,
-                       const double &altitude) = 0;
+  virtual bool canLand(DroneI* drone, const double& altitude) = 0;
+  /**
+   * @brief Wirtualna metoda odpowiedzialna za wykrywanie kolizji drona z przeszkodą
+   * 
+   * @param drone - dron, na którym wykonywana jest animacja
+   * @param altitude - wysokość drona
+   * @return true - wartośc zwracana jeśli nastąpi kolizja
+   * @return false - wartośc zwracan jeśli nie ma kolicji
+   */
+  virtual bool collision(DroneI* drone, const double& altitude) = 0;
   /**
    * @brief Wirtualna metoda zwracająca nazwę obiektu
    *

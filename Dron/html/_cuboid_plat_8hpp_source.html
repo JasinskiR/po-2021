@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dron BeMo: Plik źródłowy CuboidPlat.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="PepoCopter.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Dron BeMo
+   &#160;<span id="projectnumber">0.1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_cuboid_plat_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">CuboidPlat.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_cuboid_plat_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUB_PLAT_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUB_PLAT_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_block_8hpp.html">Block.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_drone_8hpp.html">Drone.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_cub_plat.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cub_plat.html">CubPlat</a> : <span class="keyword">public</span> <a class="code" href="class_block_i.html">BlockI</a>, <span class="keyword">public</span> <a class="code" href="class_d_inter.html">DInter</a>, <span class="keyword">public</span> <a class="code" href="class_land_i.html">LandI</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_cub_plat.html#a39930037d858f5e73ad26f467b563ec9">   21</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_cub_plat.html#a39930037d858f5e73ad26f467b563ec9">id</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_cub_plat.html#aaca28c1b2e60cdd56078f223bd236607">   22</a></span>&#160;  std::string <a class="code" href="class_cub_plat.html#aaca28c1b2e60cdd56078f223bd236607">colour</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_cub_plat.html#a836101bb1b576b4952d21d1b72e9d87c">   34</a></span>&#160;  <a class="code" href="class_cub_plat.html#a836101bb1b576b4952d21d1b72e9d87c">CubPlat</a>(<span class="keyword">const</span> <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> &amp;ctr, <span class="keyword">const</span> <a class="code" href="class_matrix_rot.html">MatrixRot&lt;3&gt;</a> &amp;ort, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;h,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;          <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;w, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;d)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      : <a class="code" href="class_block_i.html">BlockI</a>(ctr, ort, h, w, d), <a class="code" href="class_cub_plat.html#a39930037d858f5e73ad26f467b563ec9">id</a>(-1), <a class="code" href="class_cub_plat.html#aaca28c1b2e60cdd56078f223bd236607">colour</a>(<span class="stringliteral">&quot;red&quot;</span>) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_cub_plat.html#ad27532c9f63cb564f62cc8f50cb419ae">draw</a>(<a class="code" href="class_cub_plat.html#aaca28c1b2e60cdd56078f223bd236607">colour</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_cub_plat.html#ae8967a84112fc140f4d4fbaa094628e7">   45</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_cub_plat.html#ae8967a84112fc140f4d4fbaa094628e7">idGet</a>() { <span class="keywordflow">return</span> <a class="code" href="class_cub_plat.html#a39930037d858f5e73ad26f467b563ec9">id</a>; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_cub_plat.html#ad27532c9f63cb564f62cc8f50cb419ae">draw</a>(std::string <a class="code" href="class_cub_plat.html#aaca28c1b2e60cdd56078f223bd236607">colour</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_cub_plat.html#a958f436bea506b9cab810909a8b4b017">isAbove</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_cub_plat.html#a405d40c42c0a8c29265c2450d95bad4a">canLand</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_cub_plat.html#af121b16f23a404136644e6c1a22bb72a">collision</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_cub_plat.html#a298a8f7a6849e6f77411372f2f700c98">   50</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_cub_plat.html#a298a8f7a6849e6f77411372f2f700c98">getHeight</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code" href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">height</a>; }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  std::array&lt;Vector&lt;3&gt;, 8&gt; <a class="code" href="class_cub_plat.html#af802edf7e4eaca9a1c1eec36e111fb06">calcVert</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_cub_plat.html#a5b4f4481a0ff38315f42114323139393">   59</a></span>&#160;  std::string <a class="code" href="class_cub_plat.html#a5b4f4481a0ff38315f42114323139393">type</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Plaskowyz prosty&quot;</span>; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_cub_plat.html#acd171fa89d37b937e8173136a1730609">   60</a></span>&#160;  <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> <a class="code" href="class_cub_plat.html#acd171fa89d37b937e8173136a1730609">cords</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code" href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">center</a>; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="class_cub_plat.html#abbcdcffa39e8b36aecb5ab125c0e4aa0">~CubPlat</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_block_8hpp_html"><div class="ttname"><a href="_block_8hpp.html">Block.hpp</a></div><div class="ttdoc">Definicja klasy interfejsu bryły.</div></div>
+<div class="ttc" id="a_drone_8hpp_html"><div class="ttname"><a href="_drone_8hpp.html">Drone.hpp</a></div><div class="ttdoc">Definicja klasy dron.</div></div>
+<div class="ttc" id="aclass_block_i_html"><div class="ttname"><a href="class_block_i.html">BlockI</a></div><div class="ttdoc">Modeluje pojęcie klasy BlockI.</div><div class="ttdef"><b>Definition:</b> <a href="_block_8hpp_source.html#l00020">Block.hpp:20</a></div></div>
+<div class="ttc" id="aclass_block_i_html_aaf1ff8c7392990990ccee910181b14e1"><div class="ttname"><a href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">BlockI::height</a></div><div class="ttdeci">double height</div><div class="ttdoc">wysokość brył</div><div class="ttdef"><b>Definition:</b> <a href="_block_8hpp_source.html#l00026">Block.hpp:26</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_ae34ad6537119e675fd85637a685f5c27"><div class="ttname"><a href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">CoordS::center</a></div><div class="ttdeci">Vector&lt; 3 &gt; center</div><div class="ttdoc">Wektor położenia środka układu współrzędnych.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8hpp_source.html#l00027">CoordinateS.hpp:27</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html"><div class="ttname"><a href="class_cub_plat.html">CubPlat</a></div><div class="ttdoc">Modeluje pojęcie obiektu klasy CubPlat.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00016">CuboidPlat.hpp:16</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_a298a8f7a6849e6f77411372f2f700c98"><div class="ttname"><a href="class_cub_plat.html#a298a8f7a6849e6f77411372f2f700c98">CubPlat::getHeight</a></div><div class="ttdeci">double getHeight() override</div><div class="ttdoc">Wirtualna metoda zwracająca wysokość obiektu/przeszkody.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00050">CuboidPlat.hpp:50</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_a39930037d858f5e73ad26f467b563ec9"><div class="ttname"><a href="class_cub_plat.html#a39930037d858f5e73ad26f467b563ec9">CubPlat::id</a></div><div class="ttdeci">int id</div><div class="ttdoc">zmienna id pozwalająca na rysowanie obiektu</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00021">CuboidPlat.hpp:21</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_a405d40c42c0a8c29265c2450d95bad4a"><div class="ttname"><a href="class_cub_plat.html#a405d40c42c0a8c29265c2450d95bad4a">CubPlat::canLand</a></div><div class="ttdeci">bool canLand(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Wirtualna metoda informująca czy można lądować w danym miejscu.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8cpp_source.html#l00092">CuboidPlat.cpp:92</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_a5b4f4481a0ff38315f42114323139393"><div class="ttname"><a href="class_cub_plat.html#a5b4f4481a0ff38315f42114323139393">CubPlat::type</a></div><div class="ttdeci">std::string type() override</div><div class="ttdoc">Wirtualna metoda zwracająca nazwę obiektu.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00059">CuboidPlat.hpp:59</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_a836101bb1b576b4952d21d1b72e9d87c"><div class="ttname"><a href="class_cub_plat.html#a836101bb1b576b4952d21d1b72e9d87c">CubPlat::CubPlat</a></div><div class="ttdeci">CubPlat(const Vector&lt; 3 &gt; &amp;ctr, const MatrixRot&lt; 3 &gt; &amp;ort, const double &amp;h, const double &amp;w, const double &amp;d)</div><div class="ttdoc">Construct a new Cub Plat object.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00034">CuboidPlat.hpp:34</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_a958f436bea506b9cab810909a8b4b017"><div class="ttname"><a href="class_cub_plat.html#a958f436bea506b9cab810909a8b4b017">CubPlat::isAbove</a></div><div class="ttdeci">bool isAbove(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Metoda pozwalająca sprawdzic czy dwa obiekty się przecinają (wraz z ich obszarem kolizji) Funkcja bie...</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8cpp_source.html#l00075">CuboidPlat.cpp:75</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_aaca28c1b2e60cdd56078f223bd236607"><div class="ttname"><a href="class_cub_plat.html#aaca28c1b2e60cdd56078f223bd236607">CubPlat::colour</a></div><div class="ttdeci">std::string colour</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00022">CuboidPlat.hpp:22</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_abbcdcffa39e8b36aecb5ab125c0e4aa0"><div class="ttname"><a href="class_cub_plat.html#abbcdcffa39e8b36aecb5ab125c0e4aa0">CubPlat::~CubPlat</a></div><div class="ttdeci">~CubPlat()</div><div class="ttdoc">Destruktor obiektu klasy CubPlat.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8cpp_source.html#l00062">CuboidPlat.cpp:62</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_acd171fa89d37b937e8173136a1730609"><div class="ttname"><a href="class_cub_plat.html#acd171fa89d37b937e8173136a1730609">CubPlat::cords</a></div><div class="ttdeci">Vector&lt; 3 &gt; cords() override</div><div class="ttdoc">Wirtualna metoda zwracająca położenie obiektu w przestrzeni.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00060">CuboidPlat.hpp:60</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_ad27532c9f63cb564f62cc8f50cb419ae"><div class="ttname"><a href="class_cub_plat.html#ad27532c9f63cb564f62cc8f50cb419ae">CubPlat::draw</a></div><div class="ttdeci">void draw(std::string colour) override</div><div class="ttdoc">Rysuje obiekt klasy CubPlat.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8cpp_source.html#l00007">CuboidPlat.cpp:7</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_ae8967a84112fc140f4d4fbaa094628e7"><div class="ttname"><a href="class_cub_plat.html#ae8967a84112fc140f4d4fbaa094628e7">CubPlat::idGet</a></div><div class="ttdeci">int idGet()</div><div class="ttdoc">metoda zwracająca id obiektu</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8hpp_source.html#l00045">CuboidPlat.hpp:45</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_af121b16f23a404136644e6c1a22bb72a"><div class="ttname"><a href="class_cub_plat.html#af121b16f23a404136644e6c1a22bb72a">CubPlat::collision</a></div><div class="ttdeci">bool collision(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Wirtualna metoda odpowiedzialna za wykrywanie kolizji drona z przeszkodą</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8cpp_source.html#l00104">CuboidPlat.cpp:104</a></div></div>
+<div class="ttc" id="aclass_cub_plat_html_af802edf7e4eaca9a1c1eec36e111fb06"><div class="ttname"><a href="class_cub_plat.html#af802edf7e4eaca9a1c1eec36e111fb06">CubPlat::calcVert</a></div><div class="ttdeci">std::array&lt; Vector&lt; 3 &gt;, 8 &gt; calcVert()</div><div class="ttdoc">Funkcja przeliczająca wierzchołki obiektu.</div><div class="ttdef"><b>Definition:</b> <a href="_cuboid_plat_8cpp_source.html#l00035">CuboidPlat.cpp:35</a></div></div>
+<div class="ttc" id="aclass_d_inter_html"><div class="ttname"><a href="class_d_inter.html">DInter</a></div><div class="ttdoc">Modeluje pojęcie klasy DInter.</div><div class="ttdef"><b>Definition:</b> <a href="_drawing_interface_8hpp_source.html#l00015">DrawingInterface.hpp:15</a></div></div>
+<div class="ttc" id="aclass_drone_i_html"><div class="ttname"><a href="class_drone_i.html">DroneI</a></div><div class="ttdoc">Modeluje pojęcie klasy DoneI.</div><div class="ttdef"><b>Definition:</b> <a href="_drone_interface_8hpp_source.html#l00013">DroneInterface.hpp:13</a></div></div>
+<div class="ttc" id="aclass_land_i_html"><div class="ttname"><a href="class_land_i.html">LandI</a></div><div class="ttdoc">Modeluje pojęcie klasy LandI.</div><div class="ttdef"><b>Definition:</b> <a href="_landscape_interface_8hpp_source.html#l00013">LandscapeInterface.hpp:13</a></div></div>
+<div class="ttc" id="aclass_matrix_rot_html"><div class="ttname"><a href="class_matrix_rot.html">MatrixRot&lt; 3 &gt;</a></div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector&lt; 3 &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="_cuboid_plat_8hpp.html">CuboidPlat.hpp</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

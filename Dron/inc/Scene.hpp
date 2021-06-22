@@ -23,7 +23,7 @@ class Scene {
    * @brief vector przechowujący wszystkie elementy krajobrazu
    *
    */
-  std::vector<std::shared_ptr<LandI>> objectL;
+  static std::vector<std::shared_ptr<LandI>> objectL;
   /**
    * @brief metoda zwracająca indeks drona
    *
@@ -80,12 +80,16 @@ class Scene {
    *
    */
   void choosenD();
+  static std::vector<std::shared_ptr<LandI>> &getList() { return objectL; }
 
-/**
- * @brief Destruktor obiektu klasy Scene
- * ustawia wskaźnik aktywnego drona na NULL
- */
-  ~Scene() { activeD = NULL; }
+  /**
+   * @brief Destruktor obiektu klasy Scene
+   * ustawia wskaźnik aktywnego drona na NULL
+   */
+  ~Scene() {
+    activeD = NULL;
+    objectL.clear();
+  }
 };
 
 #endif

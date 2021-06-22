@@ -72,17 +72,23 @@ class BlockI : protected CoordS {
          const double &w, const double &d)
       : CoordS(ctr, ort, nullptr), height(h), width(w), depth(d) {}
 
-/**
- * @brief Funkcja zwracająca losową liczbę z określonego przedziału
- * 
- * @param min - wartośc minimalna zakresu
- * @param max - wartość maksymalna zakresu
- * @return int - zwraca liczbę z określonego przedziału
- */
+  /**
+   * @brief Funkcja zwracająca losową liczbę z określonego przedziału
+   *
+   * @param min - wartośc minimalna zakresu
+   * @param max - wartość maksymalna zakresu
+   * @return int - zwraca liczbę z określonego przedziału
+   */
   int drawNumber(int min, int max);
   /**
+   * @brief Wirtualna metoda zwracająca wysokość obiektu/przeszkody
+   *
+   * @return double - wysokość wyrażona za pomoća zmiennej double
+   */
+  virtual double getHeight() = 0;
+  /**
    * @brief Wirtualny destrultor obiektu klasy BlockI
-   * 
+   *
    */
   virtual ~BlockI() {}
 };

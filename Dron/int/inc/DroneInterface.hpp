@@ -15,6 +15,19 @@ class DroneI {
 
  public:
   /**
+   * @brief wirtualna metoda tworząca promień obszaru drona
+   *
+   * @return double - stworzony promień
+   */
+  virtual double makeAreaR() = 0;
+  /**
+   * @brief Gwirtualna metoda zwracająca promień drona
+   *
+   * @return double - zwracany promień
+   */
+  virtual double getAreaR() = 0;
+
+  /**
    * @brief Wirtualna metoda realizująca lot horyzontalny drona
    *
    * @param distance - odległośc do pokonania
@@ -58,8 +71,8 @@ class DroneI {
    * @param angle - kąt odchylenia w poziomie
    * @param distance - dystans lotu
    */
-  virtual void route(const double &height, const double &angle,
-                     const double &distance) = 0;
+  // virtual void route(const double &height, const double &angle,
+  //                    const double &distance) = 0;
 
   /**
    * @brief Wirtualna metoda realizująca pochylanie się drona podczas lotu

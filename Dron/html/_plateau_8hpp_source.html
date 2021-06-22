@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dron BeMo: Plik źródłowy Plateau.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="PepoCopter.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Dron BeMo
+   &#160;<span id="projectnumber">0.1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_plateau_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Plateau.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_plateau_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PLATEAU_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PLATEAU_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_block_8hpp.html">Block.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_drone_8hpp.html">Drone.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_plat.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_plat.html">Plat</a> : <span class="keyword">public</span> <a class="code" href="class_block_i.html">BlockI</a>, <span class="keyword">public</span> <a class="code" href="class_d_inter.html">DInter</a>, <span class="keyword">public</span> <a class="code" href="class_land_i.html">LandI</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_plat.html#a3ca987bb5713b07228bf5c342f87b5f2">   19</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_plat.html#a3ca987bb5713b07228bf5c342f87b5f2">id</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_plat.html#a2bd922098afea979c63286f6351ac6b5">   20</a></span>&#160;  std::string <a class="code" href="class_plat.html#a2bd922098afea979c63286f6351ac6b5">colour</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_plat.html#acbc7c4387dfac2fc9ef1f8d66d825937">   25</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_plat.html#acbc7c4387dfac2fc9ef1f8d66d825937">lowerAreaR</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_plat.html#a78c4a70fb14f34250377892d7b8870bc">   30</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_plat.html#a78c4a70fb14f34250377892d7b8870bc">upperAreaR</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_plat.html#aaebab1e852708966410c1a176f467448">   41</a></span>&#160;  <a class="code" href="class_plat.html#aaebab1e852708966410c1a176f467448">Plat</a>(<span class="keyword">const</span> <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> &amp;ctr, <span class="keyword">const</span> <a class="code" href="class_matrix_rot.html">MatrixRot&lt;3&gt;</a> &amp;ort, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;h,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;       std::pair&lt;int, int&gt; s)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      : <a class="code" href="class_block_i.html">BlockI</a>(ctr, ort, h, {s.first, s.second}), <span class="keywordtype">id</span>(-1), <a class="code" href="class_plat.html#a2bd922098afea979c63286f6351ac6b5">colour</a>(<span class="stringliteral">&quot;red&quot;</span>) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_plat.html#a98ad90f40f2502e72661ce21cb555ad9">draw</a>(<a class="code" href="class_plat.html#a2bd922098afea979c63286f6351ac6b5">colour</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_plat.html#a98ad90f40f2502e72661ce21cb555ad9">draw</a>(std::string <a class="code" href="class_plat.html#a2bd922098afea979c63286f6351ac6b5">colour</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_plat.html#ac4a035e9c796893082a562df15811412">   52</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_plat.html#ac4a035e9c796893082a562df15811412">idGet</a>() { <span class="keywordflow">return</span> <a class="code" href="class_plat.html#a3ca987bb5713b07228bf5c342f87b5f2">id</a>; }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  std::vector&lt;Vector&lt;3&gt;&gt; <a class="code" href="class_plat.html#afeac6707757412aa07cc40ce8008c6c4">calcVert</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_plat.html#ac277ea6fd02789d9d24cef44abcf0996">   60</a></span>&#160;  std::string <a class="code" href="class_plat.html#ac277ea6fd02789d9d24cef44abcf0996">type</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Plaskowyz&quot;</span>; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_plat.html#a4ad5fe5f1e35f26fb0b7c4142e42ea99">   61</a></span>&#160;  <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> <a class="code" href="class_plat.html#a4ad5fe5f1e35f26fb0b7c4142e42ea99">cords</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code" href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">center</a>; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_plat.html#a1f05cb8f8fc28fb7ce8a05d343f8e1f6">isAbove</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_plat.html#a4c2c6496fe8855aae7c4f8ce6a80c939">canLand</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_plat.html#a1e7d04ec35fd0e9783f2e9f019b7a2b0">collision</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_plat.html#aa25b75bda1bda0f5df07c47687e2f245">   65</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_plat.html#aa25b75bda1bda0f5df07c47687e2f245">getHeight</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code" href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">height</a>; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="class_plat.html#a39a62f4afea83a72c10dab0c8d9f5e96">~Plat</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_block_8hpp_html"><div class="ttname"><a href="_block_8hpp.html">Block.hpp</a></div><div class="ttdoc">Definicja klasy interfejsu bryły.</div></div>
+<div class="ttc" id="a_drone_8hpp_html"><div class="ttname"><a href="_drone_8hpp.html">Drone.hpp</a></div><div class="ttdoc">Definicja klasy dron.</div></div>
+<div class="ttc" id="aclass_block_i_html"><div class="ttname"><a href="class_block_i.html">BlockI</a></div><div class="ttdoc">Modeluje pojęcie klasy BlockI.</div><div class="ttdef"><b>Definition:</b> <a href="_block_8hpp_source.html#l00020">Block.hpp:20</a></div></div>
+<div class="ttc" id="aclass_block_i_html_aaf1ff8c7392990990ccee910181b14e1"><div class="ttname"><a href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">BlockI::height</a></div><div class="ttdeci">double height</div><div class="ttdoc">wysokość brył</div><div class="ttdef"><b>Definition:</b> <a href="_block_8hpp_source.html#l00026">Block.hpp:26</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_ae34ad6537119e675fd85637a685f5c27"><div class="ttname"><a href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">CoordS::center</a></div><div class="ttdeci">Vector&lt; 3 &gt; center</div><div class="ttdoc">Wektor położenia środka układu współrzędnych.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8hpp_source.html#l00027">CoordinateS.hpp:27</a></div></div>
+<div class="ttc" id="aclass_d_inter_html"><div class="ttname"><a href="class_d_inter.html">DInter</a></div><div class="ttdoc">Modeluje pojęcie klasy DInter.</div><div class="ttdef"><b>Definition:</b> <a href="_drawing_interface_8hpp_source.html#l00015">DrawingInterface.hpp:15</a></div></div>
+<div class="ttc" id="aclass_drone_i_html"><div class="ttname"><a href="class_drone_i.html">DroneI</a></div><div class="ttdoc">Modeluje pojęcie klasy DoneI.</div><div class="ttdef"><b>Definition:</b> <a href="_drone_interface_8hpp_source.html#l00013">DroneInterface.hpp:13</a></div></div>
+<div class="ttc" id="aclass_land_i_html"><div class="ttname"><a href="class_land_i.html">LandI</a></div><div class="ttdoc">Modeluje pojęcie klasy LandI.</div><div class="ttdef"><b>Definition:</b> <a href="_landscape_interface_8hpp_source.html#l00013">LandscapeInterface.hpp:13</a></div></div>
+<div class="ttc" id="aclass_matrix_rot_html"><div class="ttname"><a href="class_matrix_rot.html">MatrixRot&lt; 3 &gt;</a></div></div>
+<div class="ttc" id="aclass_plat_html"><div class="ttname"><a href="class_plat.html">Plat</a></div><div class="ttdoc">Modeluje pojęcie płaskowyżu jako obiektu będącego przeszkodą Tworzy obiekt złożony z losowej liczby w...</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00014">Plateau.hpp:14</a></div></div>
+<div class="ttc" id="aclass_plat_html_a1e7d04ec35fd0e9783f2e9f019b7a2b0"><div class="ttname"><a href="class_plat.html#a1e7d04ec35fd0e9783f2e9f019b7a2b0">Plat::collision</a></div><div class="ttdeci">bool collision(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Wirtualna metoda odpowiedzialna za wykrywanie kolizji drona z przeszkodą</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8cpp_source.html#l00098">Plateau.cpp:98</a></div></div>
+<div class="ttc" id="aclass_plat_html_a1f05cb8f8fc28fb7ce8a05d343f8e1f6"><div class="ttname"><a href="class_plat.html#a1f05cb8f8fc28fb7ce8a05d343f8e1f6">Plat::isAbove</a></div><div class="ttdeci">bool isAbove(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Wirtualna metoda informująca czy obiekt znajduje się nad innym obiektem.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8cpp_source.html#l00072">Plateau.cpp:72</a></div></div>
+<div class="ttc" id="aclass_plat_html_a2bd922098afea979c63286f6351ac6b5"><div class="ttname"><a href="class_plat.html#a2bd922098afea979c63286f6351ac6b5">Plat::colour</a></div><div class="ttdeci">std::string colour</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00020">Plateau.hpp:20</a></div></div>
+<div class="ttc" id="aclass_plat_html_a39a62f4afea83a72c10dab0c8d9f5e96"><div class="ttname"><a href="class_plat.html#a39a62f4afea83a72c10dab0c8d9f5e96">Plat::~Plat</a></div><div class="ttdeci">~Plat()</div><div class="ttdoc">Destruktor obiektu.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8cpp_source.html#l00067">Plateau.cpp:67</a></div></div>
+<div class="ttc" id="aclass_plat_html_a3ca987bb5713b07228bf5c342f87b5f2"><div class="ttname"><a href="class_plat.html#a3ca987bb5713b07228bf5c342f87b5f2">Plat::id</a></div><div class="ttdeci">int id</div><div class="ttdoc">zmienna id pozwalająca na rysowanie obiektu</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00019">Plateau.hpp:19</a></div></div>
+<div class="ttc" id="aclass_plat_html_a4ad5fe5f1e35f26fb0b7c4142e42ea99"><div class="ttname"><a href="class_plat.html#a4ad5fe5f1e35f26fb0b7c4142e42ea99">Plat::cords</a></div><div class="ttdeci">Vector&lt; 3 &gt; cords() override</div><div class="ttdoc">Wirtualna metoda zwracająca położenie obiektu w przestrzeni.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00061">Plateau.hpp:61</a></div></div>
+<div class="ttc" id="aclass_plat_html_a4c2c6496fe8855aae7c4f8ce6a80c939"><div class="ttname"><a href="class_plat.html#a4c2c6496fe8855aae7c4f8ce6a80c939">Plat::canLand</a></div><div class="ttdeci">bool canLand(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Wirtualna metoda informująca czy można lądować w danym miejscu.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8cpp_source.html#l00089">Plateau.cpp:89</a></div></div>
+<div class="ttc" id="aclass_plat_html_a78c4a70fb14f34250377892d7b8870bc"><div class="ttname"><a href="class_plat.html#a78c4a70fb14f34250377892d7b8870bc">Plat::upperAreaR</a></div><div class="ttdeci">double upperAreaR</div><div class="ttdoc">górny promień podstawy</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00030">Plateau.hpp:30</a></div></div>
+<div class="ttc" id="aclass_plat_html_a98ad90f40f2502e72661ce21cb555ad9"><div class="ttname"><a href="class_plat.html#a98ad90f40f2502e72661ce21cb555ad9">Plat::draw</a></div><div class="ttdeci">void draw(std::string colour) override</div><div class="ttdoc">Funkcja rysująca obiekt.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8cpp_source.html#l00007">Plateau.cpp:7</a></div></div>
+<div class="ttc" id="aclass_plat_html_aa25b75bda1bda0f5df07c47687e2f245"><div class="ttname"><a href="class_plat.html#aa25b75bda1bda0f5df07c47687e2f245">Plat::getHeight</a></div><div class="ttdeci">double getHeight() override</div><div class="ttdoc">Wirtualna metoda zwracająca wysokość obiektu/przeszkody.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00065">Plateau.hpp:65</a></div></div>
+<div class="ttc" id="aclass_plat_html_aaebab1e852708966410c1a176f467448"><div class="ttname"><a href="class_plat.html#aaebab1e852708966410c1a176f467448">Plat::Plat</a></div><div class="ttdeci">Plat(const Vector&lt; 3 &gt; &amp;ctr, const MatrixRot&lt; 3 &gt; &amp;ort, const double &amp;h, std::pair&lt; int, int &gt; s)</div><div class="ttdoc">Konstruktor obiektu klasy Plat.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00041">Plateau.hpp:41</a></div></div>
+<div class="ttc" id="aclass_plat_html_ac277ea6fd02789d9d24cef44abcf0996"><div class="ttname"><a href="class_plat.html#ac277ea6fd02789d9d24cef44abcf0996">Plat::type</a></div><div class="ttdeci">std::string type() override</div><div class="ttdoc">Wirtualna metoda zwracająca nazwę obiektu.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00060">Plateau.hpp:60</a></div></div>
+<div class="ttc" id="aclass_plat_html_ac4a035e9c796893082a562df15811412"><div class="ttname"><a href="class_plat.html#ac4a035e9c796893082a562df15811412">Plat::idGet</a></div><div class="ttdeci">int idGet()</div><div class="ttdoc">metoda zwracająca id obiektu</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00052">Plateau.hpp:52</a></div></div>
+<div class="ttc" id="aclass_plat_html_acbc7c4387dfac2fc9ef1f8d66d825937"><div class="ttname"><a href="class_plat.html#acbc7c4387dfac2fc9ef1f8d66d825937">Plat::lowerAreaR</a></div><div class="ttdeci">double lowerAreaR</div><div class="ttdoc">dolny promień podstawy</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8hpp_source.html#l00025">Plateau.hpp:25</a></div></div>
+<div class="ttc" id="aclass_plat_html_afeac6707757412aa07cc40ce8008c6c4"><div class="ttname"><a href="class_plat.html#afeac6707757412aa07cc40ce8008c6c4">Plat::calcVert</a></div><div class="ttdeci">std::vector&lt; Vector&lt; 3 &gt; &gt; calcVert()</div><div class="ttdoc">Funkcja przeliczająca wierzchołki obiektu.</div><div class="ttdef"><b>Definition:</b> <a href="_plateau_8cpp_source.html#l00035">Plateau.cpp:35</a></div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector&lt; 3 &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="_plateau_8hpp.html">Plateau.hpp</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

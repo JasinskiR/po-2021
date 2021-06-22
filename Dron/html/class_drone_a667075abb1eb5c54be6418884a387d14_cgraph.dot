@@ -1,0 +1,14 @@
+digraph "Drone::~Drone"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Drone::~Drone",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Destruktor obiektu klasy Drone."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="DInter::apiGet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961",tooltip="Metoda zwracająca wskaźnik do gnuplota."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Cuboid::idGet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cuboid.html#ae6bb3e27c50f23ba41ced2158109df9e",tooltip="metoda zwracająca id obiektu"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Drone::idGet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_drone.html#ab9f19b9e43e07cfb3ddc53d7cf5d278a",tooltip="metoda zwracająca id obiektu"];
+}

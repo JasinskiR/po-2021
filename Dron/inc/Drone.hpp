@@ -12,6 +12,32 @@
 #include "LandscapeInterface.hpp"
 
 /**
+ * @brief zdefiniowana szerokość drona
+ *
+ */
+#define dWidth 1
+/**
+ * @brief zdefiniowana głębokość drona
+ *
+ */
+#define dDepth 2
+/**
+ * @brief zdefiniowana wysokość drona
+ *
+ */
+#define dHeight 0.5
+/**
+ * @brief zdefiniowany promień rotora
+ *
+ */
+#define dRadius 0.5
+/**
+ * @brief stała odstępu drona
+ *
+ */
+#define dConst 0.2
+
+/**
  * @brief Modeluje pojęcie Drona jako złożonego obiektu
  * Tworzy obiekt dron złożony z korpusu, wirników, łopatek wirnika oraz
  * elementów dodatkowych Zawiera również funkcje pozwalające na
@@ -51,12 +77,17 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
    * drona
    *
    */
-  int routeId;
+  // int routeId;
   /**
    * @brief Kolor rysowania drona
    *
    */
   std::string colour;
+  /**
+   * @brief promień obszaru drona
+   *
+   */
+  double areaR;
 
  public:
   /**
@@ -67,16 +98,17 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
    */
   Drone(const Vector<3> &ctr, const MatrixRot<3> &ort)
       : CoordS(ctr, ort, nullptr),
-        dBody(Vector<3>({0, 0, 0}), MatrixRot<3>(), this, 0.5, 1, 2),
+        dBody(Vector<3>({0, 0, 0}), MatrixRot<3>(), this, dHeight, dWidth,
+              dDepth),
         rotor({
-            HexaP(Vector<3>({0.5, 1, 0.25}), MatrixRot<3>(), &this->dBody, 0.5,
-                  0.2),
-            HexaP(Vector<3>({-0.5, 1, 0.25}), MatrixRot<3>(), &this->dBody, 0.5,
-                  0.2),
-            HexaP(Vector<3>({0.5, -1, 0.25}), MatrixRot<3>(), &this->dBody, 0.5,
-                  0.2),
+            HexaP(Vector<3>({0.5, 1, 0.25}), MatrixRot<3>(), &this->dBody,
+                  dRadius, 0.2),
+            HexaP(Vector<3>({-0.5, 1, 0.25}), MatrixRot<3>(), &this->dBody,
+                  dRadius, 0.2),
+            HexaP(Vector<3>({0.5, -1, 0.25}), MatrixRot<3>(), &this->dBody,
+                  dRadius, 0.2),
             HexaP(Vector<3>({-0.5, -1, 0.25}), MatrixRot<3>(), &this->dBody,
-                  0.5, 0.2),
+                  dRadius, 0.2),
         }),
         searchlight(
             {HexaP(Vector<3>({0.25, 1.05, 0}), MatrixRot<3>(90, Axis::OX),
@@ -101,8 +133,8 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
                        Cuboid(Vector<3>({0, 0, 0}), MatrixRot<3>(135, Axis::OZ),
                               &this->rotor[3], 0.03, 0.7, 0.02)}}}),
         id(-1),
-        routeId(-1),
-        colour("red") {
+        colour("red"),
+        areaR(makeAreaR()) {
     draw(colour);
   }
 
@@ -119,8 +151,8 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
 
   void rotorSpin() override;
 
-  void route(const double &height, const double &angle,
-             const double &distance) override;
+  // void route(const double &height, const double &angle, const double
+  // &distance) override;
 
   void lean(const double &angle) override;
 
@@ -130,10 +162,11 @@ class Drone : protected CoordS, public DInter, public DroneI, public LandI {
    * @return int - zwraca liczbę reprezentującą id obeiktu
    */
   int idGet() { return id; }
-  bool isAbove(std::shared_ptr<DroneI> drone) override { return true; }
-  bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
-    return true;
-  }
+  double makeAreaR() override;
+  bool isAbove(DroneI *drone, const double &altitude) override;
+  bool canLand(DroneI *drone, const double &altitude) override { return false; }
+  bool collision(DroneI *drone, const double &altitude) override;
+  double getAreaR() override { return areaR; }
 
   std::string colourGet() override { return colour; };
   void colourSet(std::string colourN) override { colour = colourN; };

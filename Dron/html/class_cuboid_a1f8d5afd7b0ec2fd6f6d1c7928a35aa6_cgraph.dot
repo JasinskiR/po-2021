@@ -1,0 +1,19 @@
+digraph "Cuboid::draw"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Cuboid::draw",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Rusyje obiektklasy Cuboid."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="DInter::apiGet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961",tooltip="Metoda zwracająca wskaźnik do gnuplota."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Cuboid::calcVert",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cuboid.html#ad413b75ae2e77f5620a2ed01a3ff7f48",tooltip="Funkcja przeliczająca wierzchołki obiektu."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="CoordS::coordSInGlob",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_coord_s.html#a143df38916388dc1e96adf59bcbfc730",tooltip="Metoda zwracająca wektor w globalnym układzie współrzędnych."];
+  Node4 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="CoordS::pointInPredec",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_coord_s.html#a044e7f44b4b73a9b2b563bc29e7ebb71",tooltip="Metoda zwracająca wektor w poprzednim układzie współrzędnych."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="CoordS::convert",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_coord_s.html#aa78f24726d865573213f3f9bdcedb4cb",tooltip="Metoda przeliczająca wektor na punkty zdolne do narysowania."];
+}

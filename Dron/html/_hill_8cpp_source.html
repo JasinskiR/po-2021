@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dron BeMo: Plik źródłowy Hill.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="PepoCopter.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Dron BeMo
+   &#160;<span id="projectnumber">0.1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_hill_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Hill.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_hill_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_hill_8hpp.html">Hill.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_hill.html#a707cb6484c1a5cb88f63681c61592f39">    7</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_hill.html#a707cb6484c1a5cb88f63681c61592f39">Hill::draw</a>(std::string colour) {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">int</span> tmp;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  std::vector&lt;std::vector&lt;drawNS::Point3D&gt;&gt; vertices;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  std::vector&lt;drawNS::Point3D&gt; points;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  std::vector&lt;Vector&lt;3&gt;&gt; calcV = this-&gt;<a class="code" href="class_hill.html#a91d4284c024d369001455a5c6cb400b7">calcVert</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_block_i.html#a6319c2aee505248531cc0ac5134dacc4">numberOfVert</a> * 2; ++i) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    points.push_back(<a class="code" href="class_coord_s.html#aa78f24726d865573213f3f9bdcedb4cb">convert</a>(calcV[i]));</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (i % <a class="code" href="class_block_i.html#a6319c2aee505248531cc0ac5134dacc4">numberOfVert</a> == <a class="code" href="class_block_i.html#a6319c2aee505248531cc0ac5134dacc4">numberOfVert</a> - 1) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      vertices.push_back(points);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      vertices.push_back(points);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      points.clear();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  tmp = <a class="code" href="class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961">DInter::apiGet</a>()-&gt;draw_polyhedron(vertices, <a class="code" href="class_hill.html#ac28d2222716f0c542e66965b42ecb880">colour</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordflow">if</span> (<span class="keywordtype">id</span> != -1) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961">DInter::apiGet</a>()-&gt;erase_shape(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">id</span> = tmp;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961">DInter::apiGet</a>()-&gt;redraw();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_hill.html#a91d4284c024d369001455a5c6cb400b7">   36</a></span>&#160;std::vector&lt;Vector&lt;3&gt;&gt; <a class="code" href="class_hill.html#a91d4284c024d369001455a5c6cb400b7">Hill::calcVert</a>() {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> tmp;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">double</span> radius, max = 0;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::vector&lt;Vector&lt;3&gt;&gt; resultV;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_block_i.html#a6319c2aee505248531cc0ac5134dacc4">numberOfVert</a>; ++i) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    radius = (double)this-&gt;<a class="code" href="class_block_i.html#adfb898236dda7ba4d1c12039d9f56f5f">drawNumber</a>(<a class="code" href="class_block_i.html#ac8a9a52df3fa8eae8f45b7b3166bcab2">size</a>.first, <a class="code" href="class_block_i.html#ac8a9a52df3fa8eae8f45b7b3166bcab2">size</a>.second);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    tmp = <a class="code" href="class_coord_s.html#a143df38916388dc1e96adf59bcbfc730">coordSInGlob</a>((<a class="code" href="class_matrix_rot.html">MatrixRot&lt;3&gt;</a>(360 / <a class="code" href="class_block_i.html#a6319c2aee505248531cc0ac5134dacc4">numberOfVert</a> * (i + 1), <a class="code" href="_matrix_rot_8hpp.html#ae3996976d8ffb3e58d88f58227473f8ea85454f106a1146a23a110ce72c032c45">Axis::OZ</a>) *</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <a class="code" href="class_vector.html">Vector&lt;3&gt;</a>({0, radius, 0})));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    resultV.push_back(tmp);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> (radius &gt; max) max = radius;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_block_i.html#a6319c2aee505248531cc0ac5134dacc4">numberOfVert</a>; ++i) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    tmp = <a class="code" href="class_coord_s.html#a143df38916388dc1e96adf59bcbfc730">coordSInGlob</a>((<a class="code" href="class_vector.html">Vector&lt;3&gt;</a>({0, 0, <a class="code" href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">height</a>})));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    resultV.push_back(tmp);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="class_hill.html#abff755e52bfa6a11908d346f1ff3ad5b">areaR</a> = max;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> resultV;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_hill.html#a56f2a82c020b322152a7ba55733766fb">   60</a></span>&#160;<a class="code" href="class_hill.html#a56f2a82c020b322152a7ba55733766fb">Hill::~Hill</a>() {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961">DInter::apiGet</a>()-&gt;erase_shape(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961">DInter::apiGet</a>()-&gt;redraw();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_hill.html#a2c266f0f67e63a2c324bb4e98766f06e">   65</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_hill.html#a2c266f0f67e63a2c324bb4e98766f06e">Hill::isAbove</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">if</span> (altitude &gt; <a class="code" href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">height</a>) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> distance = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="class_land_i.html">LandI</a> *<span class="keyword">&gt;</span>(drone)-&gt;<a class="code" href="class_hill.html#ab0e9af41bc3a7f415dfed7ae79a8ad84">cords</a>() - this-&gt;<a class="code" href="class_hill.html#ab0e9af41bc3a7f415dfed7ae79a8ad84">cords</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (std::sqrt(pow(distance[0], 2) + pow(distance[1], 2)) &lt;=</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="class_hill.html#abff755e52bfa6a11908d346f1ff3ad5b">areaR</a> + drone-&gt;<a class="code" href="class_drone_i.html#a2ad11242769cbb6079c72de84d313230">getAreaR</a>())</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_hill.html#a52ee48c5250f0218a85a39c6ab1389b3">   75</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_hill.html#a52ee48c5250f0218a85a39c6ab1389b3">Hill::collision</a>(<a class="code" href="class_drone_i.html">DroneI</a> *drone, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;altitude) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">if</span> (altitude &lt; <a class="code" href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">height</a>) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> distance = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="class_land_i.html">LandI</a> *<span class="keyword">&gt;</span>(drone)-&gt;<a class="code" href="class_hill.html#ab0e9af41bc3a7f415dfed7ae79a8ad84">cords</a>() - this-&gt;<a class="code" href="class_hill.html#ab0e9af41bc3a7f415dfed7ae79a8ad84">cords</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> (std::sqrt(pow(distance[0], 2) + pow(distance[1], 2)) &lt;=</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="class_hill.html#abff755e52bfa6a11908d346f1ff3ad5b">areaR</a> + (drone-&gt;<a class="code" href="class_drone_i.html#a2ad11242769cbb6079c72de84d313230">getAreaR</a>() / 4))</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="ttc" id="a_hill_8hpp_html"><div class="ttname"><a href="_hill_8hpp.html">Hill.hpp</a></div><div class="ttdoc">Definicja klasy wzgórza.</div></div>
+<div class="ttc" id="a_matrix_rot_8hpp_html_ae3996976d8ffb3e58d88f58227473f8ea85454f106a1146a23a110ce72c032c45"><div class="ttname"><a href="_matrix_rot_8hpp.html#ae3996976d8ffb3e58d88f58227473f8ea85454f106a1146a23a110ce72c032c45">Axis::OZ</a></div><div class="ttdeci">@ OZ</div></div>
+<div class="ttc" id="aclass_block_i_html_a6319c2aee505248531cc0ac5134dacc4"><div class="ttname"><a href="class_block_i.html#a6319c2aee505248531cc0ac5134dacc4">BlockI::numberOfVert</a></div><div class="ttdeci">int numberOfVert</div><div class="ttdoc">zmienna przechowująca liczbę wierzchołków podstawy bryły</div><div class="ttdef"><b>Definition:</b> <a href="_block_8hpp_source.html#l00046">Block.hpp:46</a></div></div>
+<div class="ttc" id="aclass_block_i_html_aaf1ff8c7392990990ccee910181b14e1"><div class="ttname"><a href="class_block_i.html#aaf1ff8c7392990990ccee910181b14e1">BlockI::height</a></div><div class="ttdeci">double height</div><div class="ttdoc">wysokość brył</div><div class="ttdef"><b>Definition:</b> <a href="_block_8hpp_source.html#l00026">Block.hpp:26</a></div></div>
+<div class="ttc" id="aclass_block_i_html_ac8a9a52df3fa8eae8f45b7b3166bcab2"><div class="ttname"><a href="class_block_i.html#ac8a9a52df3fa8eae8f45b7b3166bcab2">BlockI::size</a></div><div class="ttdeci">std::pair&lt; int, int &gt; size</div><div class="ttdoc">para liczb reprezentująca zakres rozmiary bryły</div><div class="ttdef"><b>Definition:</b> <a href="_block_8hpp_source.html#l00041">Block.hpp:41</a></div></div>
+<div class="ttc" id="aclass_block_i_html_adfb898236dda7ba4d1c12039d9f56f5f"><div class="ttname"><a href="class_block_i.html#adfb898236dda7ba4d1c12039d9f56f5f">BlockI::drawNumber</a></div><div class="ttdeci">int drawNumber(int min, int max)</div><div class="ttdoc">Funkcja zwracająca losową liczbę z określonego przedziału.</div><div class="ttdef"><b>Definition:</b> <a href="_block_8cpp_source.html#l00011">Block.cpp:11</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_a143df38916388dc1e96adf59bcbfc730"><div class="ttname"><a href="class_coord_s.html#a143df38916388dc1e96adf59bcbfc730">CoordS::coordSInGlob</a></div><div class="ttdeci">Vector&lt; 3 &gt; coordSInGlob(Vector&lt; 3 &gt; point)</div><div class="ttdoc">Metoda zwracająca wektor w globalnym układzie współrzędnych.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8cpp_source.html#l00041">CoordinateS.cpp:41</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_aa78f24726d865573213f3f9bdcedb4cb"><div class="ttname"><a href="class_coord_s.html#aa78f24726d865573213f3f9bdcedb4cb">CoordS::convert</a></div><div class="ttdeci">drawNS::Point3D convert(const Vector&lt; 3 &gt; &amp;vector)</div><div class="ttdoc">Metoda przeliczająca wektor na punkty zdolne do narysowania.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8cpp_source.html#l00056">CoordinateS.cpp:56</a></div></div>
+<div class="ttc" id="aclass_d_inter_html_a3e2df02254e651d89c41ab1e2c0b6961"><div class="ttname"><a href="class_d_inter.html#a3e2df02254e651d89c41ab1e2c0b6961">DInter::apiGet</a></div><div class="ttdeci">std::shared_ptr&lt; drawNS::Draw3DAPI &gt; apiGet()</div><div class="ttdoc">Metoda zwracająca wskaźnik do gnuplota.</div><div class="ttdef"><b>Definition:</b> <a href="_drawing_interface_8hpp_source.html#l00034">DrawingInterface.hpp:34</a></div></div>
+<div class="ttc" id="aclass_drone_i_html"><div class="ttname"><a href="class_drone_i.html">DroneI</a></div><div class="ttdoc">Modeluje pojęcie klasy DoneI.</div><div class="ttdef"><b>Definition:</b> <a href="_drone_interface_8hpp_source.html#l00013">DroneInterface.hpp:13</a></div></div>
+<div class="ttc" id="aclass_drone_i_html_a2ad11242769cbb6079c72de84d313230"><div class="ttname"><a href="class_drone_i.html#a2ad11242769cbb6079c72de84d313230">DroneI::getAreaR</a></div><div class="ttdeci">virtual double getAreaR()=0</div><div class="ttdoc">Gwirtualna metoda zwracająca promień drona.</div></div>
+<div class="ttc" id="aclass_hill_html_a2c266f0f67e63a2c324bb4e98766f06e"><div class="ttname"><a href="class_hill.html#a2c266f0f67e63a2c324bb4e98766f06e">Hill::isAbove</a></div><div class="ttdeci">bool isAbove(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Wirtualna metoda informująca czy obiekt znajduje się nad innym obiektem.</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8cpp_source.html#l00065">Hill.cpp:65</a></div></div>
+<div class="ttc" id="aclass_hill_html_a52ee48c5250f0218a85a39c6ab1389b3"><div class="ttname"><a href="class_hill.html#a52ee48c5250f0218a85a39c6ab1389b3">Hill::collision</a></div><div class="ttdeci">bool collision(DroneI *drone, const double &amp;altitude) override</div><div class="ttdoc">Wirtualna metoda odpowiedzialna za wykrywanie kolizji drona z przeszkodą</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8cpp_source.html#l00075">Hill.cpp:75</a></div></div>
+<div class="ttc" id="aclass_hill_html_a56f2a82c020b322152a7ba55733766fb"><div class="ttname"><a href="class_hill.html#a56f2a82c020b322152a7ba55733766fb">Hill::~Hill</a></div><div class="ttdeci">~Hill()</div><div class="ttdoc">Destruktor obiektu klasy Hill.</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8cpp_source.html#l00060">Hill.cpp:60</a></div></div>
+<div class="ttc" id="aclass_hill_html_a707cb6484c1a5cb88f63681c61592f39"><div class="ttname"><a href="class_hill.html#a707cb6484c1a5cb88f63681c61592f39">Hill::draw</a></div><div class="ttdeci">void draw(std::string colour) override</div><div class="ttdoc">Rysuje obiekt klasy Hill.</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8cpp_source.html#l00007">Hill.cpp:7</a></div></div>
+<div class="ttc" id="aclass_hill_html_a91d4284c024d369001455a5c6cb400b7"><div class="ttname"><a href="class_hill.html#a91d4284c024d369001455a5c6cb400b7">Hill::calcVert</a></div><div class="ttdeci">std::vector&lt; Vector&lt; 3 &gt; &gt; calcVert()</div><div class="ttdoc">Funkcja przeliczająca wierzchołki obiektu.</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8cpp_source.html#l00036">Hill.cpp:36</a></div></div>
+<div class="ttc" id="aclass_hill_html_ab0e9af41bc3a7f415dfed7ae79a8ad84"><div class="ttname"><a href="class_hill.html#ab0e9af41bc3a7f415dfed7ae79a8ad84">Hill::cords</a></div><div class="ttdeci">Vector&lt; 3 &gt; cords() override</div><div class="ttdoc">Wirtualna metoda zwracająca położenie obiektu w przestrzeni.</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8hpp_source.html#l00064">Hill.hpp:64</a></div></div>
+<div class="ttc" id="aclass_hill_html_abff755e52bfa6a11908d346f1ff3ad5b"><div class="ttname"><a href="class_hill.html#abff755e52bfa6a11908d346f1ff3ad5b">Hill::areaR</a></div><div class="ttdeci">double areaR</div><div class="ttdoc">promień obszaru wzgórza</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8hpp_source.html#l00029">Hill.hpp:29</a></div></div>
+<div class="ttc" id="aclass_hill_html_ac28d2222716f0c542e66965b42ecb880"><div class="ttname"><a href="class_hill.html#ac28d2222716f0c542e66965b42ecb880">Hill::colour</a></div><div class="ttdeci">std::string colour</div><div class="ttdef"><b>Definition:</b> <a href="_hill_8hpp_source.html#l00024">Hill.hpp:24</a></div></div>
+<div class="ttc" id="aclass_land_i_html"><div class="ttname"><a href="class_land_i.html">LandI</a></div><div class="ttdoc">Modeluje pojęcie klasy LandI.</div><div class="ttdef"><b>Definition:</b> <a href="_landscape_interface_8hpp_source.html#l00013">LandscapeInterface.hpp:13</a></div></div>
+<div class="ttc" id="aclass_matrix_rot_html"><div class="ttname"><a href="class_matrix_rot.html">MatrixRot&lt; 3 &gt;</a></div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector&lt; 3 &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_hill_8cpp.html">Hill.cpp</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

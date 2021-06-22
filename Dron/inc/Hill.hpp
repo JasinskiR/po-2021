@@ -8,6 +8,7 @@
  *
  */
 #include "Block.hpp"
+#include "Drone.hpp"
 
 /**
  * @brief Modeluje pojęcie obiektu Hill - wzgorze będącego przeszkodą
@@ -21,6 +22,11 @@ class Hill : public BlockI, public DInter, public LandI {
    */
   int id;
   std::string colour;
+  /**
+   * @brief promień obszaru wzgórza
+   *
+   */
+  double areaR;
 
  public:
   /**
@@ -43,10 +49,10 @@ class Hill : public BlockI, public DInter, public LandI {
    */
   int idGet() { return id; }
   void draw(std::string colour) override;
-  bool isAbove(std::shared_ptr<DroneI> drone) override { return true; }
-  bool canLand(std::shared_ptr<DroneI> drone, const double &altitude) override {
-    return false;
-  }
+  bool isAbove(DroneI *drone, const double &altitude) override;
+  bool canLand(DroneI *drone, const double &altitude) override { return false; }
+  bool collision(DroneI *drone, const double &altitude) override;
+  double getHeight() override { return height; }
   /**
    * @brief Funkcja przeliczająca wierzchołki obiektu
    *

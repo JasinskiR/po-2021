@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dron BeMo: Plik źródłowy example.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="PepoCopter.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Dron BeMo
+   &#160;<span id="projectnumber">0.1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('example_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">example.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="example_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_dr3_d__gnuplot__api_8hh.html">Dr3D_gnuplot_api.hh</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html">drawNS::APIGnuPlot3D</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">drawNS::Point3D</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> std::cout;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> std::endl;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> std::vector;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="example_8cpp.html#a3778578513b12b6f0e8bcf837b78e987">   13</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="example_8cpp.html#a3778578513b12b6f0e8bcf837b78e987">wait4key</a>() {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;\n Press a key to continue...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  } <span class="keywordflow">while</span> (std::cin.get() != <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// PRZYKLAD LAMIACY WIELE ZALOZEN OBIEKTOWOSCI, PRZEDSTAWIONY JEDYNIE DLA</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// ZROZUMIENIA ZAGADNIENIA</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="example_8cpp.html#a3c512336b6b6751a9709e4da2c6ec02a">   22</a></span>&#160;<a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a> <a class="code" href="example_8cpp.html#a3c512336b6b6751a9709e4da2c6ec02a">operator+</a>(<span class="keyword">const</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>&amp; P1, <span class="keyword">const</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>&amp; P2) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(P1[0] + P2[0], P1[1] + P2[1], P1[2] + P2[2]);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="example_8cpp.html#ae20ecf66d36ddb392228a1c3472a982b">   26</a></span>&#160;<a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a> <a class="code" href="example_8cpp.html#ae20ecf66d36ddb392228a1c3472a982b">operator*</a>(std::array&lt;std::array&lt;double, 3&gt;, 3&gt; MacierzRot3D,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                  <span class="keyword">const</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>&amp; Punkt) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(MacierzRot3D[0][0] * Punkt[0] + MacierzRot3D[0][1] * Punkt[1] +</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                     MacierzRot3D[0][2] * Punkt[2],</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                 MacierzRot3D[1][0] * Punkt[0] + MacierzRot3D[1][1] * Punkt[1] +</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                     MacierzRot3D[1][2] * Punkt[2],</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                 MacierzRot3D[2][0] * Punkt[0] + MacierzRot3D[2][1] * Punkt[1] +</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                     MacierzRot3D[2][2] * Punkt[2]);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="example_8cpp.html#af10e976814d891a96bb07348969c19a3">   36</a></span>&#160;std::array&lt;std::array&lt;double, 3&gt;, 3&gt; <a class="code" href="example_8cpp.html#ae20ecf66d36ddb392228a1c3472a982b">operator*</a>(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">const</span> std::array&lt;std::array&lt;double, 3&gt;, 3&gt;&amp; MacierzL,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> std::array&lt;std::array&lt;double, 3&gt;, 3&gt;&amp; MacierzP) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::array&lt;std::array&lt;double, 3&gt;, 3&gt; MacierzWyn;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; ++j) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      MacierzWyn[i][j] = 0.0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; 3; ++k) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        MacierzWyn[i][j] += MacierzL[i][k] * MacierzP[k][j];</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">return</span> MacierzWyn;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">   51</a></span>&#160;std::array&lt;double, 3&gt; <a class="code" href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">konwersja</a>(<span class="keyword">const</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>&amp; arg) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> std::array&lt;double, 3&gt;({arg[0], arg[1], arg[2]});</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="example_8cpp.html#aba270767f6600e205eae3de017613427">   55</a></span>&#160;<a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a> <a class="code" href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">konwersja</a>(<span class="keyword">const</span> std::array&lt;double, 3&gt;&amp; arg) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(arg[0], arg[1], arg[2]);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_uklad_w.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_uklad_w.html">UkladW</a> {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">   61</a></span>&#160;  std::array&lt;double, 3&gt; <a class="code" href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">srodek</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">   62</a></span>&#160;  std::array&lt;std::array&lt;double, 3&gt;, 3&gt; <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_uklad_w.html#aef8f76dd25b2e0638a284ab97a132aed">   63</a></span>&#160;  <a class="code" href="class_uklad_w.html#aef8f76dd25b2e0638a284ab97a132aed">UkladW</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_uklad_w.html#ac832169d90365549ccc0ab97f6d1d24b">   64</a></span>&#160;  <a class="code" href="class_uklad_w.html#ac832169d90365549ccc0ab97f6d1d24b">UkladW</a>(std::array&lt;double, 3&gt; sr, <span class="keywordtype">double</span> kat_deg, <span class="keywordtype">char</span> os) : <a class="code" href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">srodek</a>(sr) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">double</span> kat_rad = kat_deg * 3.14159265 / 180.0;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">double</span> c = std::cos(kat_rad);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">double</span> s = std::sin(kat_rad);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; ++j) <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[i][j] = 0.0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">switch</span> (os) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;X&#39;</span>: {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[0][0] = 1.0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[1][1] = c;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[2][2] = c;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[1][2] = -s;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[2][1] = s;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;Y&#39;</span>: {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[1][1] = 1.0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[0][0] = c;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[2][2] = c;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[2][0] = -s;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[0][2] = s;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;Z&#39;</span>: {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[2][2] = 1.0;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[0][0] = c;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[1][1] = c;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[0][1] = -s;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>[1][0] = s;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  }</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="class_uklad_w.html#a897361213112693e0e2e9547f57f7673">   97</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_uklad_w.html#a897361213112693e0e2e9547f57f7673">rysuj</a>(std::shared_ptr&lt;drawNS::Draw3DAPI&gt; rysownik, <span class="keywordtype">double</span> skala) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a> sr = <a class="code" href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">konwersja</a>(<a class="code" href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">srodek</a>);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a> X = <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a> * <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(skala, 0, 0) + sr;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a> Y = <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a> * <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(0, skala, 0) + sr;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a> Z = <a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a> * <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(0, 0, skala) + sr;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    rysownik-&gt;draw_line(sr, X, <span class="stringliteral">&quot;red&quot;</span>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    rysownik-&gt;draw_line(sr, Y, <span class="stringliteral">&quot;blue&quot;</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    rysownik-&gt;draw_line(sr, Z, <span class="stringliteral">&quot;green&quot;</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    rysownik-&gt;redraw();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">funkcja przyjmuje 2 układy: 1 argument to układ opisany w układzie 2, 2 argument</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">to bazowy układ opisany w swoim bazowym układzie Przykład: Układ A0 to początek</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">układu współrzędnych Układ A1 jest opisany w A0 (A10) Układ A2 jest opisany w A1</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">(A21) Żeby otrzymać współrzędne i orientację A2 w A0 (A20) należy wywołać A20 =</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">przeliczenieUkladu(A21,A10) Wzór matematyczny: Aij = Aik @ Akj</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">Aij.srodek = Akj.srodek + (Akj.orientacja * Aik.srodek)</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">Aij.orientacja = Akj.orientacja * Aik.orientacja</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">Oczywiście oprację @ można składać:</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">Aij = (Aik @ Akl) @ Alj</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">lub</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">A30 = przeliczenieUkladu(przeliczenieUkladu(A32,A21),A10);</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="example_8cpp.html#a88c82569b177bb4ab2d201529deaa3a5">  124</a></span>&#160;<a class="code" href="class_uklad_w.html">UkladW</a> <a class="code" href="example_8cpp.html#a88c82569b177bb4ab2d201529deaa3a5">przeliczenieUkladu</a>(<span class="keyword">const</span> <a class="code" href="class_uklad_w.html">UkladW</a>&amp; uklad_przeliczany,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                          <span class="keyword">const</span> <a class="code" href="class_uklad_w.html">UkladW</a>&amp; stary_uklad_bazowy) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <a class="code" href="class_uklad_w.html">UkladW</a> koncowy;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  koncowy.<a class="code" href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">srodek</a> = <a class="code" href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">konwersja</a>(stary_uklad_bazowy.<a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a> *</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                                 <a class="code" href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">konwersja</a>(uklad_przeliczany.<a class="code" href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">srodek</a>) +</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                             <a class="code" href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">konwersja</a>(stary_uklad_bazowy.<a class="code" href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">srodek</a>));</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  koncowy.<a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a> =</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      stary_uklad_bazowy.<a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a> * uklad_przeliczany.<a class="code" href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">orientacja</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keywordflow">return</span> koncowy;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="example_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">  135</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="example_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  std::shared_ptr&lt;drawNS::Draw3DAPI&gt; api(</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keyword">new</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html">APIGnuPlot3D</a>(-50, 50, -50, 50, -50, 50,</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                       -1));  <span class="comment">// włacza gnuplota, pojawia się scena [-5,5] x</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                              <span class="comment">// [-5,5] x [-5,5] odświeżana na zadanie</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <a class="code" href="class_uklad_w.html">UkladW</a> U0({0, 0, 0}, 0, <span class="charliteral">&#39;X&#39;</span>);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  U0.<a class="code" href="class_uklad_w.html#a897361213112693e0e2e9547f57f7673">rysuj</a>(api, 25);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Układ U0, tożsamy z układem globalnym&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <a class="code" href="example_8cpp.html#a3778578513b12b6f0e8bcf837b78e987">wait4key</a>();</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <a class="code" href="class_uklad_w.html">UkladW</a> U10({25, 15, 15}, 90, <span class="charliteral">&#39;Z&#39;</span>);  <span class="comment">// opis układu U1 we współrzędnych U0</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  U10.<a class="code" href="class_uklad_w.html#a897361213112693e0e2e9547f57f7673">rysuj</a>(api, 25);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  api-&gt;draw_line(<a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(U0.srodek[0], U0.srodek[1], U0.srodek[2]),</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                 <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(U10.srodek[0], U10.srodek[1], U10.srodek[2]), <span class="stringliteral">&quot;black&quot;</span>);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  api-&gt;redraw();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Układ U1, przesunięty wobec U0 o [25,15,15] i obrócony w Z o 90 &quot;</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          <span class="stringliteral">&quot;stopni&quot;</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;       &lt;&lt; endl;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <a class="code" href="example_8cpp.html#a3778578513b12b6f0e8bcf837b78e987">wait4key</a>();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <a class="code" href="class_uklad_w.html">UkladW</a> U21({-30, 20, 20}, 45, <span class="charliteral">&#39;X&#39;</span>);  <span class="comment">// opis układu U2 we współrzędnych U1</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <a class="code" href="class_uklad_w.html">UkladW</a> U20 = <a class="code" href="example_8cpp.html#a88c82569b177bb4ab2d201529deaa3a5">przeliczenieUkladu</a>(U21, U10);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  U20.rysuj(api, 25);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  api-&gt;draw_line(<a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(U10.srodek[0], U10.srodek[1], U10.srodek[2]),</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                 <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(U20.srodek[0], U20.srodek[1], U20.srodek[2]), <span class="stringliteral">&quot;black&quot;</span>);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Układ U2, przesunięty wobec U1 o [-30,20,20] i obrócony w X o 45 &quot;</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;          <span class="stringliteral">&quot;stopni&quot;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;       &lt;&lt; endl;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  api-&gt;redraw();</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <a class="code" href="example_8cpp.html#a3778578513b12b6f0e8bcf837b78e987">wait4key</a>();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <a class="code" href="class_uklad_w.html">UkladW</a> U32({0, 0, -50}, 60, <span class="charliteral">&#39;Y&#39;</span>);  <span class="comment">// opis układu U2 we współrzędnych U1</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <a class="code" href="class_uklad_w.html">UkladW</a> U30 = <a class="code" href="example_8cpp.html#a88c82569b177bb4ab2d201529deaa3a5">przeliczenieUkladu</a>(<a class="code" href="example_8cpp.html#a88c82569b177bb4ab2d201529deaa3a5">przeliczenieUkladu</a>(U32, U21), U10);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  U30.rysuj(api, 25);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  api-&gt;draw_line(<a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(U20.srodek[0], U20.srodek[1], U20.srodek[2]),</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                 <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>(U30.srodek[0], U30.srodek[1], U30.srodek[2]), <span class="stringliteral">&quot;black&quot;</span>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  cout</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Układ U3, przesunięty wobec U2 o [0,0,-50] i obrócony w Y o 45 stopni&quot;</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      &lt;&lt; endl;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  api-&gt;redraw();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <a class="code" href="example_8cpp.html#a3778578513b12b6f0e8bcf837b78e987">wait4key</a>();</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+<div class="ttc" id="a_dr3_d__gnuplot__api_8hh_html"><div class="ttname"><a href="_dr3_d__gnuplot__api_8hh.html">Dr3D_gnuplot_api.hh</a></div></div>
+<div class="ttc" id="aclass_uklad_w_html"><div class="ttname"><a href="class_uklad_w.html">UkladW</a></div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00059">example.cpp:59</a></div></div>
+<div class="ttc" id="aclass_uklad_w_html_a3c06dc6b1d54ea75789afb48d3e41e5c"><div class="ttname"><a href="class_uklad_w.html#a3c06dc6b1d54ea75789afb48d3e41e5c">UkladW::srodek</a></div><div class="ttdeci">std::array&lt; double, 3 &gt; srodek</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00061">example.cpp:61</a></div></div>
+<div class="ttc" id="aclass_uklad_w_html_a807cfd471ea6bf1b7e0c6123ef109012"><div class="ttname"><a href="class_uklad_w.html#a807cfd471ea6bf1b7e0c6123ef109012">UkladW::orientacja</a></div><div class="ttdeci">std::array&lt; std::array&lt; double, 3 &gt;, 3 &gt; orientacja</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00062">example.cpp:62</a></div></div>
+<div class="ttc" id="aclass_uklad_w_html_a897361213112693e0e2e9547f57f7673"><div class="ttname"><a href="class_uklad_w.html#a897361213112693e0e2e9547f57f7673">UkladW::rysuj</a></div><div class="ttdeci">void rysuj(std::shared_ptr&lt; drawNS::Draw3DAPI &gt; rysownik, double skala)</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00097">example.cpp:97</a></div></div>
+<div class="ttc" id="aclass_uklad_w_html_ac832169d90365549ccc0ab97f6d1d24b"><div class="ttname"><a href="class_uklad_w.html#ac832169d90365549ccc0ab97f6d1d24b">UkladW::UkladW</a></div><div class="ttdeci">UkladW(std::array&lt; double, 3 &gt; sr, double kat_deg, char os)</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00064">example.cpp:64</a></div></div>
+<div class="ttc" id="aclass_uklad_w_html_aef8f76dd25b2e0638a284ab97a132aed"><div class="ttname"><a href="class_uklad_w.html#aef8f76dd25b2e0638a284ab97a132aed">UkladW::UkladW</a></div><div class="ttdeci">UkladW()=default</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html">drawNS::APIGnuPlot3D</a></div><div class="ttdoc">Implementation drawing 3D class using gnuplot Class implements proxy between gnuplot and C++ code.</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00036">Dr3D_gnuplot_api.hpp:36</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_point3_d_html"><div class="ttname"><a href="classdraw_n_s_1_1_point3_d.html">drawNS::Point3D</a></div><div class="ttdoc">Point in 3D Class represents point in 3D.</div><div class="ttdef"><b>Definition:</b> <a href="_draw3_d__api__interface_8hpp_source.html#l00035">Draw3D_api_interface.hpp:35</a></div></div>
+<div class="ttc" id="aexample_8cpp_html_a3778578513b12b6f0e8bcf837b78e987"><div class="ttname"><a href="example_8cpp.html#a3778578513b12b6f0e8bcf837b78e987">wait4key</a></div><div class="ttdeci">void wait4key()</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00013">example.cpp:13</a></div></div>
+<div class="ttc" id="aexample_8cpp_html_a3c512336b6b6751a9709e4da2c6ec02a"><div class="ttname"><a href="example_8cpp.html#a3c512336b6b6751a9709e4da2c6ec02a">operator+</a></div><div class="ttdeci">Point3D operator+(const Point3D &amp;P1, const Point3D &amp;P2)</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00022">example.cpp:22</a></div></div>
+<div class="ttc" id="aexample_8cpp_html_a88c82569b177bb4ab2d201529deaa3a5"><div class="ttname"><a href="example_8cpp.html#a88c82569b177bb4ab2d201529deaa3a5">przeliczenieUkladu</a></div><div class="ttdeci">UkladW przeliczenieUkladu(const UkladW &amp;uklad_przeliczany, const UkladW &amp;stary_uklad_bazowy)</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00124">example.cpp:124</a></div></div>
+<div class="ttc" id="aexample_8cpp_html_acf1afb4eee8db9b16b1817f845820ae1"><div class="ttname"><a href="example_8cpp.html#acf1afb4eee8db9b16b1817f845820ae1">konwersja</a></div><div class="ttdeci">std::array&lt; double, 3 &gt; konwersja(const Point3D &amp;arg)</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00051">example.cpp:51</a></div></div>
+<div class="ttc" id="aexample_8cpp_html_ae20ecf66d36ddb392228a1c3472a982b"><div class="ttname"><a href="example_8cpp.html#ae20ecf66d36ddb392228a1c3472a982b">operator*</a></div><div class="ttdeci">Point3D operator*(std::array&lt; std::array&lt; double, 3 &gt;, 3 &gt; MacierzRot3D, const Point3D &amp;Punkt)</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00026">example.cpp:26</a></div></div>
+<div class="ttc" id="aexample_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="example_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="example_8cpp_source.html#l00135">example.cpp:135</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_564bfdbb79c95aa73e8b902944ed189e.html">uklady_wsp_ex</a></li><li class="navelem"><a class="el" href="example_8cpp.html">example.cpp</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

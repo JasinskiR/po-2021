@@ -1,0 +1,15 @@
+digraph "Drone"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Drone",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Modeluje pojęcie Drona jako złożonego obiektu Tworzy obiekt dron złożony z korpusu,..."];
+  Node2 -> Node1 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="CoordS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_coord_s.html",tooltip="Modeluje pojęcie klasy CoordS."];
+  Node3 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="DInter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_d_inter.html",tooltip="Modeluje pojęcie klasy DInter."];
+  Node4 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="DroneI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_drone_i.html",tooltip="Modeluje pojęcie klasy DoneI."];
+  Node5 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="LandI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_land_i.html",tooltip="Modeluje pojęcie klasy LandI."];
+}

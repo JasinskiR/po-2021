@@ -1,0 +1,21 @@
+digraph "CoordS"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="CoordS",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Modeluje pojęcie klasy CoordS."];
+  Node1 -> Node2 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="BlockI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_block_i.html",tooltip="Modeluje pojęcie klasy BlockI."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="CubPlat",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cub_plat.html",tooltip="Modeluje pojęcie obiektu klasy CubPlat."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Hill",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hill.html",tooltip="Modeluje pojęcie obiektu Hill - wzgorze będącego przeszkodą Tworzy obiekt złożony z losowej liczby wi..."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Plat",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_plat.html",tooltip="Modeluje pojęcie płaskowyżu jako obiektu będącego przeszkodą Tworzy obiekt złożony z losowej liczby w..."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Cuboid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cuboid.html",tooltip="Modeluje pojęcie klasy Cuboid."];
+  Node1 -> Node7 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Drone",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_drone.html",tooltip="Modeluje pojęcie Drona jako złożonego obiektu Tworzy obiekt dron złożony z korpusu,..."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="HexaP",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hexa_p.html",tooltip="Modeluje pojęcie klasy HexaP."];
+}

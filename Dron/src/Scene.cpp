@@ -7,6 +7,8 @@
 #define TAB 9
 #define ENTER 13
 
+std::vector<std::shared_ptr<LandI>> Scene::objectL;
+
 /**
  * @brief Konstruktor nowego obiektu klasy Scene
  * Odpowiada za stworzenie powierzchni oraz podstawowych elemntów krajobrazu
@@ -14,15 +16,15 @@
  *
  */
 Scene::Scene() {
-  Surface surf(-1);
+  Surface surf(0);
   surf.draw("purple");
-  Vector<3> droneBase({0, 0, -0.75});
-  Vector<3> hillBase({3, 3, -1});
-  Vector<3> platBase({-3, -3, -1});
+  Vector<3> droneBase({0, 0, 0.25});
+  Vector<3> hillBase({3, 3, 0});
+  Vector<3> platBase({-3, -3, 0});
   objectL.push_back(std::dynamic_pointer_cast<LandI>(
-      std::shared_ptr<Hill>(new Hill(hillBase, MatrixRot<3>(), 3, {1, 3}))));
+      std::shared_ptr<Hill>(new Hill(hillBase, MatrixRot<3>(), 3, {1, 2}))));
   objectL.push_back(std::dynamic_pointer_cast<LandI>(
-      std::shared_ptr<Plat>(new Plat(platBase, MatrixRot<3>(), 2, {1, 3}))));
+      std::shared_ptr<Plat>(new Plat(platBase, MatrixRot<3>(), 2, {1, 2}))));
 
   activeD = std::make_shared<Drone>(droneBase, MatrixRot<3>());
   objectL.push_back(std::dynamic_pointer_cast<LandI>(activeD));
@@ -139,7 +141,7 @@ void Scene::add() {
             }
             objectL.push_back(
                 std::dynamic_pointer_cast<LandI>(std::shared_ptr<Hill>(
-                    new Hill(Vector<3>({x, y, -1}), MatrixRot<3>(), height,
+                    new Hill(Vector<3>({x, y, 0}), MatrixRot<3>(), height,
                              {min, max}))));
             var = false;
             break;
@@ -192,7 +194,7 @@ void Scene::add() {
             }
             objectL.push_back(
                 std::dynamic_pointer_cast<LandI>(std::shared_ptr<Plat>(
-                    new Plat(Vector<3>({x, y, -1}), MatrixRot<3>(), height,
+                    new Plat(Vector<3>({x, y, 0}), MatrixRot<3>(), height,
                              {min, max}))));
             var = false;
             break;
@@ -256,7 +258,7 @@ void Scene::add() {
             }
             objectL.push_back(
                 std::dynamic_pointer_cast<LandI>(std::shared_ptr<CubPlat>(
-                    new CubPlat(Vector<3>({x, y, -1}), MatrixRot<3>(), height,
+                    new CubPlat(Vector<3>({x, y, 0}), MatrixRot<3>(), height,
                                 width, depth))));
             var = false;
             break;
@@ -292,7 +294,7 @@ void Scene::add() {
       }
       objectL.push_back(
           std::dynamic_pointer_cast<LandI>(std::shared_ptr<DroneI>(
-              new Drone(Vector<3>({x, y, -0.75}), MatrixRot<3>()))));
+              new Drone(Vector<3>({x, y, 0.25}), MatrixRot<3>()))));
       break;
     }
   }

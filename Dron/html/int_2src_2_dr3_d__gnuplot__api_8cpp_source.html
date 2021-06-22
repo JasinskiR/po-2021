@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dron BeMo: Plik źródłowy Dr3D_gnuplot_api.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="PepoCopter.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Dron BeMo
+   &#160;<span id="projectnumber">0.1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('int_2src_2_dr3_d__gnuplot__api_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">int/src/Dr3D_gnuplot_api.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="int_2src_2_dr3_d__gnuplot__api_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">Copyright 2020 Arkadiusz Mielczarek</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">Permission is hereby granted, free of charge, to any person obtaining a copy of</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">this software and associated documentation files (the &quot;Software&quot;), to deal in</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">the Software without restriction, including without limitation the rights to</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">the Software, and to permit persons to whom the Software is furnished to do so,</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">subject to the following conditions:</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">The above copyright notice and this permission notice shall be included in all</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">copies or substantial portions of the Software.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_dr3_d__gnuplot__api_8hpp.html">Dr3D_gnuplot_api.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html">drawNS::APIGnuPlot3D</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">drawNS::Point3D</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using</span> std::endl;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">using</span> std::list;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using</span> std::map;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using</span> std::mutex;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using</span> std::pair;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using</span> std::string;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using</span> std::stringstream;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using</span> std::thread;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">using</span> std::unique_ptr;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">using</span> std::vector;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="int_2src_2_dr3_d__gnuplot__api_8cpp.html#a45fbe4a22179f3906512c6a347d47e47">   42</a></span>&#160;std::ostream&amp; <a class="code" href="int_2src_2_dr3_d__gnuplot__api_8cpp.html#a45fbe4a22179f3906512c6a347d47e47">operator&lt;&lt;</a>(std::ostream&amp; strm, <span class="keyword">const</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>&amp; point) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  strm &lt;&lt; point[0] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; point[1] &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; point[2] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">return</span> strm;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a9fd786880bdcfc90d260127a83362a01">   47</a></span>&#160;APIGnuPlot3D::APIGnuPlot3D(<span class="keywordtype">double</span> minX, <span class="keywordtype">double</span> maxX, <span class="keywordtype">double</span> minY, <span class="keywordtype">double</span> maxY,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                           <span class="keywordtype">double</span> minZ, <span class="keywordtype">double</span> maxZ, <span class="keywordtype">int</span> ref_time_ms)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    : <a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html">Draw3DAPI</a>(ref_time_ms), refresh_thread_ptr(nullptr), last_shape(0) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  pipe(<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae27cb25555d5dfdf651b26c2a8e96206">pipe_fd</a>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">int</span> local_pid = fork();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">if</span> (local_pid != 0) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aed63887b67369f571ad1a5371b970226">gnuplot_pid</a> = local_pid;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    stringstream ss_tmp;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ss_tmp &lt;&lt; <span class="stringliteral">&quot; set terminal qt&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set xrange [&quot;</span> &lt;&lt; minX &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; maxX &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set yrange [&quot;</span> &lt;&lt; minY &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; maxY &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set zrange [&quot;</span> &lt;&lt; minZ &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; maxZ &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set xlabel \&quot;X\&quot;&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set ylabel \&quot;Y\&quot;&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set zlabel \&quot;Z\&quot;&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set cbrange [ -1 : 1 ] noreverse writeback&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set rrange [ -1 : 1 ] noreverse writeback&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set view equal xyz&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set xyplane relative 0&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;unset key&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set grid&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;NO_ANIMATION = 1&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;           <span class="comment">//&lt;&lt; &quot;set palette model RGB rgbformulae 7,5,15&quot; &lt;&lt; endl</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;           <span class="comment">//&lt;&lt; &quot;set pm3d at s &quot; &lt;&lt; endl</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;           <span class="comment">//&lt;&lt; &quot;unset colorbox &quot; &lt;&lt; endl</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;set hidden3d&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a798ace22b5da598f30d8eb008d557858">intro</a> = ss_tmp.str();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae0891b377c112523f8d9ed2291a5fe13">send2gnuplot</a>(<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a798ace22b5da598f30d8eb008d557858">intro</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> (ref_time_ms &gt; 0) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a01943301637834f4b2bc6398201e2f5e">refresh_thread_ptr</a>.reset(<span class="keyword">new</span> thread(&amp;<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#afa364d7d8a0a74d51b680a9560e1f1ed">APIGnuPlot3D::replot_loop</a>, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a01943301637834f4b2bc6398201e2f5e">refresh_thread_ptr</a>-&gt;detach();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    dup2(<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae27cb25555d5dfdf651b26c2a8e96206">pipe_fd</a>[0], 0);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;gnuplot is running&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    execlp(<span class="stringliteral">&quot;gnuplot&quot;</span>, <span class="stringliteral">&quot;gnuplot&quot;</span>, NULL);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae0891b377c112523f8d9ed2291a5fe13">APIGnuPlot3D::send2gnuplot</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command_arg) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a8b2124c410dd1f5fd7573ab4a8b1a80a">gnuplot_pipe_mutex</a>.lock();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  write(<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae27cb25555d5dfdf651b26c2a8e96206">pipe_fd</a>[1], command_arg.c_str(), command_arg.length());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a8b2124c410dd1f5fd7573ab4a8b1a80a">gnuplot_pipe_mutex</a>.unlock();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#afa364d7d8a0a74d51b680a9560e1f1ed">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#afa364d7d8a0a74d51b680a9560e1f1ed">APIGnuPlot3D::replot_loop</a>() {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordflow">while</span> (<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> &gt; 0) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">draw_all_shapes</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    std::this_thread::sleep_for(std::chrono::milliseconds(<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a>));</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;uint <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a275f387b1a2c0a4713f00803efac7909">APIGnuPlot3D::add2shape_list</a>(<span class="keyword">const</span> list&lt;list&lt;Point3D&gt; &gt;&amp; _list,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                  <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; color) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>.insert(std::pair&lt;uint, shape_and_color&gt;(<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aa0b765c23df0ff561199a61f70cd08dd">last_shape</a>,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                                 std::make_pair(_list, color)));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aa0b765c23df0ff561199a61f70cd08dd">last_shape</a>++;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">  109</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">APIGnuPlot3D::draw_all_shapes</a>() {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  stringstream ss;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordtype">string</span> color;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  ss &lt;&lt; <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a798ace22b5da598f30d8eb008d557858">intro</a> &lt;&lt; <span class="stringliteral">&quot;splot &quot;</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> itel = <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>.begin(); itel != <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>.end();) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    color = <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a7467f95311d64cb6cffda3c5b69c73ed">translate_color</a>(itel-&gt;second.second);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;error&quot;</span>)) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      color = <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a7467f95311d64cb6cffda3c5b69c73ed">translate_color</a>(<span class="stringliteral">&quot;black&quot;</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      std::cerr &lt;&lt; <span class="stringliteral">&quot;Shape nr &quot;</span> &lt;&lt; itel-&gt;first</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                &lt;&lt; <span class="stringliteral">&quot; has invalid color.\nUsing black color to draw it.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    ss &lt;&lt; <span class="stringliteral">&quot;\&#39;-\&#39; using 1:2:3 with lines lt 1 lw 3 &quot;</span> &lt;&lt; color;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span> (++itel != <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>.end()) ss &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  ss &lt;&lt; endl;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; el : <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; inel : el.second.first) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; in2el : inel) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        ss &lt;&lt; in2el;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      ss &lt;&lt; endl;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    ss &lt;&lt; <span class="stringliteral">&quot;e&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  ss &lt;&lt; <span class="stringliteral">&quot;pause -1&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aaef7ac6dac80360907b3531235fced40">command</a> = ss.str();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae0891b377c112523f8d9ed2291a5fe13">send2gnuplot</a>(<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aaef7ac6dac80360907b3531235fced40">command</a>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keywordtype">string</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a7467f95311d64cb6cffda3c5b69c73ed">APIGnuPlot3D::translate_color</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; color)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordtype">string</span> out = <span class="stringliteral">&quot;lc rgb \&#39;#&quot;</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;black&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;000000\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;white&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;ffffff\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;grey&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;808080\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;blue&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;0072bd\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;orange&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;d95319\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;yellow&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;edb120\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;purple&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;7e2f8e\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;green&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;77ac30\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;light-blue&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;4dbeee\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">if</span> (!color.compare(<span class="stringliteral">&quot;red&quot;</span>)) <span class="keywordflow">return</span> out + <span class="stringliteral">&quot;a2142f\&#39;&quot;</span>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keywordflow">if</span> (!color.compare(0, 5, <span class="stringliteral">&quot;rgb:#&quot;</span>)) <span class="keywordflow">return</span> out + color.substr(5);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordflow">return</span> <span class="stringliteral">&quot;error&quot;</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;uint <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ade87413186162773560f050b6879e630">APIGnuPlot3D::draw_line</a>(<span class="keyword">const</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>&amp; point1, <span class="keyword">const</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">Point3D</a>&amp; point2,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                             <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; color) {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  uint tmp = <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a275f387b1a2c0a4713f00803efac7909">add2shape_list</a>(list&lt;list&lt;Point3D&gt; &gt;{{point1, point2}}, color);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> == 0) {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">draw_all_shapes</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;uint <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a8e48d62796d1d92c541dc2f4cd4fca27">APIGnuPlot3D::draw_polygonal_chain</a>(<span class="keyword">const</span> vector&lt;Point3D&gt;&amp; points,</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                                        <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; color) {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  uint tmp = <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a275f387b1a2c0a4713f00803efac7909">add2shape_list</a>(</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      list&lt;list&lt;Point3D&gt; &gt;{list&lt;Point3D&gt;(begin(points), end(points))}, color);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> == 0) {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">draw_all_shapes</a>();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;uint <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a8aec148da351f83cb9ffb60b6b303612">APIGnuPlot3D::draw_polyhedron</a>(<span class="keyword">const</span> vector&lt;vector&lt;Point3D&gt; &gt;&amp; points_map,</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                   <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; color) {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  vector&lt;vector&lt;Point3D&gt; &gt; tmp;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  vector&lt;Point3D&gt; ltmp;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; el : points_map) {</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    ltmp = el;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    ltmp.push_back(el[0]);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    tmp.push_back(ltmp);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae8002b513925bcbf584b925235044d0a">draw_surface</a>(tmp, color);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;}</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;uint <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae8002b513925bcbf584b925235044d0a">APIGnuPlot3D::draw_surface</a>(<span class="keyword">const</span> vector&lt;vector&lt;Point3D&gt; &gt;&amp; points_map,</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; color) {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  list&lt;list&lt;Point3D&gt; &gt; ltmp;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  list&lt;Point3D&gt; iltmp;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; el : points_map) {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    iltmp = list&lt;Point3D&gt;(begin(el), end(el));</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    ltmp.push_back(iltmp);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  uint tmp = <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a275f387b1a2c0a4713f00803efac7909">add2shape_list</a>(ltmp, color);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> == 0) {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">draw_all_shapes</a>();</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a837c1e656cdd7f3c1d64f373552b1766">  200</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a837c1e656cdd7f3c1d64f373552b1766">APIGnuPlot3D::erase_shape</a>(uint <span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>.erase(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> == 0) {</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">draw_all_shapes</a>();</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;}</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a1b11fbb1278f5ef5d23d556e8510bd7c">APIGnuPlot3D::change_shape_color</a>(uint <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; color) {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>.count(<span class="keywordtype">id</span>)) {</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">shapes</a>[id].second = color;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> == 0) {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">draw_all_shapes</a>();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  }</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#af9507e24c3fd5bad9e75b00f30cc9f80">  216</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#af9507e24c3fd5bad9e75b00f30cc9f80">APIGnuPlot3D::stop_drawing_proces</a>() {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  stringstream killstream;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  std::cerr &lt;&lt; <span class="stringliteral">&quot;gnuplot stops running&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  killstream &lt;&lt; <span class="stringliteral">&quot;kill &quot;</span> &lt;&lt; <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aed63887b67369f571ad1a5371b970226">gnuplot_pid</a>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  system(killstream.str().c_str());</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aa7da7ed9eaaea392a5710143fda0da67">  223</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aa7da7ed9eaaea392a5710143fda0da67">APIGnuPlot3D::change_ref_time_ms</a>(<span class="keywordtype">int</span> ref_time_ms) {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keywordflow">if</span> (ref_time_ms &lt;= 0) {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a01943301637834f4b2bc6398201e2f5e">refresh_thread_ptr</a>.reset();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a01943301637834f4b2bc6398201e2f5e">refresh_thread_ptr</a>.reset(<span class="keyword">new</span> thread(&amp;<a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#afa364d7d8a0a74d51b680a9560e1f1ed">APIGnuPlot3D::replot_loop</a>, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a01943301637834f4b2bc6398201e2f5e">refresh_thread_ptr</a>-&gt;detach();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> = ref_time_ms;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a27a110521a511f0c75e5c867f247a3f6">  233</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a27a110521a511f0c75e5c867f247a3f6">APIGnuPlot3D::redraw</a>() {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">refresh_rate_ms</a> &lt; 0) <a class="code" href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">draw_all_shapes</a>();</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;}</div>
+<div class="ttc" id="a_dr3_d__gnuplot__api_8hpp_html"><div class="ttname"><a href="_dr3_d__gnuplot__api_8hpp.html">Dr3D_gnuplot_api.hpp</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html">drawNS::APIGnuPlot3D</a></div><div class="ttdoc">Implementation drawing 3D class using gnuplot Class implements proxy between gnuplot and C++ code.</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00036">Dr3D_gnuplot_api.hpp:36</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a01943301637834f4b2bc6398201e2f5e"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a01943301637834f4b2bc6398201e2f5e">drawNS::APIGnuPlot3D::refresh_thread_ptr</a></div><div class="ttdeci">std::unique_ptr&lt; std::thread &gt; refresh_thread_ptr</div><div class="ttdoc">pointer to thread responible for refreshing</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00044">Dr3D_gnuplot_api.hpp:44</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a1b11fbb1278f5ef5d23d556e8510bd7c"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a1b11fbb1278f5ef5d23d556e8510bd7c">drawNS::APIGnuPlot3D::change_shape_color</a></div><div class="ttdeci">void change_shape_color(uint id, const std::string &amp;color) override</div><div class="ttdoc">change color of shape</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a275f387b1a2c0a4713f00803efac7909"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a275f387b1a2c0a4713f00803efac7909">drawNS::APIGnuPlot3D::add2shape_list</a></div><div class="ttdeci">uint add2shape_list(const std::list&lt; std::list&lt; Point3D &gt; &gt; &amp;_list, const std::string &amp;color)</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a27a110521a511f0c75e5c867f247a3f6"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a27a110521a511f0c75e5c867f247a3f6">drawNS::APIGnuPlot3D::redraw</a></div><div class="ttdeci">void redraw() override</div><div class="ttdoc">replot all shapes Replots all shapes, works only in negative refresh_rate_ms value mode.</div><div class="ttdef"><b>Definition:</b> <a href="int_2src_2_dr3_d__gnuplot__api_8cpp_source.html#l00233">int/src/Dr3D_gnuplot_api.cpp:233</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a53c7266030db13ac1e6045797c3e1b75"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a53c7266030db13ac1e6045797c3e1b75">drawNS::APIGnuPlot3D::draw_all_shapes</a></div><div class="ttdeci">void draw_all_shapes()</div><div class="ttdef"><b>Definition:</b> <a href="int_2src_2_dr3_d__gnuplot__api_8cpp_source.html#l00109">int/src/Dr3D_gnuplot_api.cpp:109</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a7467f95311d64cb6cffda3c5b69c73ed"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a7467f95311d64cb6cffda3c5b69c73ed">drawNS::APIGnuPlot3D::translate_color</a></div><div class="ttdeci">std::string translate_color(const std::string &amp;color) const</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a798ace22b5da598f30d8eb008d557858"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a798ace22b5da598f30d8eb008d557858">drawNS::APIGnuPlot3D::intro</a></div><div class="ttdeci">std::string intro</div><div class="ttdoc">string contains proper initialization of gnuplot.</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00056">Dr3D_gnuplot_api.hpp:56</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a837c1e656cdd7f3c1d64f373552b1766"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a837c1e656cdd7f3c1d64f373552b1766">drawNS::APIGnuPlot3D::erase_shape</a></div><div class="ttdeci">void erase_shape(uint id) override</div><div class="ttdoc">erase shape by id</div><div class="ttdef"><b>Definition:</b> <a href="int_2src_2_dr3_d__gnuplot__api_8cpp_source.html#l00200">int/src/Dr3D_gnuplot_api.cpp:200</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a8aec148da351f83cb9ffb60b6b303612"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a8aec148da351f83cb9ffb60b6b303612">drawNS::APIGnuPlot3D::draw_polyhedron</a></div><div class="ttdeci">uint draw_polyhedron(const std::vector&lt; std::vector&lt; Point3D &gt; &gt; &amp;points_map, const std::string &amp;color=&quot;black&quot;) override</div><div class="ttdoc">draws polyhedron described by its apexs</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a8b2124c410dd1f5fd7573ab4a8b1a80a"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a8b2124c410dd1f5fd7573ab4a8b1a80a">drawNS::APIGnuPlot3D::gnuplot_pipe_mutex</a></div><div class="ttdeci">std::mutex gnuplot_pipe_mutex</div><div class="ttdoc">mutex responsible for correct usage of pipe</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00048">Dr3D_gnuplot_api.hpp:48</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_a8e48d62796d1d92c541dc2f4cd4fca27"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#a8e48d62796d1d92c541dc2f4cd4fca27">drawNS::APIGnuPlot3D::draw_polygonal_chain</a></div><div class="ttdeci">uint draw_polygonal_chain(const std::vector&lt; Point3D &gt; &amp;points, const std::string &amp;color=&quot;black&quot;) override</div><div class="ttdoc">draws polygonal_chain between n points</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_aa0b765c23df0ff561199a61f70cd08dd"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aa0b765c23df0ff561199a61f70cd08dd">drawNS::APIGnuPlot3D::last_shape</a></div><div class="ttdeci">uint last_shape</div><div class="ttdoc">variable used to give indiviual id to each shape</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00065">Dr3D_gnuplot_api.hpp:65</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_aa7da7ed9eaaea392a5710143fda0da67"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aa7da7ed9eaaea392a5710143fda0da67">drawNS::APIGnuPlot3D::change_ref_time_ms</a></div><div class="ttdeci">void change_ref_time_ms(int ref_time_ms) override</div><div class="ttdoc">change mode for ploting and/or time between auto-replots</div><div class="ttdef"><b>Definition:</b> <a href="int_2src_2_dr3_d__gnuplot__api_8cpp_source.html#l00223">int/src/Dr3D_gnuplot_api.cpp:223</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_aaef7ac6dac80360907b3531235fced40"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aaef7ac6dac80360907b3531235fced40">drawNS::APIGnuPlot3D::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">string send to gnuplot Contains initialization and data</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00061">Dr3D_gnuplot_api.hpp:61</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_ab9731c30ba7b0f290f70b182911daa2b"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ab9731c30ba7b0f290f70b182911daa2b">drawNS::APIGnuPlot3D::shapes</a></div><div class="ttdeci">std::map&lt; uint, shape_and_color &gt; shapes</div><div class="ttdoc">container for shapes to draw</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00069">Dr3D_gnuplot_api.hpp:69</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_ade87413186162773560f050b6879e630"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ade87413186162773560f050b6879e630">drawNS::APIGnuPlot3D::draw_line</a></div><div class="ttdeci">uint draw_line(const Point3D &amp;point1, const Point3D &amp;point2, const std::string &amp;color=&quot;black&quot;) override</div><div class="ttdoc">draws line between 2 points</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_ae0891b377c112523f8d9ed2291a5fe13"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae0891b377c112523f8d9ed2291a5fe13">drawNS::APIGnuPlot3D::send2gnuplot</a></div><div class="ttdeci">void send2gnuplot(const std::string &amp;command_arg)</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_ae27cb25555d5dfdf651b26c2a8e96206"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae27cb25555d5dfdf651b26c2a8e96206">drawNS::APIGnuPlot3D::pipe_fd</a></div><div class="ttdeci">int pipe_fd[2]</div><div class="ttdoc">file descriptors for unnamed pipe between app and gnuplot</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00040">Dr3D_gnuplot_api.hpp:40</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_ae8002b513925bcbf584b925235044d0a"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#ae8002b513925bcbf584b925235044d0a">drawNS::APIGnuPlot3D::draw_surface</a></div><div class="ttdeci">uint draw_surface(const std::vector&lt; std::vector&lt; Point3D &gt; &gt; &amp;points_map, const std::string &amp;color=&quot;black&quot;) override</div><div class="ttdoc">draws surface described by its points</div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_aed63887b67369f571ad1a5371b970226"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#aed63887b67369f571ad1a5371b970226">drawNS::APIGnuPlot3D::gnuplot_pid</a></div><div class="ttdeci">int gnuplot_pid</div><div class="ttdoc">proces id of gnuplot</div><div class="ttdef"><b>Definition:</b> <a href="_dr3_d__gnuplot__api_8hpp_source.html#l00052">Dr3D_gnuplot_api.hpp:52</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_af9507e24c3fd5bad9e75b00f30cc9f80"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#af9507e24c3fd5bad9e75b00f30cc9f80">drawNS::APIGnuPlot3D::stop_drawing_proces</a></div><div class="ttdeci">void stop_drawing_proces()</div><div class="ttdef"><b>Definition:</b> <a href="int_2src_2_dr3_d__gnuplot__api_8cpp_source.html#l00216">int/src/Dr3D_gnuplot_api.cpp:216</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_a_p_i_gnu_plot3_d_html_afa364d7d8a0a74d51b680a9560e1f1ed"><div class="ttname"><a href="classdraw_n_s_1_1_a_p_i_gnu_plot3_d.html#afa364d7d8a0a74d51b680a9560e1f1ed">drawNS::APIGnuPlot3D::replot_loop</a></div><div class="ttdeci">void replot_loop()</div><div class="ttdef"><b>Definition:</b> <a href="int_2src_2_dr3_d__gnuplot__api_8cpp_source.html#l00095">int/src/Dr3D_gnuplot_api.cpp:95</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_draw3_d_a_p_i_html"><div class="ttname"><a href="classdraw_n_s_1_1_draw3_d_a_p_i.html">drawNS::Draw3DAPI</a></div><div class="ttdoc">Abstract interface for drawing class Abstract class used as interface for 3D drawing class implementa...</div><div class="ttdef"><b>Definition:</b> <a href="_draw3_d__api__interface_8hpp_source.html#l00087">Draw3D_api_interface.hpp:87</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_draw3_d_a_p_i_html_a68784b46e3e38b348b004f9cba1caf5e"><div class="ttname"><a href="classdraw_n_s_1_1_draw3_d_a_p_i.html#a68784b46e3e38b348b004f9cba1caf5e">drawNS::Draw3DAPI::refresh_rate_ms</a></div><div class="ttdeci">int refresh_rate_ms</div><div class="ttdoc">mode for ploting and time between auto-replots</div><div class="ttdef"><b>Definition:</b> <a href="_draw3_d__api__interface_8hpp_source.html#l00097">Draw3D_api_interface.hpp:97</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_point3_d_html"><div class="ttname"><a href="classdraw_n_s_1_1_point3_d.html">drawNS::Point3D</a></div><div class="ttdoc">Point in 3D Class represents point in 3D.</div><div class="ttdef"><b>Definition:</b> <a href="_draw3_d__api__interface_8hpp_source.html#l00035">Draw3D_api_interface.hpp:35</a></div></div>
+<div class="ttc" id="aint_2src_2_dr3_d__gnuplot__api_8cpp_html_a45fbe4a22179f3906512c6a347d47e47"><div class="ttname"><a href="int_2src_2_dr3_d__gnuplot__api_8cpp.html#a45fbe4a22179f3906512c6a347d47e47">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;strm, const Point3D &amp;point)</div><div class="ttdef"><b>Definition:</b> <a href="int_2src_2_dr3_d__gnuplot__api_8cpp_source.html#l00042">int/src/Dr3D_gnuplot_api.cpp:42</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d2d5a73aa675843712555d2b5cc20c2a.html">int</a></li><li class="navelem"><a class="el" href="dir_fbc23cd31dbc57dac610619367621df0.html">src</a></li><li class="navelem"><a class="el" href="int_2src_2_dr3_d__gnuplot__api_8cpp.html">Dr3D_gnuplot_api.cpp</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

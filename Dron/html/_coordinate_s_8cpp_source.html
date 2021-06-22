@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dron BeMo: Plik źródłowy CoordinateS.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="PepoCopter.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Dron BeMo
+   &#160;<span id="projectnumber">0.1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_coordinate_s_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">CoordinateS.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_coordinate_s_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_coordinate_s_8hpp.html">CoordinateS.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_coord_s.html#ad080e127847fd1d40df944bf59c6d47d">    8</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_coord_s.html#ad080e127847fd1d40df944bf59c6d47d">CoordS::translation</a>(<span class="keyword">const</span> <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> &amp;vector) {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; 3; ++i) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    this-&gt;<a class="code" href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">center</a> = this-&gt;<a class="code" href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">center</a> + vector;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  }</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_coord_s.html#aee9117d4cd6f3707f5051dcfd3ba5303">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_coord_s.html#aee9117d4cd6f3707f5051dcfd3ba5303">CoordS::rotation</a>(<span class="keyword">const</span> <a class="code" href="class_matrix_rot.html">MatrixRot&lt;3&gt;</a> &amp;matrix) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  this-&gt;<a class="code" href="class_coord_s.html#a2b04fc18f77a1fffe89562fb937390b8">orientation</a> = this-&gt;<a class="code" href="class_coord_s.html#a2b04fc18f77a1fffe89562fb937390b8">orientation</a> * matrix;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_coord_s.html#a044e7f44b4b73a9b2b563bc29e7ebb71">   29</a></span>&#160;<a class="code" href="class_vector.html">Vector&lt;3&gt;</a> <a class="code" href="class_coord_s.html#a044e7f44b4b73a9b2b563bc29e7ebb71">CoordS::pointInPredec</a>(<a class="code" href="class_vector.html">Vector&lt;3&gt;</a> point) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordflow">return</span> (this-&gt;<a class="code" href="class_coord_s.html#a2b04fc18f77a1fffe89562fb937390b8">orientation</a> * point + this-&gt;<a class="code" href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">center</a>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_coord_s.html#a143df38916388dc1e96adf59bcbfc730">   41</a></span>&#160;<a class="code" href="class_vector.html">Vector&lt;3&gt;</a> <a class="code" href="class_coord_s.html#a143df38916388dc1e96adf59bcbfc730">CoordS::coordSInGlob</a>(<a class="code" href="class_vector.html">Vector&lt;3&gt;</a> resultV) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">if</span> (this-&gt;<a class="code" href="class_coord_s.html#a9eaae3d51dbef84775ffd98d974a0735">predecessor</a> != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    resultV = <a class="code" href="class_coord_s.html#a044e7f44b4b73a9b2b563bc29e7ebb71">pointInPredec</a>(resultV);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_coord_s.html#a9eaae3d51dbef84775ffd98d974a0735">predecessor</a>-&gt;<a class="code" href="class_coord_s.html#a143df38916388dc1e96adf59bcbfc730">coordSInGlob</a>(resultV);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_coord_s.html#a044e7f44b4b73a9b2b563bc29e7ebb71">pointInPredec</a>(resultV);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_coord_s.html#aa78f24726d865573213f3f9bdcedb4cb">   56</a></span>&#160;<a class="code" href="classdraw_n_s_1_1_point3_d.html">drawNS::Point3D</a> <a class="code" href="class_coord_s.html#aa78f24726d865573213f3f9bdcedb4cb">CoordS::convert</a>(<span class="keyword">const</span> <a class="code" href="class_vector.html">Vector&lt;3&gt;</a> &amp;vector) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classdraw_n_s_1_1_point3_d.html">drawNS::Point3D</a>(vector[0], vector[1], vector[2]);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="ttc" id="a_coordinate_s_8hpp_html"><div class="ttname"><a href="_coordinate_s_8hpp.html">CoordinateS.hpp</a></div><div class="ttdoc">Definicja klasy układu współrzędnych.</div></div>
+<div class="ttc" id="aclass_coord_s_html_a044e7f44b4b73a9b2b563bc29e7ebb71"><div class="ttname"><a href="class_coord_s.html#a044e7f44b4b73a9b2b563bc29e7ebb71">CoordS::pointInPredec</a></div><div class="ttdeci">Vector&lt; 3 &gt; pointInPredec(Vector&lt; 3 &gt; point)</div><div class="ttdoc">Metoda zwracająca wektor w poprzednim układzie współrzędnych.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8cpp_source.html#l00029">CoordinateS.cpp:29</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_a143df38916388dc1e96adf59bcbfc730"><div class="ttname"><a href="class_coord_s.html#a143df38916388dc1e96adf59bcbfc730">CoordS::coordSInGlob</a></div><div class="ttdeci">Vector&lt; 3 &gt; coordSInGlob(Vector&lt; 3 &gt; point)</div><div class="ttdoc">Metoda zwracająca wektor w globalnym układzie współrzędnych.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8cpp_source.html#l00041">CoordinateS.cpp:41</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_a2b04fc18f77a1fffe89562fb937390b8"><div class="ttname"><a href="class_coord_s.html#a2b04fc18f77a1fffe89562fb937390b8">CoordS::orientation</a></div><div class="ttdeci">MatrixRot&lt; 3 &gt; orientation</div><div class="ttdoc">Macierz orientacji ukłądu współrzędnych.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8hpp_source.html#l00032">CoordinateS.hpp:32</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_a9eaae3d51dbef84775ffd98d974a0735"><div class="ttname"><a href="class_coord_s.html#a9eaae3d51dbef84775ffd98d974a0735">CoordS::predecessor</a></div><div class="ttdeci">CoordS * predecessor</div><div class="ttdoc">Wskaźnik na poprzedni układ współrzędnych nullptr będzie odpowiednikiem układu globalnego.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8hpp_source.html#l00022">CoordinateS.hpp:22</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_aa78f24726d865573213f3f9bdcedb4cb"><div class="ttname"><a href="class_coord_s.html#aa78f24726d865573213f3f9bdcedb4cb">CoordS::convert</a></div><div class="ttdeci">drawNS::Point3D convert(const Vector&lt; 3 &gt; &amp;vector)</div><div class="ttdoc">Metoda przeliczająca wektor na punkty zdolne do narysowania.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8cpp_source.html#l00056">CoordinateS.cpp:56</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_ad080e127847fd1d40df944bf59c6d47d"><div class="ttname"><a href="class_coord_s.html#ad080e127847fd1d40df944bf59c6d47d">CoordS::translation</a></div><div class="ttdeci">void translation(const Vector&lt; 3 &gt; &amp;vector)</div><div class="ttdoc">Metoda wykonująca translację układu współrzędnych o zadany wektor.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8cpp_source.html#l00008">CoordinateS.cpp:8</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_ae34ad6537119e675fd85637a685f5c27"><div class="ttname"><a href="class_coord_s.html#ae34ad6537119e675fd85637a685f5c27">CoordS::center</a></div><div class="ttdeci">Vector&lt; 3 &gt; center</div><div class="ttdoc">Wektor położenia środka układu współrzędnych.</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8hpp_source.html#l00027">CoordinateS.hpp:27</a></div></div>
+<div class="ttc" id="aclass_coord_s_html_aee9117d4cd6f3707f5051dcfd3ba5303"><div class="ttname"><a href="class_coord_s.html#aee9117d4cd6f3707f5051dcfd3ba5303">CoordS::rotation</a></div><div class="ttdeci">void rotation(const MatrixRot&lt; 3 &gt; &amp;matrix)</div><div class="ttdoc">metoda pozwalajaca obrót układu współrzędnych</div><div class="ttdef"><b>Definition:</b> <a href="_coordinate_s_8cpp_source.html#l00018">CoordinateS.cpp:18</a></div></div>
+<div class="ttc" id="aclass_matrix_rot_html"><div class="ttname"><a href="class_matrix_rot.html">MatrixRot&lt; 3 &gt;</a></div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector&lt; 3 &gt;</a></div></div>
+<div class="ttc" id="aclassdraw_n_s_1_1_point3_d_html"><div class="ttname"><a href="classdraw_n_s_1_1_point3_d.html">drawNS::Point3D</a></div><div class="ttdoc">Point in 3D Class represents point in 3D.</div><div class="ttdef"><b>Definition:</b> <a href="_draw3_d__api__interface_8hpp_source.html#l00035">Draw3D_api_interface.hpp:35</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_coordinate_s_8cpp.html">CoordinateS.cpp</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+digraph "CubPlat"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="CubPlat",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Modeluje pojęcie obiektu klasy CubPlat."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="BlockI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_block_i.html",tooltip="Modeluje pojęcie klasy BlockI."];
+  Node3 -> Node2 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="CoordS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_coord_s.html",tooltip="Modeluje pojęcie klasy CoordS."];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" orientation" ,fontname="Helvetica"];
+  Node4 [label="MatrixRot\< 3 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix_rot.html",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="orange",fontsize="10",style="dashed",label=" \< 3 \>" ,fontname="Helvetica"];
+  Node5 [label="MatrixRot\< SIZE \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix_rot.html",tooltip="Modeluje pojęcie macierzy rotacji."];
+  Node6 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" center" ,fontname="Helvetica"];
+  Node6 [label="Vector\< 3 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_vector.html",tooltip=" "];
+  Node7 -> Node6 [dir="back",color="orange",fontsize="10",style="dashed",label=" \< 3 \>" ,fontname="Helvetica"];
+  Node7 [label="Vector\< SIZE \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_vector.html",tooltip="Modeluje pojęcie Wektora/Punktu w przestrzeni n-wymiarowej."];
+  Node3 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" predecessor" ,fontname="Helvetica"];
+  Node8 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="DInter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_d_inter.html",tooltip="Modeluje pojęcie klasy DInter."];
+  Node9 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="LandI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_land_i.html",tooltip="Modeluje pojęcie klasy LandI."];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" colour" ,fontname="Helvetica"];
+  Node10 [label="string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+}

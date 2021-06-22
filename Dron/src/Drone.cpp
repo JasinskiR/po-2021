@@ -60,7 +60,7 @@ void Drone::draw(std::string colour) {
  */
 void Drone::animation(const double &height, const double &angle,
                       const double &distance) {
-  route(height, angle, distance);
+  //route(height, angle, distance);
   double fall = -height;
   this->draw(colourGet());
   std::initializer_list<std::pair<Animation::droneFPtr, const double &> >
@@ -68,8 +68,8 @@ void Drone::animation(const double &height, const double &angle,
                 {&Drone::rotate, angle},
                 {&Drone::goForward, distance},
                 {&Drone::goVertical, fall}};
-  Animation::animeTime(fPairL, this);
-  DInter::apiGet()->erase_shape(routeId);
+  Animation::animeTime(fPairL, this, height);
+  //DInter::apiGet()->erase_shape(routeId);
   DInter::apiGet()->redraw();
 }
 /**
@@ -101,24 +101,24 @@ void Drone::lean(const double &angle) {
  * @param angle - kąt odchylenia trasy
  * @param distance - długość trasy
  */
-void Drone::route(const double &height, const double &angle,
-                  const double &distance) {
-  int tmp;
-  tmp = DInter::apiGet()->draw_polygonal_chain(
-      {convert(this->center), convert(this->center + Vector<3>({0, 0, height})),
-       convert(this->orientation * MatrixRot<3>(angle, Axis::OZ) *
-                   Vector<3>({0, distance, height}) +
-               this->center),
-       convert(this->orientation * MatrixRot<3>(angle, Axis::OZ) *
-                   Vector<3>({0, distance, 0}) +
-               this->center)},
-      "blue");
+// void Drone::route(const double &height, const double &angle,
+//                   const double &distance) {
+//   int tmp;
+//   tmp = DInter::apiGet()->draw_polygonal_chain(
+//       {convert(this->center), convert(this->center + Vector<3>({0, 0, height})),
+//        convert(this->orientation * MatrixRot<3>(angle, Axis::OZ) *
+//                    Vector<3>({0, distance, height}) +
+//                this->center),
+//        convert(this->orientation * MatrixRot<3>(angle, Axis::OZ) *
+//                    Vector<3>({0, distance, 0}) +
+//                this->center)},
+//       "blue");
 
-  if (routeId != -1) {
-    DInter::apiGet()->erase_shape(routeId);
-  }
-  routeId = tmp;
-}
+//   if (routeId != -1) {
+//     DInter::apiGet()->erase_shape(routeId);
+//   }
+//   routeId = tmp;
+// }
 
 /**
  * @brief Destruktor obiektu klasy Drone
@@ -139,4 +139,41 @@ Drone::~Drone() {
       DInter::apiGet()->erase_shape(rotorBlades[i][j].idGet());
   }
   DInter::apiGet()->redraw();
+}
+
+/**
+ * @brief Funkcja zwracająca promień obaszaru drona
+ *
+ * @return double - zwracany promień
+ */
+double Drone::makeAreaR() {
+  return (sqrt(pow(dWidth / 2, 2) + pow(dDepth / 2, 2)) + dRadius + dConst);
+}
+
+/**
+ * @brief Metoda zwracająca informację czy obiekt znajduje się nad obszarem
+ * drugiego Polega na porównywaniu długości wektorów wraz z promieniem obsarów
+ * drona
+ *
+ * @param drone - obiekt, który wkracza w obszar innego drona
+ * @return true - wartość zwracana kiedy ich obszary się pokrywają
+ * @return false - wartość zwracana kiedy ich obszary sie nie pokrywają
+ */
+bool Drone::isAbove(DroneI *drone, const double &altitude) {
+  if (altitude > this->cords()[2]) {
+    Vector<3> distance = dynamic_cast<LandI *>(drone)->cords() - this->cords();
+    if (std::sqrt(pow(distance[0], 2) + pow(distance[1], 2)) <=
+        areaR + drone->getAreaR())
+      return true;
+  }
+  return false;
+}
+
+bool Drone::collision(DroneI *drone, const double &altitude) {
+  if (altitude < this->cords()[2]) {
+    Vector<3> distance = dynamic_cast<LandI *>(drone)->cords() - this->cords();
+    if (std::sqrt(pow(distance[0], 2) + pow(distance[1], 2)) <= areaR)
+      return true;
+  }
+  return false;
 }
